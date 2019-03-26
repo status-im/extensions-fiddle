@@ -1,0 +1,7 @@
+^{:watch-dirs ["src"]
+  :log-file   "figwheel-main.log"
+  :log-level  :info}
+{:main      pluto.playground.figwheel
+ :preloads  [re-frisk.preload]
+ :output-to "resources/public/js/compiled/app.js"}
+

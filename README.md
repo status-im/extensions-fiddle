@@ -1,1 +1,3 @@
 # extensions-fiddle
+
+`make dev`
