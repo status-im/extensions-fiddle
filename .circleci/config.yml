@@ -51,6 +51,9 @@ jobs:
           fingerprints:
             - "88:41:2a:73:d4:c5:f2:4a:35:89:7e:0a:56:83:45:1e"
       - run:
+          name: Compile
+          command: clojure -A:compile
+      - run:
           name: Deploy docs to gh-pages branch
           command: gh-pages --dotfiles --message "Auto generated commit" --dist resources/public
         
