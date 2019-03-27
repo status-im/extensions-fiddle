@@ -38,7 +38,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/node:8
+      - image: circleci/clojure:openjdk-11-tools-deps-1.10.0.408
     steps:
       - checkout
       - attach_workspace:
