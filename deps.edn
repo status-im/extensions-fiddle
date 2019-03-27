@@ -15,4 +15,5 @@
                                com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
                                binaryage/devtools              {:mvn/version "0.9.10"}
                                re-frisk                        {:mvn/version "0.5.4.1"}}
-                 :main-opts   ["-m" "figwheel.main" "-b" "dev" "-r"]}}}
+                 :main-opts   ["-m" "figwheel.main" "-b" "dev" "-r"]}
+           :compile {:main-opts ["-m" "cljs.main" "-O" "advanced" "-d" "resources/public/js/compiled" "-o" "resources/public/js/compiled/app.js" "-c" "pluto.playground.core"]}}}
