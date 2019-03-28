@@ -6,7 +6,7 @@
             pluto.reader.events
             pluto.reader.views
             [pluto.storages :as storages]
-            ;[pluto.log :as log]
+            [pluto.log :as log]
             [react-native-web.extensions :as rnw.extensions]
             [reagent.core :as reagent]
             [re-frame.core :as re-frame]
@@ -23,13 +23,13 @@
 (defn- dispatch-events [ctx events]
   (doseq [event events]
     (if (vector? event)
-      (re-frame/dispatch event))))
-      ;(log/fire! ctx ::log/error :event/dispatch event))))
+      (re-frame/dispatch event)
+      (log/fire! ctx ::log/error :event/dispatch event))))
 
 (defn- resolve-query [ctx [id :as data]]
   (if (registrar/get-handler :sub id)
-    (re-frame/subscribe data)))
-    ;(log/fire! ctx ::log/error :query/resolve data)))
+    (re-frame/subscribe data)
+    (log/fire! ctx ::log/error :query/resolve data)))
 
 (defn cartouche [{:keys [path]} data]
   (let [p @(re-frame/subscribe [:extension/selected])]
@@ -50,8 +50,8 @@
    :capacities rnw.extensions/capacities
    :query-fn   resolve-query
    :view-fn    wrap-view
-   :event-fn   dispatch-events})
-   ;:log-fn   #(re-frame/dispatch [:extension/append-log %])})
+   :event-fn   dispatch-events
+   :log-fn   #(re-frame/dispatch [:extension/append-log %])})
 
 (def payload
   {:name  "Test Extension"

@@ -37,10 +37,13 @@
                                      (when color {:color color})
                                      (when-let [size' (activity-indicator-size size)] {:size size'}))])
 
+(defn- wrap-text-child [o]
+  (if (ifn? o) o (str o)))
+
 (defn text [o & children]
   (if (map? o)
-    [react/text o children]
-    (into [react/text {} o] children)))
+    (into [react/text o] (map wrap-text-child children))
+    (into [react/text {} o] (map wrap-text-child children))))
 
 (defn- wrap-view-child [child]
   (if (vector? child) child [text {} child]))

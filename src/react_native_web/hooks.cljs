@@ -90,6 +90,7 @@
        [react/view {:style input-animated}
         [react/text {:style {:border-width 1 :border-color :red}} (str "/" (name command-id) " ")]
         (for [{:keys [placeholder id]} parameters]
+          ^{:key id}
           [react/text-input {:placeholder    placeholder
                              :on-change-text #(re-frame/dispatch [:set-in [:extension-props :params id] %])
                              :on-focus       #(re-frame/dispatch [:set-in [:extension-props :suggestion-id] id])
