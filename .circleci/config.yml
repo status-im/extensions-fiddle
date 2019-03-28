@@ -49,7 +49,7 @@ jobs:
 
       - add_ssh_keys:
           fingerprints:
-            - "88:41:2a:73:d4:c5:f2:4a:35:89:7e:0a:56:83:45:1e"
+            - "fa:1d:d8:0f:1b:c7:35:f4:38:62:3b:d7:e9:ea:e9:11"
       - run:
           name: Compile
           command: clojure -A:compile
