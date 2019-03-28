@@ -1,5 +1,5 @@
 {:deps    {org.clojure/clojurescript  {:mvn/version "1.10.520"}
-           status-im/pluto            {:mvn/version "iteration-4-8"}
+           status-im/pluto            {:mvn/version "iteration-4-9"}
            reagent                    {:mvn/version "0.8.1"}
            re-frame                   {:mvn/version "0.10.6"}
            cljsjs/codemirror          {:mvn/version "5.40.2-1"}
