@@ -1,7 +1,7 @@
 (ns pluto.playground.core
   (:require-macros [react-native-web.views :refer [defview letsubs]])
   (:require [pluto.playground.components.source :as source]
-            [pluto.playground.components.traces :as traces]
+            [pluto.playground.components.logs :as logs]
             pluto.playground.fx
             pluto.playground.subs
             pluto.reader.events
@@ -91,13 +91,14 @@
             [:div {:style {:display :flex }} ext-url]]]))]]))
 
 (defview layout []
-  (letsubs [traces [:extension/traces]]
+  (letsubs [logs [:extension/logs]
+            errors [:extension/errors]]
     [:div {:style {:display :flex :flex-direction :row :flex 1}}
      [publish-dialog]
      [:div {:style {:display :flex :flex-direction :column :flex 1}}
       [:div {:style {:display :flex :flex 1 :overflow :scroll :min-width 0}}
        [source/viewer {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]]
-      [traces/table traces]]
+      [logs/table (or (flatten-errors errors) logs)]]
      [:div {:style {:display :flex :flex-direction :column}}
       [:> Button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
        "Publish"]

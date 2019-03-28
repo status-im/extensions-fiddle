@@ -3,7 +3,6 @@
             [pluto.playground.components.extension  :as extension]
             [pluto.playground.components.inspector  :as inspector]
             [pluto.playground.components.source     :as source]
-            [pluto.playground.components.traces     :as traces]
             pluto.playground.fx
             pluto.playground.subs
             pluto.reader.events

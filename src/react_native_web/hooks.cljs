@@ -108,8 +108,9 @@
   [chat-view preview parameters id])
 
 (defn hook-in [[id parsed]]
-  (let [hook-id (last (string/split (name id) #"\."))
-        type (pluto/hook-type id)]
-    (case type
-      "chat.command" (command-hook hook-id parsed)
-      "wallet.settings" (settings-hook hook-id parsed))))
+  (when id
+    (let [hook-id (last (string/split (name id) #"\."))
+          type (pluto/hook-type id)]
+      (case type
+        "chat.command" (command-hook hook-id parsed)
+        "wallet.settings" (settings-hook hook-id parsed)))))

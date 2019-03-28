@@ -1,4 +1,4 @@
-(ns pluto.playground.components.traces
+(ns pluto.playground.components.logs
   (:require [cljsjs.material-ui]))
 
 (def Table (aget js/MaterialUI "Table"))

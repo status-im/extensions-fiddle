@@ -35,13 +35,13 @@
   :extension/source
   extension-source)
 
-(defn- extension-traces
-  [db v]
-  (:traces db))
+(re-frame/reg-sub
+  :extension/logs
+  :logs)
 
 (re-frame/reg-sub
-  :extension/traces
-  extension-traces)
+  :extension/errors
+  :errors)
 
 (defn- selected
   [db v]
