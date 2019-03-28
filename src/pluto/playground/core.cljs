@@ -6,14 +6,14 @@
             pluto.playground.subs
             pluto.reader.events
             pluto.reader.views
-            [pluto.storages :as storages]
             [pluto.log :as log]
             [react-native-web.extensions :as rnw.extensions]
             [reagent.core :as reagent]
             [re-frame.core :as re-frame]
             [re-frame.registrar :as registrar]
             [re-frame.loggers :as re-frame.loggers]
-            [react-native-web.react :as react]))
+            [react-native-web.react :as react]
+            [pluto.playground.components.publish :as publish]))
 
 (def warn (js/console.warn.bind js/console))
 (re-frame.loggers/set-loggers!
@@ -64,51 +64,26 @@
 ;; TODO source viewer
 
 (def Button (aget js/MaterialUI "Button"))
-(def Dialog (aget js/MaterialUI "Dialog"))
-(def DialogTitle (aget js/MaterialUI "DialogTitle"))
-(def CircularProgress (aget js/MaterialUI "CircularProgress"))
-
-(defn fetch-extension [uri]
-  (storages/fetch uri #(re-frame.core/dispatch [:extension/update-editor (get-in % [:value :content])])))
-
-(defview publish-dialog []
-  (letsubs [{:keys [in-progress? hash] :as publish} [:get :publish]]
-    [:> Dialog {:open (not (nil? publish)) :on-close #(re-frame/dispatch [:set :publish nil])}
-     [:> DialogTitle
-      "Publish extension"]
-     [:div {:style {:display :flex :align-items :center :justify-content :center :margin 40}}
-      (if in-progress?
-        [:> CircularProgress]
-        (let [ext-url (str "https://get.status.im/extension/ipfs@" hash "/")]
-          [:div {:style {:display :flex :flex-direction :column}}
-           [:p {:style {:margin-vertical 5 :font-weight :bold}} "Scan QR to install extension"]
-           [:div "Open Status -> Press (+) -> Scan QR "]
-           [:div {:style {:display :flex :align-items :center :justify-content :center}}
-            [:div {:style {:display :flex :margin 20}}
-             [(react/qr-code) {:value ext-url}]]]
-           [:div {:style {:display :flex :flex-direction :column}}
-            [:div {:style {:margin-vertical 5 :font-weight :bold}} "OR share extension URL"]
-            [:div {:style {:display :flex }} ext-url]]]))]]))
 
 (defview layout []
   (letsubs [logs [:extension/logs]
             errors [:extension/errors]]
     [:div {:style {:display :flex :flex-direction :row :flex 1}}
-     [publish-dialog]
+     [publish/publish-dialog]
      [:div {:style {:display :flex :flex-direction :column :flex 1}}
       [:div {:style {:display :flex :flex 1 :overflow :scroll :min-width 0}}
        [source/viewer {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]]
-      [logs/table (or (flatten-errors errors) logs)]]
+      [logs/table logs]] ;(or (flatten-errors errors) logs)]]
      [:div {:style {:display :flex :flex-direction :column}}
       [:> Button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
        "Publish"]
       [:div {:style {:border "40px solid #ddd" :border-width "55px 7px" :border-radius "40px" :margin-top 20}}
        [react/view {:style {:width 375 :height 667}}
-        [:div {:id "extension-div" :style {:display :flex :flex 1}}]]]]]))
+        [:div {:id "extension" :style {:display :flex :flex 1}}]]]]]))
 
 (defn mount-root []
   (reagent/render [layout] (.getElementById js/document "app")))
 
-(defn ^:export bootstrap [uri]
-  (fetch-extension uri)
+(defn ^:export bootstrap []
+  (re-frame/dispatch [:fetch-extension])
   (mount-root))

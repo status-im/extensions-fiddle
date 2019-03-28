@@ -3,7 +3,8 @@
             [pluto.core :as pluto]
             [reagent.core :as reagent]
             [react-native-web.hooks :as hooks]
-            [pluto.playground.ipfs :as ipfs]))
+            [pluto.playground.ipfs :as ipfs]
+            [pluto.storages :as storages]))
 
 (re-frame/reg-event-db
  :set
@@ -114,3 +115,15 @@
  (fn [{:keys [db]} _]
   {:db (assoc-in db [:publish :in-progress?] true)
    :extension/publish-to-ipfs (:source db)}))
+
+(re-frame.core/reg-fx
+ :fetch-extension-fx
+ (fn []
+   (let [hash (.get (.-searchParams (js/URL. js/document.location)) "hash")
+         uri (if hash (str "ipfs@" hash) "url@assets/extensions/command/")]
+     (storages/fetch uri #(re-frame.core/dispatch [:extension/update-editor (get-in % [:value :content])])))))
+
+(re-frame.core/reg-event-fx
+ :fetch-extension
+ (fn [{:keys [db]} _]
+   {:fetch-extension-fx nil}))

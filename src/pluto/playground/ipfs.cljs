@@ -1,9 +1,11 @@
 (ns pluto.playground.ipfs
   (:require [ajax.core :as ajax]
-            [re-frame.core :as re-frame]))
+            [re-frame.core :as re-frame]
+            [clojure.string :as string]))
 
-(defn set-url [url]
-  (js/history.pushState nil nil url))
+(defn set-url [hash]
+  (js/history.pushState nil nil
+                        (str (first (string/split js/document.location.href #"\?")) "?hash=" hash)))
 
 (defn save [content]
   "Saves content to ipfs"
@@ -18,7 +20,8 @@
        :handler         (fn [{:keys [Hash]}]
                           (re-frame/dispatch [:set-in [:publish :in-progress?] false])
                           (when Hash
-                            (re-frame/dispatch [:set-in [:publish :hash] Hash])))
+                            (re-frame/dispatch [:set-in [:publish :hash] Hash])
+                            (set-url Hash)))
        :error-handler   (fn [x]
                           (re-frame/dispatch [:set-in [:publish :in-progress?] false])
                           (str "ERROR" (js/console.log x)))})))
