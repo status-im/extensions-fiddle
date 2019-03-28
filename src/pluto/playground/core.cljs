@@ -65,6 +65,10 @@
 
 (def Button (aget js/MaterialUI "Button"))
 
+(defn flatten-errors [m]
+  (when (map? m)
+    (apply concat (reduce-kv #(concat %1 (vals %3)) [] m))))
+
 (defview layout []
   (letsubs [logs [:extension/logs]
             errors [:extension/errors]]
@@ -73,7 +77,7 @@
      [:div {:style {:display :flex :flex-direction :column :flex 1}}
       [:div {:style {:display :flex :flex 1 :overflow :scroll :min-width 0}}
        [source/viewer {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]]
-      [logs/table logs]] ;(or (flatten-errors errors) logs)]]
+      [logs/table (or (flatten-errors errors) logs)]]
      [:div {:style {:display :flex :flex-direction :column}}
       [:> Button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
        "Publish"]
