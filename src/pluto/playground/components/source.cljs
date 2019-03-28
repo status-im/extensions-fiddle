@@ -31,4 +31,4 @@
                                            400)))))))
       :reagent-render
       (fn [_]
-        [:div {:class "codemirror"}])})))
+        [:div])})))

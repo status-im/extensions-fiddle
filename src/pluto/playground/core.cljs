@@ -90,26 +90,23 @@
             [:div {:style {:margin-vertical 5 :font-weight :bold}} "OR share extension URL"]
             [:div {:style {:display :flex }} ext-url]]]))]]))
 
-(defview layout [{:keys [capacities] :as ctx}]
+(defview layout []
   (letsubs [traces [:extension/traces]]
-    [:<>
-     #_[:aside {:id "left"}
-        [capacities/tree capacities]]
-     [:main
-      [publish-dialog]
-      [:div {:style {:display :flex :justify-content :flex-end}}
-       [:> Button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
-        "Publish"]]
-      [:div {:id "content"}
-       [source/viewer {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]
-       [:div {:id "extension"}]]
+    [:div {:style {:display :flex :flex-direction :row :flex 1}}
+     [publish-dialog]
+     [:div {:style {:display :flex :flex-direction :column :flex 1}}
+      [:div {:style {:display :flex :flex 1 :overflow :scroll :min-width 0}}
+       [source/viewer {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]]
       [traces/table traces]]
-     #_[:aside {:id "right"}
-        [inspector/tree ctx
-         m]]]))
+     [:div {:style {:display :flex :flex-direction :column}}
+      [:> Button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
+       "Publish"]
+      [:div {:style {:border "40px solid #ddd" :border-width "55px 7px" :border-radius "40px" :margin-top 20}}
+       [react/view {:style {:width 375 :height 667}}
+        [:div {:id "extension-div" :style {:display :flex :flex 1}}]]]]]))
 
 (defn mount-root []
-  (reagent/render [layout ctx] (.getElementById js/document "app")))
+  (reagent/render [layout] (.getElementById js/document "app")))
 
 (defn ^:export bootstrap [uri]
   (fetch-extension uri)
