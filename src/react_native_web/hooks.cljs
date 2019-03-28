@@ -2,9 +2,11 @@
   (:require-macros [react-native-web.views :refer [defview letsubs]])
   (:require [react-native-web.react :as react]
             [status-im.colors :as colors]
-            [re-frame.core :as re-frame]))
+            [re-frame.core :as re-frame]
+            [pluto.core :as pluto]
+            [clojure.string :as string]))
 
-(defn settings-hook [[id {:keys [view]}]]
+(defn settings-hook [id {:keys [view]}]
   [react/view {:style {:flex 1}}
    [view]])
 
@@ -83,7 +85,6 @@
           [message-container (when preview (preview (merge {:outgoing false} message))) false]
           [message-container (when preview (preview (merge {:outgoing true} message))) true]])]]
      (when-let [suggestion (some #(when (= suggestion-id (:id %)) (:suggestions %)) parameters)]
-       (println "suggestiuon" suggestion)
        [suggestion])
      [react/view {:style input-container}
       [react/view {:style input-root}
@@ -103,5 +104,12 @@
         #_[icons/icon :main-icons/arrow-up {:container-style send-message-icon
                                             :color           :white}]]]]]))
 
-(defn command-hook  [[id {:keys [parameters preview]}]]
+(defn command-hook  [id {:keys [parameters preview]}]
   [chat-view preview parameters id])
+
+(defn hook-in [[id parsed]]
+  (let [hook-id (last (string/split (name id) #"\."))
+        type (pluto/hook-type id)]
+    (case type
+      "chat.command" (command-hook hook-id parsed)
+      "wallet.settings" (settings-hook hook-id parsed))))

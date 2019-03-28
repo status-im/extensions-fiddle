@@ -19,6 +19,8 @@
 (defn text-input-class [] (get-web-class "TextInput"))
 (defn activity-indicator [] (get-web-class "ActivityIndicator"))
 
+(defn qr-code [] (adapt-class js/QRCode))
+
 (defn view [& props]
   (into [] (concat
             [(view-class)]

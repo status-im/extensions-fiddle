@@ -14,7 +14,7 @@ pom.xml.asc
 .lein-failures
 .nrepl-port
 .cpcache/
-resources/public/js/
+resources/public/js/compiled
 figwheel-main.log
 
 /.idea/

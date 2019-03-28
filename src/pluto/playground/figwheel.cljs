@@ -1,14 +1,13 @@
 (ns ^:figwheel-hooks pluto.playground.figwheel
   (:require [re-frame.core :as re-frame]
             [devtools.core :as devtools]
-            pluto.playground.core))
+            [pluto.playground.core :as core]))
 
 (enable-console-print!)
 (devtools/install!)
 
 (defn ^:before-load before-reload []
-  (re-frame/clear-subscription-cache!)
-  (println "Reloading ..."))
+  (re-frame/clear-subscription-cache!))
 
 (defn ^:after-load after-reload []
-  (println "Reloading done."))
+  (core/mount-root))

@@ -2,7 +2,8 @@
   (:require [re-frame.core :as re-frame]
             [pluto.core :as pluto]
             [reagent.core :as reagent]
-            [react-native-web.hooks :as hooks]))
+            [react-native-web.hooks :as hooks]
+            [pluto.playground.ipfs :as ipfs]))
 
 (re-frame/reg-event-db
  :set
@@ -27,7 +28,7 @@
   (fn [[ctx data]]
     (let [{:keys [data errors]} (pluto/parse ctx data)]
       (reagent/render-component
-       (hooks/command-hook (first (:hooks data)))
+       (hooks/hook-in (first (:hooks data)))
        (.getElementById js/document "extension"))
       (re-frame/dispatch [:extension/update-parsed data]))))
 
@@ -55,6 +56,17 @@
   :extension/update-source
   update-extension-source)
 
+(re-frame.core/reg-fx
+ :extension/set-cm-value
+ (fn [[cm source]]
+   (when (and cm source)
+     (.setValue cm source))))
+
+(re-frame.core/reg-event-fx
+ :extension/update-editor
+ (fn [{:keys [db]} [_ data]]
+   {:extension/set-cm-value [(:code-mirror db) data]}))
+
 (defn- append-log
   [{:keys [db]} [_ data]]
   {:db (update db :traces conj data)})
@@ -78,3 +90,14 @@
 (re-frame.core/reg-event-fx
   :extension/switch-preview
   switch-preview)
+
+(re-frame.core/reg-fx
+ :extension/publish-to-ipfs
+ (fn [value]
+   (ipfs/save value)))
+
+(re-frame.core/reg-event-fx
+ :extension/publish
+ (fn [{:keys [db]} _]
+  {:db (assoc-in db [:publish :in-progress?] true)
+   :extension/publish-to-ipfs (:source db)}))

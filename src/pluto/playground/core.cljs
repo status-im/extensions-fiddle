@@ -1,4 +1,5 @@
 (ns pluto.playground.core
+  (:require-macros [react-native-web.views :refer [defview letsubs]])
   (:require [pluto.playground.components.source :as source]
             [pluto.playground.components.traces :as traces]
             pluto.playground.fx
@@ -11,7 +12,8 @@
             [reagent.core :as reagent]
             [re-frame.core :as re-frame]
             [re-frame.registrar :as registrar]
-            [re-frame.loggers :as re-frame.loggers]))
+            [re-frame.loggers :as re-frame.loggers]
+            [react-native-web.react :as react]))
 
 (def warn (js/console.warn.bind js/console))
 (re-frame.loggers/set-loggers!
@@ -49,7 +51,7 @@
   {:env        {:id "Extension ID"}
    :capacities rnw.extensions/capacities
    :query-fn   resolve-query
-   :view-fn    wrap-view
+   ;:view-fn    wrap-view
    :event-fn   dispatch-events
    :log-fn   #(re-frame/dispatch [:extension/append-log %])})
 
@@ -61,49 +63,54 @@
 ;; TODO list all views/events/queries used (per category)
 ;; TODO source viewer
 
-(def Switch (aget js/MaterialUI "Switch"))
 (def Button (aget js/MaterialUI "Button"))
 (def Dialog (aget js/MaterialUI "Dialog"))
 (def DialogTitle (aget js/MaterialUI "DialogTitle"))
+(def CircularProgress (aget js/MaterialUI "CircularProgress"))
 
-(defn publish [s]
-  ())
+(defn fetch-extension [uri]
+  (storages/fetch uri #(re-frame.core/dispatch [:extension/update-editor (get-in % [:value :content])])))
 
-(defn layout [{:keys [capacities] :as ctx}]
-  (let [s       (re-frame/subscribe [:extension/source])
-        m       @(re-frame/subscribe [:extension/data])
-        data    @(re-frame/subscribe [:extension/parsed])
-        v       @(re-frame/subscribe [:extension/traces])
-        preview @(re-frame/subscribe [:extension/preview])]
+(defview publish-dialog []
+  (letsubs [{:keys [in-progress? hash] :as publish} [:get :publish]]
+    [:> Dialog {:open (not (nil? publish)) :on-close #(re-frame/dispatch [:set :publish nil])}
+     [:> DialogTitle
+      "Publish extension"]
+     [:div {:style {:display :flex :align-items :center :justify-content :center :margin 40}}
+      (if in-progress?
+        [:> CircularProgress]
+        (let [ext-url (str "https://get.status.im/extension/ipfs@" hash "/")]
+          [:div {:style {:display :flex :flex-direction :column}}
+           [:p {:style {:margin-vertical 5 :font-weight :bold}} "Scan QR to install extension"]
+           [:div "Open Status -> Press (+) -> Scan QR "]
+           [:div {:style {:display :flex :align-items :center :justify-content :center}}
+            [:div {:style {:display :flex :margin 20}}
+             [(react/qr-code) {:value ext-url}]]]
+           [:div {:style {:display :flex :flex-direction :column}}
+            [:div {:style {:margin-vertical 5 :font-weight :bold}} "OR share extension URL"]
+            [:div {:style {:display :flex }} ext-url]]]))]]))
+
+(defview layout [{:keys [capacities] :as ctx}]
+  (letsubs [traces [:extension/traces]]
     [:<>
      #_[:aside {:id "left"}
         [capacities/tree capacities]]
      [:main
-      #_[:div {:style {:display "flex" :align-items "center" :justify-content "flex-end"}}
-         [:> Button {:color "primary" :variant "contained" :on-click #(publish s)}
-          "Publish"]
-         #_[:> Dialog {:open true}
-            [:> DialogTitle
-             "Ehhhh"]]
-         [:> Switch {:value     preview
-                     :on-change #(re-frame/dispatch [:extension/switch-preview])}]
-         [:div "Preview"]]
+      [publish-dialog]
+      [:div {:style {:display :flex :justify-content :flex-end}}
+       [:> Button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
+        "Publish"]]
       [:div {:id "content"}
-       (when @s
-         [source/viewer {:content   s
-                         :on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}])
+       [source/viewer {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]
        [:div {:id "extension"}]]
-      [traces/table v]]
+      [traces/table traces]]
      #_[:aside {:id "right"}
         [inspector/tree ctx
          m]]]))
 
-(defn- on-extension-read [ctx {:keys [type value]}]
-  (re-frame.core/dispatch [:extension/update-source ctx (:content value)]))
+(defn mount-root []
+  (reagent/render [layout ctx] (.getElementById js/document "app")))
 
-(defn ^:export bootstrap
-  [s]
-  (storages/fetch s #(on-extension-read ctx %))
-  (reagent/render
-   [layout ctx]
-   (.getElementById js/document "app")))
+(defn ^:export bootstrap [uri]
+  (fetch-extension uri)
+  (mount-root))
