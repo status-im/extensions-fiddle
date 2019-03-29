@@ -6,5 +6,5 @@ compile:
 dev:
 	clojure -A:dev
 
-publish:
-	gh-pages --dotfiles --message "Auto generated commit" --dist resources/public
+publish: compile
+	./node_modules/gh-pages/bin/gh-pages.js --dotfiles --message "Deploying latest version" --dist resources/public

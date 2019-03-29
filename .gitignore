@@ -16,5 +16,6 @@ pom.xml.asc
 .cpcache/
 resources/public/js/compiled
 figwheel-main.log
+node_modules/
 
 /.idea/
