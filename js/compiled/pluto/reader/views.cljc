@@ -1,12 +1,13 @@
 (ns pluto.reader.views
-  (:require [clojure.spec.alpha :as spec]
-            #?(:cljs [reagent.core :as reagent])
-            [pluto.reader.blocks :as blocks]
-            [pluto.reader.errors :as errors]
+  (:require [clojure.set            :as set]
+            [clojure.spec.alpha     :as spec]
+            #?(:cljs [reagent.core  :as reagent])
+            [pluto.error            :as error]
+            [pluto.log              :as log]
+            [pluto.reader.blocks    :as blocks]
             [pluto.reader.reference :as reference]
-            [pluto.reader.types :as types]
-            [pluto.utils :as utils]
-            [pluto.trace :as trace]))
+            [pluto.reader.types     :as types]
+            [pluto.utils            :as utils]))
 
 (spec/def ::form
   (spec/or
@@ -28,8 +29,7 @@
 
 (defn parse-hiccup-children [ctx ext parent children]
   (reduce #(let [{:keys [data errors]} (parse ctx ext parent %2)]
-             (errors/merge-errors (update %1 :data conj data)
-                                  errors))
+             (error/merge-result (update %1 :data conj data) {:errors errors}))
           {:data []} children))
 
 (defn component? [o]
@@ -63,12 +63,14 @@
       ;; TODO Infer symbol types and fail if type does not match
       (if-not (symbol? v)
         (let [{:keys [data errors]} (types/resolve ctx ext type v)]
-          (errors/merge-errors (when data {:data data}) errors))
+          (if errors
+            {:errors errors}
+            {:data data}))
         {:data v})
-      {:errors [(errors/error ::errors/invalid-component-property-type {:component component :property k :type type})]})
+      {:errors [(error/syntax ::error/invalid {:type :view} {:reason :component-property-type :component component :property k :type type})]})
     (if (types/resolve ctx ext :view v)
       {:data v}
-      {:errors [(errors/error ::errors/unknown-component-property {:component component :property k})]})))
+      {:errors [(error/syntax ::error/invalid {:type :view} {:reason :unknown-component-property :component component :property k})]})))
 
 (defn- resolve-component-property [ctx ext component k v]
   (or (resolve-default-component-properties k v)
@@ -81,11 +83,12 @@
 
 (defn- resolve-component-properties [ctx ext component properties]
   (if-let [explain (spec/explain-data ::property-map properties)]
-    {:errors [(errors/error ::errors/invalid-property-map properties {:explain-data explain})]}
+    {:errors [(error/syntax ::error/invalid {:type :view} {:reason :property-map :data properties :explain-data explain})]}
     (reduce-kv (fn [acc k v]
                  (let [{:keys [data errors]} (resolve-property ctx ext component k v)]
-                   (errors/merge-errors (update acc :data assoc k data)
-                                        errors)))
+                   (error/merge-result
+                     (update acc :data assoc k data)
+                     {:errors errors})))
                {:data   {}
                 :errors []}
                properties)))
@@ -97,49 +100,52 @@
      (not (nil? properties?)) (cons properties? children)
      :else children)])
 
-(defn parse-hiccup-element [ctx ext o]
+(defn parse-hiccup-element [ctx ext parent-ctx o]
   (let [explain
         (if (vector? o) ;; this eliminates spec explain data noise
           (spec/explain-data ::element o)
           (spec/explain-data ::form o))]
     (cond
       (not (nil? explain))
-      {:errors [(errors/error ::errors/invalid-view o {:explain-data explain})]}
+      {:errors [(error/syntax ::error/invalid {:type :view} {:data o :explain-data explain})]}
 
       (or (symbol? o) (utils/primitive? o)) {:data o}
 
       (vector? o)
-      (let [[element & properties-children]  o
-            component                        (resolve-component ctx ext o)
-            [properties children]            (resolve-properties-children properties-children)
-            {:keys [data errors]}            (when properties
-                                               (resolve-component-properties ctx ext element properties))]
-        (cond-> (let [m (parse-hiccup-children ctx ext o children)]
-                  ;; Reduce parsed children to a single map and wrap them in a hiccup element
-                  ;; whose component has been translated to the local platform
-                  (if component (update m :data #(apply conj (if data [component data] [component]) %)) m))
-                (nil? component) (errors/accumulate-errors [(errors/error ::errors/unknown-component element)])
-                (seq errors)     (errors/accumulate-errors errors)))
-      :else {:errors [(errors/error ::errors/unknown-component o)]})))
+      (let [[element & properties-children] o
+            component                       (resolve-component ctx ext o)
+            [properties children]           (resolve-properties-children properties-children)
+            {:keys [data errors]}           (when properties
+                                              (resolve-component-properties ctx ext element properties))]
+        (error/merge-result
+          (let [m (parse-hiccup-children ctx ext o children)]
+             ;; Reduce parsed children to a single map and wrap them in a hiccup element
+             ;; whose component has been translated to the local platform
+            (if component (update m :data #(apply conj (if data [component data] [component]) %)) m))
+          {:errors
+           (concat
+             (when (nil? component) [(error/syntax ::error/unknown {:type :view} {:data o :type :component})])
+             errors)}))
+      :else {:errors [(error/syntax ::error/unknown {:type :view} {:data o :type :component})]})))
 
 (defn unresolved-properties [acc o]
   (cond
     (symbol? o) (conj acc o)
-    (vector? o)
-    (let [[_ _ & children] o]
-      (reduce #(apply conj %1 (unresolved-properties acc %2)) acc children))
+    (map? o)    (reduce #(apply conj %1 (unresolved-properties acc %2)) acc (vals o))
+    (vector? o) (reduce #(apply conj %1 (unresolved-properties acc %2)) acc o)
     :else acc))
 
 (defn event->fn [ctx ext event f]
   (fn [& o]
     (when event
       (let [{:keys [data errors]} (types/resolve ctx ext :event event)]
+        ;; TODO errors
         (when data
           (data (apply f o)))))))
 
 #?(:cljs
     (defn default-logger [ctx error info]
-      (trace/trace ctx (trace/create-trace :error :view {:error error :info info}))))
+      (log/fire! ctx ::log/error :view {:error error :info info})))
 
 (defn error-boundary [ctx component]
   #?(:cljs
@@ -180,6 +186,12 @@
         (when component-did-update {:component-did-update (event->fn ctx ext component-did-update #(assoc (js->clj %1) :old %2))})
         (when component-will-unmount {:component-will-unmount (event->fn ctx ext component-will-unmount #(do {}))}))))
 
+(defn bindings [data]
+  (let [o (first (get-in data [1 :bindings]))]
+    ;; TODO Follow symbols
+    (when (map? o)
+      (set (keys o))))) ;; TODO extract all bindings props, not only first level
+
 ;; TODO normalize to always have a props map
 (defn parse
   ([ctx ext o]
@@ -192,18 +204,20 @@
           (fn [o]
             [error-boundary ctx
              (inject-properties data o)])}))))
-  ([ctx ext parent o]
-   (if (list? o)
-     (let [{:keys [data errors]} (blocks/parse ctx ext parent o)]
-       (if errors
-         {:errors errors}
-         (let [d     (parse ctx ext o data)
-               props (reduce unresolved-properties #{} d)]
-           (errors/merge-errors
-             d
-             (concat errors (when (seq props)
-                              {:errors [(errors/error ::errors/unresolved-properties props)]}))))))
-     (parse-hiccup-element ctx ext o))))
+  ([{:keys [view-fn] :as ctx} ext {:keys [path] :as parent-ctx} o]
+   ((if view-fn #(view-fn parent-ctx %) identity)
+    (if (list? o)
+      (let [{:keys [data errors]} (blocks/parse ctx ext parent-ctx o)]
+        (if errors
+          {:errors errors}
+          (let [d     (parse ctx ext {:parent o :path (conj path 0)} data)
+                ;; TODO Properly introduce `bindings` at top parsing level, not in blocks
+                props (set/difference (reduce unresolved-properties #{} d)
+                         (bindings data))]
+            (error/merge-result
+              d
+              {:errors [] #_(concat errors (when (seq props) [(error/syntax ::error/invalid {:type :view} {:reason :unresolved-properties :data props})]))}))))
+      (parse-hiccup-element ctx ext parent-ctx o)))))
 
 (defmethod types/resolve :view [ctx ext type value]
   (let [{:keys [data errors]} (reference/resolve ctx ext type value)]

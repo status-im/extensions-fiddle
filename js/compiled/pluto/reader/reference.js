@@ -2,15 +2,15 @@
 goog.provide('pluto.reader.reference');
 goog.require('cljs.core');
 goog.require('cljs.core.constants');
-goog.require('pluto.reader.errors');
+goog.require('pluto.error');
 /**
  * Return true if argument is a reference
  */
 pluto.reader.reference.reference_QMARK_ = (function pluto$reader$reference$reference_QMARK_(ref){
 if(cljs.core.vector_QMARK_(ref)){
-var vec__7212 = ref;
-var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7212,(0),null);
-var arguments$ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7212,(1),null);
+var vec__1369 = ref;
+var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1369,(0),null);
+var arguments$ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1369,(1),null);
 return (((name instanceof cljs.core.Symbol)) && (((2) >= cljs.core.count(ref))) && ((((arguments$ == null)) || (cljs.core.map_QMARK_(arguments$)) || ((arguments$ instanceof cljs.core.Symbol)))));
 } else {
 return null;
@@ -62,12 +62,12 @@ if(cljs.core.truth_(temp__5455__auto____$2)){
 var o = temp__5455__auto____$2;
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$data,o], null);
 } else {
-return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$errors,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [pluto.reader.errors.error.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$pluto$reader$errors_SLASH_unknown_DASH_reference,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$value,s,cljs.core.cst$kw$type,type], null))], null)], null);
+return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$errors,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [pluto.error.syntax.cljs$core$IFn$_invoke$arity$3(cljs.core.cst$kw$pluto$error_SLASH_unknown,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$type,cljs.core.cst$kw$reference], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,s,cljs.core.cst$kw$type,type], null))], null)], null);
 }
 } else {
-return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$errors,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [pluto.reader.errors.error.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$pluto$reader$errors_SLASH_unknown_DASH_reference_DASH_type,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,type], null))], null)], null);
+return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$errors,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [pluto.error.syntax.cljs$core$IFn$_invoke$arity$3(cljs.core.cst$kw$pluto$error_SLASH_invalid,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$type,cljs.core.cst$kw$reference], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$reason,cljs.core.cst$kw$type,cljs.core.cst$kw$data,type], null))], null)], null);
 }
 } else {
-return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$errors,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [pluto.reader.errors.error.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$pluto$reader$errors_SLASH_invalid_DASH_reference,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$type,type,cljs.core.cst$kw$value,ref], null))], null)], null);
+return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$errors,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [pluto.error.syntax.cljs$core$IFn$_invoke$arity$3(cljs.core.cst$kw$pluto$error_SLASH_invalid,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$type,cljs.core.cst$kw$reference], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$type,type,cljs.core.cst$kw$data,ref], null))], null)], null);
 }
 });
