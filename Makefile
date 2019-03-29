@@ -6,5 +6,8 @@ compile:
 dev:
 	clojure -A:dev
 
-deploy-website: compile
-	./node_modules/gh-pages/bin/gh-pages.js --dotfiles --message "Deploying latest version" --dist resources/public
+deploy-website:
+	./_assets/bin/gh-pages.js
+
+clean:
+	git clean -d -x -f
