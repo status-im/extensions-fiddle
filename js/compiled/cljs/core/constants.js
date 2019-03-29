@@ -537,6 +537,7 @@ cljs.core.cst$sym$readable = new cljs.core.Symbol(null,"readable","readable",211
 cljs.core.cst$kw$parse_DASH_error = new cljs.core.Keyword(null,"parse-error","parse-error",255902478);
 cljs.core.cst$kw$local_DASH_event = new cljs.core.Keyword(null,"local-event","local-event",644471566);
 cljs.core.cst$sym$cljs$core_SLASH_with_DASH_meta = new cljs.core.Symbol("cljs.core","with-meta","cljs.core/with-meta",749126446,null);
+cljs.core.cst$kw$extension_SLASH_clear_DASH_errors = new cljs.core.Keyword("extension","clear-errors","extension/clear-errors",-1415797938);
 cljs.core.cst$kw$empty_DASH_body_DASH_clause = new cljs.core.Keyword(null,"empty-body-clause","empty-body-clause",2060385102);
 cljs.core.cst$kw$keyboard_DASH_should_DASH_persist_DASH_taps = new cljs.core.Keyword(null,"keyboard-should-persist-taps","keyboard-should-persist-taps",578336622);
 cljs.core.cst$kw$cljs$spec$alpha_SLASH_problems = new cljs.core.Keyword("cljs.spec.alpha","problems","cljs.spec.alpha/problems",447400814);

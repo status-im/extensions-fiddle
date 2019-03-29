@@ -7,10 +7,10 @@ goog.require('status_im.colors');
 goog.require('re_frame.core');
 goog.require('pluto.core');
 goog.require('clojure.string');
-react_native_web.hooks.settings_hook = (function react_native_web$hooks$settings_hook(id,p__8066){
-var map__8067 = p__8066;
-var map__8067__$1 = (((((!((map__8067 == null))))?(((((map__8067.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__8067.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__8067):map__8067);
-var view = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__8067__$1,cljs.core.cst$kw$view);
+react_native_web.hooks.settings_hook = (function react_native_web$hooks$settings_hook(id,p__1774){
+var map__1775 = p__1774;
+var map__1775__$1 = (((((!((map__1775 == null))))?(((((map__1775.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1775.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1775):map__1775);
+var view = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1775__$1,cljs.core.cst$kw$view);
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$flex,(1)], null)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [view], null)], null);
 });
 react_native_web.hooks.message_container = (function react_native_web$hooks$message_container(preview,outgoing){
@@ -32,41 +32,41 @@ goog.require('re_frame.core');
 }
 
 react_native_web.hooks.chat_view = (function react_native_web$hooks$chat_view(preview,parameters,command_id){
-var keys8071 = (function (){var G__8072 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$get,cljs.core.cst$kw$extension_DASH_props], null);
-return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__8072) : re_frame.core.subscribe.call(null,G__8072));
+var keys1779 = (function (){var G__1780 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$get,cljs.core.cst$kw$extension_DASH_props], null);
+return (re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.subscribe.cljs$core$IFn$_invoke$arity$1(G__1780) : re_frame.core.subscribe.call(null,G__1780));
 })();
-return reagent.core.create_class(cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([cljs.core.PersistentArrayMap.EMPTY,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$reagent_DASH_render,((function (keys8071){
+return reagent.core.create_class(cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([cljs.core.PersistentArrayMap.EMPTY,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$reagent_DASH_render,((function (keys1779){
 return (function (preview__$1,parameters__$1,command_id__$1){
-var map__8073 = cljs.core.deref(keys8071);
-var map__8073__$1 = (((((!((map__8073 == null))))?(((((map__8073.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__8073.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__8073):map__8073);
-var messages = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__8073__$1,cljs.core.cst$kw$messages);
-var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__8073__$1,cljs.core.cst$kw$params);
-var suggestion_id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__8073__$1,cljs.core.cst$kw$suggestion_DASH_id);
-return new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$flex,(1)], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.scroll_view(),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$flex,(1),cljs.core.cst$kw$background_DASH_color,cljs.core.cst$kw$white], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,(function (){var iter__4523__auto__ = ((function (map__8073,map__8073__$1,messages,params,suggestion_id,keys8071){
-return (function react_native_web$hooks$chat_view_$_iter__8075(s__8076){
-return (new cljs.core.LazySeq(null,((function (map__8073,map__8073__$1,messages,params,suggestion_id,keys8071){
+var map__1781 = cljs.core.deref(keys1779);
+var map__1781__$1 = (((((!((map__1781 == null))))?(((((map__1781.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1781.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1781):map__1781);
+var messages = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1781__$1,cljs.core.cst$kw$messages);
+var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1781__$1,cljs.core.cst$kw$params);
+var suggestion_id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1781__$1,cljs.core.cst$kw$suggestion_DASH_id);
+return new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$flex,(1)], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.scroll_view(),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$flex,(1),cljs.core.cst$kw$background_DASH_color,cljs.core.cst$kw$white], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,(function (){var iter__4523__auto__ = ((function (map__1781,map__1781__$1,messages,params,suggestion_id,keys1779){
+return (function react_native_web$hooks$chat_view_$_iter__1783(s__1784){
+return (new cljs.core.LazySeq(null,((function (map__1781,map__1781__$1,messages,params,suggestion_id,keys1779){
 return (function (){
-var s__8076__$1 = s__8076;
+var s__1784__$1 = s__1784;
 while(true){
-var temp__5720__auto__ = cljs.core.seq(s__8076__$1);
+var temp__5720__auto__ = cljs.core.seq(s__1784__$1);
 if(temp__5720__auto__){
-var s__8076__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_(s__8076__$2)){
-var c__4521__auto__ = cljs.core.chunk_first(s__8076__$2);
+var s__1784__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_(s__1784__$2)){
+var c__4521__auto__ = cljs.core.chunk_first(s__1784__$2);
 var size__4522__auto__ = cljs.core.count(c__4521__auto__);
-var b__8078 = cljs.core.chunk_buffer(size__4522__auto__);
-if((function (){var i__8077 = (0);
+var b__1786 = cljs.core.chunk_buffer(size__4522__auto__);
+if((function (){var i__1785 = (0);
 while(true){
-if((i__8077 < size__4522__auto__)){
-var message = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4521__auto__,i__8077);
-cljs.core.chunk_append(b__8078,cljs.core.with_meta(new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.hooks.message_container,(cljs.core.truth_(preview__$1)?(function (){var G__8079 = cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$outgoing,false], null),message], 0));
-return (preview__$1.cljs$core$IFn$_invoke$arity$1 ? preview__$1.cljs$core$IFn$_invoke$arity$1(G__8079) : preview__$1.call(null,G__8079));
-})():null),false], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.hooks.message_container,(cljs.core.truth_(preview__$1)?(function (){var G__8080 = cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$outgoing,true], null),message], 0));
-return (preview__$1.cljs$core$IFn$_invoke$arity$1 ? preview__$1.cljs$core$IFn$_invoke$arity$1(G__8080) : preview__$1.call(null,G__8080));
+if((i__1785 < size__4522__auto__)){
+var message = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4521__auto__,i__1785);
+cljs.core.chunk_append(b__1786,cljs.core.with_meta(new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.hooks.message_container,(cljs.core.truth_(preview__$1)?(function (){var G__1787 = cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$outgoing,false], null),message], 0));
+return (preview__$1.cljs$core$IFn$_invoke$arity$1 ? preview__$1.cljs$core$IFn$_invoke$arity$1(G__1787) : preview__$1.call(null,G__1787));
+})():null),false], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.hooks.message_container,(cljs.core.truth_(preview__$1)?(function (){var G__1788 = cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$outgoing,true], null),message], 0));
+return (preview__$1.cljs$core$IFn$_invoke$arity$1 ? preview__$1.cljs$core$IFn$_invoke$arity$1(G__1788) : preview__$1.call(null,G__1788));
 })():null),true], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$key,[cljs.core.str.cljs$core$IFn$_invoke$arity$1(message),cljs.core.str.cljs$core$IFn$_invoke$arity$1(react_native_web.hooks.rand_str((10)))].join('')], null)));
 
-var G__8099 = (i__8077 + (1));
-i__8077 = G__8099;
+var G__1807 = (i__1785 + (1));
+i__1785 = G__1807;
 continue;
 } else {
 return true;
@@ -74,77 +74,77 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons(cljs.core.chunk(b__8078),react_native_web$hooks$chat_view_$_iter__8075(cljs.core.chunk_rest(s__8076__$2)));
+return cljs.core.chunk_cons(cljs.core.chunk(b__1786),react_native_web$hooks$chat_view_$_iter__1783(cljs.core.chunk_rest(s__1784__$2)));
 } else {
-return cljs.core.chunk_cons(cljs.core.chunk(b__8078),null);
+return cljs.core.chunk_cons(cljs.core.chunk(b__1786),null);
 }
 } else {
-var message = cljs.core.first(s__8076__$2);
-return cljs.core.cons(cljs.core.with_meta(new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.hooks.message_container,(cljs.core.truth_(preview__$1)?(function (){var G__8081 = cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$outgoing,false], null),message], 0));
-return (preview__$1.cljs$core$IFn$_invoke$arity$1 ? preview__$1.cljs$core$IFn$_invoke$arity$1(G__8081) : preview__$1.call(null,G__8081));
-})():null),false], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.hooks.message_container,(cljs.core.truth_(preview__$1)?(function (){var G__8082 = cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$outgoing,true], null),message], 0));
-return (preview__$1.cljs$core$IFn$_invoke$arity$1 ? preview__$1.cljs$core$IFn$_invoke$arity$1(G__8082) : preview__$1.call(null,G__8082));
-})():null),true], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$key,[cljs.core.str.cljs$core$IFn$_invoke$arity$1(message),cljs.core.str.cljs$core$IFn$_invoke$arity$1(react_native_web.hooks.rand_str((10)))].join('')], null)),react_native_web$hooks$chat_view_$_iter__8075(cljs.core.rest(s__8076__$2)));
+var message = cljs.core.first(s__1784__$2);
+return cljs.core.cons(cljs.core.with_meta(new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.hooks.message_container,(cljs.core.truth_(preview__$1)?(function (){var G__1789 = cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$outgoing,false], null),message], 0));
+return (preview__$1.cljs$core$IFn$_invoke$arity$1 ? preview__$1.cljs$core$IFn$_invoke$arity$1(G__1789) : preview__$1.call(null,G__1789));
+})():null),false], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.hooks.message_container,(cljs.core.truth_(preview__$1)?(function (){var G__1790 = cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$outgoing,true], null),message], 0));
+return (preview__$1.cljs$core$IFn$_invoke$arity$1 ? preview__$1.cljs$core$IFn$_invoke$arity$1(G__1790) : preview__$1.call(null,G__1790));
+})():null),true], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$key,[cljs.core.str.cljs$core$IFn$_invoke$arity$1(message),cljs.core.str.cljs$core$IFn$_invoke$arity$1(react_native_web.hooks.rand_str((10)))].join('')], null)),react_native_web$hooks$chat_view_$_iter__1783(cljs.core.rest(s__1784__$2)));
 }
 } else {
 return null;
 }
 break;
 }
-});})(map__8073,map__8073__$1,messages,params,suggestion_id,keys8071))
+});})(map__1781,map__1781__$1,messages,params,suggestion_id,keys1779))
 ,null,null));
-});})(map__8073,map__8073__$1,messages,params,suggestion_id,keys8071))
+});})(map__1781,map__1781__$1,messages,params,suggestion_id,keys1779))
 ;
 return iter__4523__auto__(messages);
-})()], null)], null),(function (){var temp__5720__auto__ = cljs.core.some(((function (map__8073,map__8073__$1,messages,params,suggestion_id,keys8071){
-return (function (p1__8069_SHARP_){
-if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(suggestion_id,cljs.core.cst$kw$id.cljs$core$IFn$_invoke$arity$1(p1__8069_SHARP_))){
-return cljs.core.cst$kw$suggestions.cljs$core$IFn$_invoke$arity$1(p1__8069_SHARP_);
+})()], null)], null),(function (){var temp__5720__auto__ = cljs.core.some(((function (map__1781,map__1781__$1,messages,params,suggestion_id,keys1779){
+return (function (p1__1777_SHARP_){
+if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(suggestion_id,cljs.core.cst$kw$id.cljs$core$IFn$_invoke$arity$1(p1__1777_SHARP_))){
+return cljs.core.cst$kw$suggestions.cljs$core$IFn$_invoke$arity$1(p1__1777_SHARP_);
 } else {
 return null;
 }
-});})(map__8073,map__8073__$1,messages,params,suggestion_id,keys8071))
+});})(map__1781,map__1781__$1,messages,params,suggestion_id,keys1779))
 ,parameters__$1);
 if(cljs.core.truth_(temp__5720__auto__)){
 var suggestion = temp__5720__auto__;
-return new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [suggestion], null);
+return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$flex,(1)], null)], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [suggestion], null)], null);
 } else {
 return null;
 }
-})(),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,react_native_web.hooks.input_container], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,react_native_web.hooks.input_root], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,react_native_web.hooks.input_animated], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.text,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$border_DASH_width,(1),cljs.core.cst$kw$border_DASH_color,cljs.core.cst$kw$red], null)], null),["/",cljs.core.name(command_id__$1)," "].join('')], null),(function (){var iter__4523__auto__ = ((function (map__8073,map__8073__$1,messages,params,suggestion_id,keys8071){
-return (function react_native_web$hooks$chat_view_$_iter__8083(s__8084){
-return (new cljs.core.LazySeq(null,((function (map__8073,map__8073__$1,messages,params,suggestion_id,keys8071){
+})(),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,react_native_web.hooks.input_container], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,react_native_web.hooks.input_root], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,react_native_web.hooks.input_animated], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.text,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$border_DASH_width,(1),cljs.core.cst$kw$border_DASH_color,cljs.core.cst$kw$red], null)], null),["/",cljs.core.name(command_id__$1)," "].join('')], null),(function (){var iter__4523__auto__ = ((function (map__1781,map__1781__$1,messages,params,suggestion_id,keys1779){
+return (function react_native_web$hooks$chat_view_$_iter__1791(s__1792){
+return (new cljs.core.LazySeq(null,((function (map__1781,map__1781__$1,messages,params,suggestion_id,keys1779){
 return (function (){
-var s__8084__$1 = s__8084;
+var s__1792__$1 = s__1792;
 while(true){
-var temp__5720__auto__ = cljs.core.seq(s__8084__$1);
+var temp__5720__auto__ = cljs.core.seq(s__1792__$1);
 if(temp__5720__auto__){
-var s__8084__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_(s__8084__$2)){
-var c__4521__auto__ = cljs.core.chunk_first(s__8084__$2);
+var s__1792__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_(s__1792__$2)){
+var c__4521__auto__ = cljs.core.chunk_first(s__1792__$2);
 var size__4522__auto__ = cljs.core.count(c__4521__auto__);
-var b__8086 = cljs.core.chunk_buffer(size__4522__auto__);
-if((function (){var i__8085 = (0);
+var b__1794 = cljs.core.chunk_buffer(size__4522__auto__);
+if((function (){var i__1793 = (0);
 while(true){
-if((i__8085 < size__4522__auto__)){
-var map__8087 = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4521__auto__,i__8085);
-var map__8087__$1 = (((((!((map__8087 == null))))?(((((map__8087.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__8087.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__8087):map__8087);
-var placeholder = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__8087__$1,cljs.core.cst$kw$placeholder);
-var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__8087__$1,cljs.core.cst$kw$id);
-cljs.core.chunk_append(b__8086,cljs.core.with_meta(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.text_input,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$placeholder,placeholder,cljs.core.cst$kw$on_DASH_change_DASH_text,((function (i__8085,map__8087,map__8087__$1,placeholder,id,c__4521__auto__,size__4522__auto__,b__8086,s__8084__$2,temp__5720__auto__,map__8073,map__8073__$1,messages,params,suggestion_id,keys8071){
-return (function (p1__8070_SHARP_){
-var G__8089 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$set_DASH_in,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extension_DASH_props,cljs.core.cst$kw$params,id], null),p1__8070_SHARP_], null);
-return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__8089) : re_frame.core.dispatch.call(null,G__8089));
-});})(i__8085,map__8087,map__8087__$1,placeholder,id,c__4521__auto__,size__4522__auto__,b__8086,s__8084__$2,temp__5720__auto__,map__8073,map__8073__$1,messages,params,suggestion_id,keys8071))
-,cljs.core.cst$kw$on_DASH_focus,((function (i__8085,map__8087,map__8087__$1,placeholder,id,c__4521__auto__,size__4522__auto__,b__8086,s__8084__$2,temp__5720__auto__,map__8073,map__8073__$1,messages,params,suggestion_id,keys8071){
+if((i__1793 < size__4522__auto__)){
+var map__1795 = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4521__auto__,i__1793);
+var map__1795__$1 = (((((!((map__1795 == null))))?(((((map__1795.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1795.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1795):map__1795);
+var placeholder = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1795__$1,cljs.core.cst$kw$placeholder);
+var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1795__$1,cljs.core.cst$kw$id);
+cljs.core.chunk_append(b__1794,cljs.core.with_meta(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.text_input,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$placeholder,placeholder,cljs.core.cst$kw$on_DASH_change_DASH_text,((function (i__1793,map__1795,map__1795__$1,placeholder,id,c__4521__auto__,size__4522__auto__,b__1794,s__1792__$2,temp__5720__auto__,map__1781,map__1781__$1,messages,params,suggestion_id,keys1779){
+return (function (p1__1778_SHARP_){
+var G__1797 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$set_DASH_in,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extension_DASH_props,cljs.core.cst$kw$params,id], null),p1__1778_SHARP_], null);
+return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__1797) : re_frame.core.dispatch.call(null,G__1797));
+});})(i__1793,map__1795,map__1795__$1,placeholder,id,c__4521__auto__,size__4522__auto__,b__1794,s__1792__$2,temp__5720__auto__,map__1781,map__1781__$1,messages,params,suggestion_id,keys1779))
+,cljs.core.cst$kw$on_DASH_focus,((function (i__1793,map__1795,map__1795__$1,placeholder,id,c__4521__auto__,size__4522__auto__,b__1794,s__1792__$2,temp__5720__auto__,map__1781,map__1781__$1,messages,params,suggestion_id,keys1779){
 return (function (){
-var G__8090 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$set_DASH_in,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extension_DASH_props,cljs.core.cst$kw$suggestion_DASH_id], null),id], null);
-return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__8090) : re_frame.core.dispatch.call(null,G__8090));
-});})(i__8085,map__8087,map__8087__$1,placeholder,id,c__4521__auto__,size__4522__auto__,b__8086,s__8084__$2,temp__5720__auto__,map__8073,map__8073__$1,messages,params,suggestion_id,keys8071))
+var G__1798 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$set_DASH_in,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extension_DASH_props,cljs.core.cst$kw$suggestion_DASH_id], null),id], null);
+return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__1798) : re_frame.core.dispatch.call(null,G__1798));
+});})(i__1793,map__1795,map__1795__$1,placeholder,id,c__4521__auto__,size__4522__auto__,b__1794,s__1792__$2,temp__5720__auto__,map__1781,map__1781__$1,messages,params,suggestion_id,keys1779))
 ,cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$margin_DASH_right,(5),cljs.core.cst$kw$width,(50)], null)], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$key,id], null)));
 
-var G__8100 = (i__8085 + (1));
-i__8085 = G__8100;
+var G__1808 = (i__1793 + (1));
+i__1793 = G__1808;
 continue;
 } else {
 return true;
@@ -152,65 +152,65 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons(cljs.core.chunk(b__8086),react_native_web$hooks$chat_view_$_iter__8083(cljs.core.chunk_rest(s__8084__$2)));
+return cljs.core.chunk_cons(cljs.core.chunk(b__1794),react_native_web$hooks$chat_view_$_iter__1791(cljs.core.chunk_rest(s__1792__$2)));
 } else {
-return cljs.core.chunk_cons(cljs.core.chunk(b__8086),null);
+return cljs.core.chunk_cons(cljs.core.chunk(b__1794),null);
 }
 } else {
-var map__8091 = cljs.core.first(s__8084__$2);
-var map__8091__$1 = (((((!((map__8091 == null))))?(((((map__8091.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__8091.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__8091):map__8091);
-var placeholder = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__8091__$1,cljs.core.cst$kw$placeholder);
-var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__8091__$1,cljs.core.cst$kw$id);
-return cljs.core.cons(cljs.core.with_meta(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.text_input,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$placeholder,placeholder,cljs.core.cst$kw$on_DASH_change_DASH_text,((function (map__8091,map__8091__$1,placeholder,id,s__8084__$2,temp__5720__auto__,map__8073,map__8073__$1,messages,params,suggestion_id,keys8071){
-return (function (p1__8070_SHARP_){
-var G__8093 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$set_DASH_in,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extension_DASH_props,cljs.core.cst$kw$params,id], null),p1__8070_SHARP_], null);
-return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__8093) : re_frame.core.dispatch.call(null,G__8093));
-});})(map__8091,map__8091__$1,placeholder,id,s__8084__$2,temp__5720__auto__,map__8073,map__8073__$1,messages,params,suggestion_id,keys8071))
-,cljs.core.cst$kw$on_DASH_focus,((function (map__8091,map__8091__$1,placeholder,id,s__8084__$2,temp__5720__auto__,map__8073,map__8073__$1,messages,params,suggestion_id,keys8071){
+var map__1799 = cljs.core.first(s__1792__$2);
+var map__1799__$1 = (((((!((map__1799 == null))))?(((((map__1799.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1799.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1799):map__1799);
+var placeholder = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1799__$1,cljs.core.cst$kw$placeholder);
+var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1799__$1,cljs.core.cst$kw$id);
+return cljs.core.cons(cljs.core.with_meta(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.text_input,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$placeholder,placeholder,cljs.core.cst$kw$on_DASH_change_DASH_text,((function (map__1799,map__1799__$1,placeholder,id,s__1792__$2,temp__5720__auto__,map__1781,map__1781__$1,messages,params,suggestion_id,keys1779){
+return (function (p1__1778_SHARP_){
+var G__1801 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$set_DASH_in,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extension_DASH_props,cljs.core.cst$kw$params,id], null),p1__1778_SHARP_], null);
+return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__1801) : re_frame.core.dispatch.call(null,G__1801));
+});})(map__1799,map__1799__$1,placeholder,id,s__1792__$2,temp__5720__auto__,map__1781,map__1781__$1,messages,params,suggestion_id,keys1779))
+,cljs.core.cst$kw$on_DASH_focus,((function (map__1799,map__1799__$1,placeholder,id,s__1792__$2,temp__5720__auto__,map__1781,map__1781__$1,messages,params,suggestion_id,keys1779){
 return (function (){
-var G__8094 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$set_DASH_in,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extension_DASH_props,cljs.core.cst$kw$suggestion_DASH_id], null),id], null);
-return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__8094) : re_frame.core.dispatch.call(null,G__8094));
-});})(map__8091,map__8091__$1,placeholder,id,s__8084__$2,temp__5720__auto__,map__8073,map__8073__$1,messages,params,suggestion_id,keys8071))
-,cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$margin_DASH_right,(5),cljs.core.cst$kw$width,(50)], null)], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$key,id], null)),react_native_web$hooks$chat_view_$_iter__8083(cljs.core.rest(s__8084__$2)));
+var G__1802 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$set_DASH_in,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extension_DASH_props,cljs.core.cst$kw$suggestion_DASH_id], null),id], null);
+return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__1802) : re_frame.core.dispatch.call(null,G__1802));
+});})(map__1799,map__1799__$1,placeholder,id,s__1792__$2,temp__5720__auto__,map__1781,map__1781__$1,messages,params,suggestion_id,keys1779))
+,cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$margin_DASH_right,(5),cljs.core.cst$kw$width,(50)], null)], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$key,id], null)),react_native_web$hooks$chat_view_$_iter__1791(cljs.core.rest(s__1792__$2)));
 }
 } else {
 return null;
 }
 break;
 }
-});})(map__8073,map__8073__$1,messages,params,suggestion_id,keys8071))
+});})(map__1781,map__1781__$1,messages,params,suggestion_id,keys1779))
 ,null,null));
-});})(map__8073,map__8073__$1,messages,params,suggestion_id,keys8071))
+});})(map__1781,map__1781__$1,messages,params,suggestion_id,keys1779))
 ;
 return iter__4523__auto__(parameters__$1);
-})()], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.touchable_highlight(),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$on_DASH_press,((function (map__8073,map__8073__$1,messages,params,suggestion_id,keys8071){
+})()], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.touchable_highlight(),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$on_DASH_press,((function (map__1781,map__1781__$1,messages,params,suggestion_id,keys1779){
 return (function (){
-var G__8095_8101 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$set_DASH_in,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extension_DASH_props,cljs.core.cst$kw$suggestion_DASH_id], null),null], null);
-(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__8095_8101) : re_frame.core.dispatch.call(null,G__8095_8101));
+var G__1803_1809 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$set_DASH_in,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extension_DASH_props,cljs.core.cst$kw$suggestion_DASH_id], null),null], null);
+(re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__1803_1809) : re_frame.core.dispatch.call(null,G__1803_1809));
 
-var G__8096 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$set_DASH_in,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extension_DASH_props,cljs.core.cst$kw$messages], null),cljs.core.conj.cljs$core$IFn$_invoke$arity$2(messages,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$content,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$params,params], null)], null))], null);
-return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__8096) : re_frame.core.dispatch.call(null,G__8096));
-});})(map__8073,map__8073__$1,messages,params,suggestion_id,keys8071))
+var G__1804 = new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$set_DASH_in,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extension_DASH_props,cljs.core.cst$kw$messages], null),cljs.core.conj.cljs$core$IFn$_invoke$arity$2(messages,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$content,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$params,params], null)], null))], null);
+return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__1804) : re_frame.core.dispatch.call(null,G__1804));
+});})(map__1781,map__1781__$1,messages,params,suggestion_id,keys1779))
 ], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,react_native_web.hooks.send_message_container], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.text,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$color,cljs.core.cst$kw$white], null)], null),">"], null)], null)], null)], null)], null);
-});})(keys8071))
+});})(keys1779))
 ,cljs.core.cst$kw$display_DASH_name,cljs.core.name(cljs.core.cst$sym$chat_DASH_view)], null)], 0)));
 });
-react_native_web.hooks.command_hook = (function react_native_web$hooks$command_hook(id,p__8102){
-var map__8103 = p__8102;
-var map__8103__$1 = (((((!((map__8103 == null))))?(((((map__8103.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__8103.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__8103):map__8103);
-var parameters = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__8103__$1,cljs.core.cst$kw$parameters);
-var preview = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__8103__$1,cljs.core.cst$kw$preview);
+react_native_web.hooks.command_hook = (function react_native_web$hooks$command_hook(id,p__1810){
+var map__1811 = p__1810;
+var map__1811__$1 = (((((!((map__1811 == null))))?(((((map__1811.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1811.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1811):map__1811);
+var parameters = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1811__$1,cljs.core.cst$kw$parameters);
+var preview = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1811__$1,cljs.core.cst$kw$preview);
 return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.hooks.chat_view,preview,parameters,id], null);
 });
-react_native_web.hooks.hook_in = (function react_native_web$hooks$hook_in(p__8105){
-var vec__8106 = p__8105;
-var id = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__8106,(0),null);
-var parsed = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__8106,(1),null);
+react_native_web.hooks.hook_in = (function react_native_web$hooks$hook_in(p__1813){
+var vec__1814 = p__1813;
+var id = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1814,(0),null);
+var parsed = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1814,(1),null);
 if(cljs.core.truth_(id)){
 var hook_id = cljs.core.last(clojure.string.split.cljs$core$IFn$_invoke$arity$2(cljs.core.name(id),/\./));
 var type = pluto.core.hook_type(id);
-var G__8109 = type;
-switch (G__8109) {
+var G__1817 = type;
+switch (G__1817) {
 case "chat.command":
 return react_native_web.hooks.command_hook(hook_id,parsed);
 
@@ -220,7 +220,7 @@ return react_native_web.hooks.settings_hook(hook_id,parsed);
 
 break;
 default:
-throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__8109)].join('')));
+throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__1817)].join('')));
 
 }
 } else {
