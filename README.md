@@ -4,6 +4,6 @@ Development requires [Deps and CLI](https://clojure.org/guides/getting_started) 
 
 Run dev mode using `make dev`.
 
-## Publish extensions.status.im
+## Deploy extensions.status.im
 
-Run `make publish`.
+Run `make deploy-website`.
