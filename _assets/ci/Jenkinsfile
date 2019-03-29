@@ -40,7 +40,6 @@ pipeline {
 
     stage('Publish') {
       steps { script {
-        test = ''
         withCredentials([usernamePassword(
           credentialsId: 'status-im-auto',
           usernameVariable: 'GH_USER',
