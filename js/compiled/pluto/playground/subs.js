@@ -3,56 +3,56 @@ goog.provide('pluto.playground.subs');
 goog.require('cljs.core');
 goog.require('cljs.core.constants');
 goog.require('re_frame.core');
-var G__7896_7902 = cljs.core.cst$kw$get;
-var G__7897_7903 = ((function (G__7896_7902){
-return (function (db,p__7898){
-var vec__7899 = p__7898;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7899,(0),null);
-var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7899,(1),null);
+var G__7905_7911 = cljs.core.cst$kw$get;
+var G__7906_7912 = ((function (G__7905_7911){
+return (function (db,p__7907){
+var vec__7908 = p__7907;
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7908,(0),null);
+var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7908,(1),null);
 return cljs.core.get.cljs$core$IFn$_invoke$arity$2(db,k);
-});})(G__7896_7902))
+});})(G__7905_7911))
 ;
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7896_7902,G__7897_7903) : re_frame.core.reg_sub.call(null,G__7896_7902,G__7897_7903));
-var G__7904_7910 = cljs.core.cst$kw$get_DASH_in;
-var G__7905_7911 = ((function (G__7904_7910){
-return (function (db,p__7906){
-var vec__7907 = p__7906;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7907,(0),null);
-var path = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7907,(1),null);
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7905_7911,G__7906_7912) : re_frame.core.reg_sub.call(null,G__7905_7911,G__7906_7912));
+var G__7913_7919 = cljs.core.cst$kw$get_DASH_in;
+var G__7914_7920 = ((function (G__7913_7919){
+return (function (db,p__7915){
+var vec__7916 = p__7915;
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7916,(0),null);
+var path = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7916,(1),null);
 return cljs.core.get_in.cljs$core$IFn$_invoke$arity$2(db,path);
-});})(G__7904_7910))
+});})(G__7913_7919))
 ;
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7904_7910,G__7905_7911) : re_frame.core.reg_sub.call(null,G__7904_7910,G__7905_7911));
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7913_7919,G__7914_7920) : re_frame.core.reg_sub.call(null,G__7913_7919,G__7914_7920));
 pluto.playground.subs.extension_parsed = (function pluto$playground$subs$extension_parsed(db,v){
 return cljs.core.cst$kw$parsed.cljs$core$IFn$_invoke$arity$1(db);
 });
-var G__7912_7914 = cljs.core.cst$kw$extension_SLASH_parsed;
-var G__7913_7915 = pluto.playground.subs.extension_parsed;
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7912_7914,G__7913_7915) : re_frame.core.reg_sub.call(null,G__7912_7914,G__7913_7915));
+var G__7921_7923 = cljs.core.cst$kw$extension_SLASH_parsed;
+var G__7922_7924 = pluto.playground.subs.extension_parsed;
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7921_7923,G__7922_7924) : re_frame.core.reg_sub.call(null,G__7921_7923,G__7922_7924));
 pluto.playground.subs.extension_data = (function pluto$playground$subs$extension_data(db,v){
 return cljs.core.cst$kw$data.cljs$core$IFn$_invoke$arity$1(db);
 });
-var G__7916_7918 = cljs.core.cst$kw$extension_SLASH_data;
-var G__7917_7919 = pluto.playground.subs.extension_data;
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7916_7918,G__7917_7919) : re_frame.core.reg_sub.call(null,G__7916_7918,G__7917_7919));
+var G__7925_7927 = cljs.core.cst$kw$extension_SLASH_data;
+var G__7926_7928 = pluto.playground.subs.extension_data;
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7925_7927,G__7926_7928) : re_frame.core.reg_sub.call(null,G__7925_7927,G__7926_7928));
 pluto.playground.subs.extension_source = (function pluto$playground$subs$extension_source(db,v){
 return cljs.core.cst$kw$source.cljs$core$IFn$_invoke$arity$1(db);
 });
-var G__7920_7922 = cljs.core.cst$kw$extension_SLASH_source;
-var G__7921_7923 = pluto.playground.subs.extension_source;
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7920_7922,G__7921_7923) : re_frame.core.reg_sub.call(null,G__7920_7922,G__7921_7923));
+var G__7929_7931 = cljs.core.cst$kw$extension_SLASH_source;
+var G__7930_7932 = pluto.playground.subs.extension_source;
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7929_7931,G__7930_7932) : re_frame.core.reg_sub.call(null,G__7929_7931,G__7930_7932));
 pluto.playground.subs.extension_traces = (function pluto$playground$subs$extension_traces(db,v){
 return cljs.core.cst$kw$traces.cljs$core$IFn$_invoke$arity$1(db);
 });
-var G__7924_7926 = cljs.core.cst$kw$extension_SLASH_traces;
-var G__7925_7927 = pluto.playground.subs.extension_traces;
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7924_7926,G__7925_7927) : re_frame.core.reg_sub.call(null,G__7924_7926,G__7925_7927));
+var G__7933_7935 = cljs.core.cst$kw$extension_SLASH_traces;
+var G__7934_7936 = pluto.playground.subs.extension_traces;
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7933_7935,G__7934_7936) : re_frame.core.reg_sub.call(null,G__7933_7935,G__7934_7936));
 pluto.playground.subs.selected = (function pluto$playground$subs$selected(db,v){
 return cljs.core.cst$kw$selected.cljs$core$IFn$_invoke$arity$1(db);
 });
-var G__7928_7930 = cljs.core.cst$kw$extension_SLASH_selected;
-var G__7929_7931 = pluto.playground.subs.selected;
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7928_7930,G__7929_7931) : re_frame.core.reg_sub.call(null,G__7928_7930,G__7929_7931));
+var G__7937_7939 = cljs.core.cst$kw$extension_SLASH_selected;
+var G__7938_7940 = pluto.playground.subs.selected;
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7937_7939,G__7938_7940) : re_frame.core.reg_sub.call(null,G__7937_7939,G__7938_7940));
 pluto.playground.subs.preview = (function pluto$playground$subs$preview(db,v){
 var or__4131__auto__ = cljs.core.cst$kw$preview.cljs$core$IFn$_invoke$arity$1(db);
 if(cljs.core.truth_(or__4131__auto__)){
@@ -61,6 +61,6 @@ return or__4131__auto__;
 return false;
 }
 });
-var G__7932_7934 = cljs.core.cst$kw$extension_SLASH_preview;
-var G__7933_7935 = pluto.playground.subs.preview;
-(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7932_7934,G__7933_7935) : re_frame.core.reg_sub.call(null,G__7932_7934,G__7933_7935));
+var G__7941_7943 = cljs.core.cst$kw$extension_SLASH_preview;
+var G__7942_7944 = pluto.playground.subs.preview;
+(re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_sub.cljs$core$IFn$_invoke$arity$2(G__7941_7943,G__7942_7944) : re_frame.core.reg_sub.call(null,G__7941_7943,G__7942_7944));

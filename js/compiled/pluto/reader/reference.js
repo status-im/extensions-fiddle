@@ -8,9 +8,9 @@ goog.require('pluto.reader.errors');
  */
 pluto.reader.reference.reference_QMARK_ = (function pluto$reader$reference$reference_QMARK_(ref){
 if(cljs.core.vector_QMARK_(ref)){
-var vec__7203 = ref;
-var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7203,(0),null);
-var arguments$ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7203,(1),null);
+var vec__7212 = ref;
+var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7212,(0),null);
+var arguments$ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7212,(1),null);
 return (((name instanceof cljs.core.Symbol)) && (((2) >= cljs.core.count(ref))) && ((((arguments$ == null)) || (cljs.core.map_QMARK_(arguments$)) || ((arguments$ instanceof cljs.core.Symbol)))));
 } else {
 return null;
@@ -51,15 +51,15 @@ return cljs.core.get_in.cljs$core$IFn$_invoke$arity$2(ctx,new cljs.core.Persiste
  * ```
  */
 pluto.reader.reference.resolve = (function pluto$reader$reference$resolve(ctx,ext,type,ref){
-var temp__5718__auto__ = pluto.reader.reference.reference__GT_symbol(ref);
-if(cljs.core.truth_(temp__5718__auto__)){
-var s = temp__5718__auto__;
-var temp__5718__auto____$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$view,"views",cljs.core.cst$kw$query,"queries",cljs.core.cst$kw$event,"events"], null),type);
-if(cljs.core.truth_(temp__5718__auto____$1)){
-var ns = temp__5718__auto____$1;
-var temp__5718__auto____$2 = pluto.reader.reference.resolve_symbol(ctx,ext,type,ns,s);
-if(cljs.core.truth_(temp__5718__auto____$2)){
-var o = temp__5718__auto____$2;
+var temp__5455__auto__ = pluto.reader.reference.reference__GT_symbol(ref);
+if(cljs.core.truth_(temp__5455__auto__)){
+var s = temp__5455__auto__;
+var temp__5455__auto____$1 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$view,"views",cljs.core.cst$kw$query,"queries",cljs.core.cst$kw$event,"events"], null),type);
+if(cljs.core.truth_(temp__5455__auto____$1)){
+var ns = temp__5455__auto____$1;
+var temp__5455__auto____$2 = pluto.reader.reference.resolve_symbol(ctx,ext,type,ns,s);
+if(cljs.core.truth_(temp__5455__auto____$2)){
+var o = temp__5455__auto____$2;
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$data,o], null);
 } else {
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$errors,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [pluto.reader.errors.error.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$pluto$reader$errors_SLASH_unknown_DASH_reference,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$value,s,cljs.core.cst$kw$type,type], null))], null)], null);

@@ -37,14 +37,14 @@ return react_native_web.react.get_web_class("ActivityIndicator");
 });
 react_native_web.react.view = (function react_native_web$react$view(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___4075 = arguments.length;
-var i__4731__auto___4076 = (0);
+var len__4730__auto___5252 = arguments.length;
+var i__4731__auto___5253 = (0);
 while(true){
-if((i__4731__auto___4076 < len__4730__auto___4075)){
-args__4736__auto__.push((arguments[i__4731__auto___4076]));
+if((i__4731__auto___5253 < len__4730__auto___5252)){
+args__4736__auto__.push((arguments[i__4731__auto___5253]));
 
-var G__4077 = (i__4731__auto___4076 + (1));
-i__4731__auto___4076 = G__4077;
+var G__5254 = (i__4731__auto___5253 + (1));
+i__4731__auto___5253 = G__5254;
 continue;
 } else {
 }
@@ -56,11 +56,11 @@ return react_native_web.react.view.cljs$core$IFn$_invoke$arity$variadic(argseq__
 });
 
 react_native_web.react.view.cljs$core$IFn$_invoke$arity$variadic = (function (props){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view_class()], null),(function (){var G__4074 = cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,props);
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view_class()], null),(function (){var G__5251 = cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,props);
 if(((cljs.core.map_QMARK_(cljs.core.first(props))) && ((!(cljs.core.contains_QMARK_(cljs.core.first(props),cljs.core.cst$kw$style)))))){
-return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(G__4074,(0),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,cljs.core.first(props)], null));
+return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(G__5251,(0),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,cljs.core.first(props)], null));
 } else {
-return G__4074;
+return G__5251;
 }
 })()));
 });
@@ -68,26 +68,26 @@ return G__4074;
 react_native_web.react.view.cljs$lang$maxFixedArity = (0);
 
 /** @this {Function} */
-react_native_web.react.view.cljs$lang$applyTo = (function (seq4073){
+react_native_web.react.view.cljs$lang$applyTo = (function (seq5250){
 var self__4718__auto__ = this;
-return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq4073));
+return self__4718__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq5250));
 });
 
-react_native_web.react.add_font_style = (function react_native_web$react$add_font_style(style_key,p__4078){
-var map__4079 = p__4078;
-var map__4079__$1 = (((((!((map__4079 == null))))?(((((map__4079.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__4079.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__4079):map__4079);
-var opts = map__4079__$1;
-var font = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__4079__$1,cljs.core.cst$kw$font,cljs.core.cst$kw$default);
+react_native_web.react.add_font_style = (function react_native_web$react$add_font_style(style_key,p__5255){
+var map__5256 = p__5255;
+var map__5256__$1 = (((((!((map__5256 == null))))?(((((map__5256.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__5256.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__5256):map__5256);
+var opts = map__5256__$1;
+var font = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__5256__$1,cljs.core.cst$kw$font,cljs.core.cst$kw$default);
 var font__$1 = null;
 var style = cljs.core.get.cljs$core$IFn$_invoke$arity$2(opts,style_key);
 return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(cljs.core.dissoc.cljs$core$IFn$_invoke$arity$2(opts,cljs.core.cst$kw$font),style_key,cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([style,font__$1], 0)));
 });
-react_native_web.react.transform_to_uppercase = (function react_native_web$react$transform_to_uppercase(p__4081,ts){
-var map__4082 = p__4081;
-var map__4082__$1 = (((((!((map__4082 == null))))?(((((map__4082.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__4082.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__4082):map__4082);
-var opts = map__4082__$1;
-var uppercase_QMARK_ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__4082__$1,cljs.core.cst$kw$uppercase_QMARK_);
-var force_uppercase_QMARK_ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__4082__$1,cljs.core.cst$kw$force_DASH_uppercase_QMARK_);
+react_native_web.react.transform_to_uppercase = (function react_native_web$react$transform_to_uppercase(p__5258,ts){
+var map__5259 = p__5258;
+var map__5259__$1 = (((((!((map__5259 == null))))?(((((map__5259.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__5259.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__5259):map__5259);
+var opts = map__5259__$1;
+var uppercase_QMARK_ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__5259__$1,cljs.core.cst$kw$uppercase_QMARK_);
+var force_uppercase_QMARK_ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__5259__$1,cljs.core.cst$kw$force_DASH_uppercase_QMARK_);
 if(cljs.core.truth_(force_uppercase_QMARK_)){
 return cljs.core.vec(cljs.core.map.cljs$core$IFn$_invoke$arity$2(clojure.string.upper_case,ts));
 } else {
@@ -95,22 +95,22 @@ return ts;
 }
 });
 react_native_web.react.text = (function react_native_web$react$text(var_args){
-var G__4088 = arguments.length;
-switch (G__4088) {
+var G__5265 = arguments.length;
+switch (G__5265) {
 case 1:
 return react_native_web.react.text.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
 break;
 default:
 var args_arr__4751__auto__ = [];
-var len__4730__auto___4090 = arguments.length;
-var i__4731__auto___4091 = (0);
+var len__4730__auto___5267 = arguments.length;
+var i__4731__auto___5268 = (0);
 while(true){
-if((i__4731__auto___4091 < len__4730__auto___4090)){
-args_arr__4751__auto__.push((arguments[i__4731__auto___4091]));
+if((i__4731__auto___5268 < len__4730__auto___5267)){
+args_arr__4751__auto__.push((arguments[i__4731__auto___5268]));
 
-var G__4092 = (i__4731__auto___4091 + (1));
-i__4731__auto___4091 = G__4092;
+var G__5269 = (i__4731__auto___5268 + (1));
+i__4731__auto___5268 = G__5269;
 continue;
 } else {
 }
@@ -132,23 +132,23 @@ return cljs.core.vec(cljs.core.concat.cljs$core$IFn$_invoke$arity$2(new cljs.cor
 });
 
 /** @this {Function} */
-react_native_web.react.text.cljs$lang$applyTo = (function (seq4085){
-var G__4086 = cljs.core.first(seq4085);
-var seq4085__$1 = cljs.core.next(seq4085);
-var G__4087 = cljs.core.first(seq4085__$1);
-var seq4085__$2 = cljs.core.next(seq4085__$1);
+react_native_web.react.text.cljs$lang$applyTo = (function (seq5262){
+var G__5263 = cljs.core.first(seq5262);
+var seq5262__$1 = cljs.core.next(seq5262);
+var G__5264 = cljs.core.first(seq5262__$1);
+var seq5262__$2 = cljs.core.next(seq5262__$1);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__4086,G__4087,seq4085__$2);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__5263,G__5264,seq5262__$2);
 });
 
 react_native_web.react.text.cljs$lang$maxFixedArity = (2);
 
-react_native_web.react.text_input = (function react_native_web$react$text_input(p__4093,text){
-var map__4094 = p__4093;
-var map__4094__$1 = (((((!((map__4094 == null))))?(((((map__4094.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__4094.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__4094):map__4094);
-var opts = map__4094__$1;
-var font = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__4094__$1,cljs.core.cst$kw$font,cljs.core.cst$kw$default);
-var style = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__4094__$1,cljs.core.cst$kw$style);
+react_native_web.react.text_input = (function react_native_web$react$text_input(p__5270,text){
+var map__5271 = p__5270;
+var map__5271__$1 = (((((!((map__5271 == null))))?(((((map__5271.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__5271.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__5271):map__5271);
+var opts = map__5271__$1;
+var font = cljs.core.get.cljs$core$IFn$_invoke$arity$3(map__5271__$1,cljs.core.cst$kw$font,cljs.core.cst$kw$default);
+var style = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__5271__$1,cljs.core.cst$kw$style);
 var font__$1 = null;
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.text_input_class(),cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$underline_DASH_color_DASH_android,cljs.core.cst$kw$transparent,cljs.core.cst$kw$value,text], null),cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(cljs.core.dissoc.cljs$core$IFn$_invoke$arity$2(opts,cljs.core.cst$kw$font),cljs.core.cst$kw$style,cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([style,font__$1], 0)))], 0))], null);
 });
