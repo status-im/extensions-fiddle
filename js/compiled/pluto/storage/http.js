@@ -24,8 +24,8 @@ xhr.send(null);
 return xhr.onreadystatechange = ((function (xhr){
 return (function (){
 if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(xhr.readyState,(4))){
-var G__2097 = pluto.storage.http.result(xhr);
-return (callback.cljs$core$IFn$_invoke$arity$1 ? callback.cljs$core$IFn$_invoke$arity$1(G__2097) : callback.call(null,G__2097));
+var G__8031 = pluto.storage.http.result(xhr);
+return (callback.cljs$core$IFn$_invoke$arity$1 ? callback.cljs$core$IFn$_invoke$arity$1(G__8031) : callback.call(null,G__8031));
 } else {
 return null;
 }
@@ -41,11 +41,11 @@ pluto.storage.http.HTTPStorage = (function (){
 });
 pluto.storage.http.HTTPStorage.prototype.pluto$storage$Storage$ = cljs.core.PROTOCOL_SENTINEL;
 
-pluto.storage.http.HTTPStorage.prototype.pluto$storage$Storage$fetch$arity$3 = (function (_,p__2098,callback){
+pluto.storage.http.HTTPStorage.prototype.pluto$storage$Storage$fetch$arity$3 = (function (_,p__8032,callback){
 var self__ = this;
-var map__2099 = p__2098;
-var map__2099__$1 = (((((!((map__2099 == null))))?(((((map__2099.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__2099.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__2099):map__2099);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__2099__$1,cljs.core.cst$kw$value);
+var map__8033 = p__8032;
+var map__8033__$1 = (((((!((map__8033 == null))))?(((((map__8033.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__8033.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__8033):map__8033);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__8033__$1,cljs.core.cst$kw$value);
 var ___$1 = this;
 return pluto.storage.http.get_url([cljs.core.str.cljs$core$IFn$_invoke$arity$1(value),"/extension.edn"].join(''),callback);
 });
