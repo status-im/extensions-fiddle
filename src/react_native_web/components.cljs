@@ -62,9 +62,7 @@
 (defn flat-list [{:keys [key data item-view]}]
   [(react/scroll-view)
    (for [item data]
-     (do
-       (println item)
-       [item-view item]))])
+     [item-view item])])
 
 ;; TODO NOT SUPPORTED YET
 (defn component [])
