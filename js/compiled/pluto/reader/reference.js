@@ -8,9 +8,9 @@ goog.require('pluto.error');
  */
 pluto.reader.reference.reference_QMARK_ = (function pluto$reader$reference$reference_QMARK_(ref){
 if(cljs.core.vector_QMARK_(ref)){
-var vec__1343 = ref;
-var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1343,(0),null);
-var arguments$ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1343,(1),null);
+var vec__7219 = ref;
+var name = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7219,(0),null);
+var arguments$ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7219,(1),null);
 return (((name instanceof cljs.core.Symbol)) && (((2) >= cljs.core.count(ref))) && ((((arguments$ == null)) || (cljs.core.map_QMARK_(arguments$)) || ((arguments$ instanceof cljs.core.Symbol)))));
 } else {
 return null;
