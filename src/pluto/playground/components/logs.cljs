@@ -7,6 +7,9 @@
 (def TableRow (aget js/MaterialUI "TableRow"))
 (def TableCell (aget js/MaterialUI "TableCell"))
 
+(defn- pretty-print-data [{:keys [data target context] :as m}]
+  (str (or data (merge target context))))
+
 (defn table [v]
   [:div
    [:> Table
@@ -17,10 +20,10 @@
       [:> TableCell "Type"]
       [:> TableCell "Data"]]]
     [:> TableBody
-     (for [{:keys [id category type data]} v]
+     (for [{:keys [id category type] :as m} v]
        ^{:key id}
        [:> TableRow
         [:> TableCell id]
         [:> TableCell category]
         [:> TableCell type]
-        [:> TableCell (str data)]])]]])
+        [:> TableCell (pretty-print-data m)]])]]])
