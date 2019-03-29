@@ -24,6 +24,14 @@
   :extension/update-errors
   update-extension-errors)
 
+(defn- clear-errors
+  [{:keys [db]} _]
+  {:db (dissoc db :errors)})
+
+(re-frame/reg-event-fx
+  :extension/clear-errors
+  clear-errors)
+
 (defn- update-extension-parsed
   [{:keys [db]} [_ data]]
   {:db (assoc db :parsed data)})
@@ -56,6 +64,7 @@
 (re-frame.core/reg-fx
   :extension/read
   (fn [[ctx source]]
+    (re-frame/dispatch [:extension/clear-errors])
     (let [{:keys [data errors]} (pluto/read source)]
       (if errors
         (re-frame/dispatch [:extension/update-errors errors])

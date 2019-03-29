@@ -15,7 +15,7 @@ pom.xml.asc
 .nrepl-port
 .cpcache/
 resources/public/js/compiled
-figwheel-main.log
+figwheel-main.log*
 node_modules/
 
 /.idea/
