@@ -8,7 +8,7 @@
 (def TableCell (aget js/MaterialUI "TableCell"))
 
 (defn table [v]
-  [:div {:style {:display :flex :flex 0.4 :overflow "auto"}}
+  [:div
    [:> Table
     [:> TableHead
      [:> TableRow

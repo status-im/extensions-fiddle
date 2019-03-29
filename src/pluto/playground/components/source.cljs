@@ -12,15 +12,10 @@
     (reagent/create-class
      {:component-did-mount
       (fn [this]
-        (let [el (js/CodeMirror. (reagent/dom-node this)
-                                 (clj->js
-                                  {;:lineNumbers     true (when true editor is slow)
-                                   :viewportMargin  js/Infinity
-                                   :matchBrackets   true
-                                   :styleActiveLine true
-                                   :autofocus       true
-                                   :mode            "clojure"}))]
+        (let [el (js/CodeMirror. (reagent/dom-node this) #js {:pollInterval 1000})]
           (js/parinferCodeMirror.init el)
+          (js/parinferCodeMirror.setMode el "smart");
+          (js/parinferCodeMirror.setOptions el #js {:forceBalance true});
           (re-frame/dispatch [:set :code-mirror el])
           (when on-change
             (.on el "change" (fn [_]
@@ -28,7 +23,7 @@
                                (reset! debounce
                                        (js/setTimeout
                                            #(on-change (.getValue el))
-                                           400)))))))
+                                           1000)))))))
       :reagent-render
       (fn [_]
-        [:div])})))
+        [:div {:style {:display :block :width "100%" :min-width "0px"}}])})))

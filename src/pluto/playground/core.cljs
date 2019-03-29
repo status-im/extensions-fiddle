@@ -72,16 +72,17 @@
 (defview layout []
   (letsubs [logs [:extension/logs]
             errors [:extension/errors]]
-    [:div {:style {:display :flex :flex-direction :row :flex 1}}
+    [:div {:style {:display :flex}}
      [publish/publish-dialog]
-     [:div {:style {:display :flex :flex-direction :column :flex 1}}
-      [:div {:style {:display :flex :flex 1 :overflow :scroll :min-width 0}}
-       [source/viewer {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]]
-      [logs/table (or (flatten-errors errors) logs)]]
-     [:div {:style {:display :flex :flex-direction :column}}
-      [:> Button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
-       "Publish"]
-      [:div {:style {:border "40px solid #ddd" :border-width "55px 7px" :border-radius "40px" :margin-top 20}}
+     [:div {:style {:display :inline-block :width "calc(100% - 400px)"}}
+      [source/viewer {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]
+      [:div {:style {:overflow :scroll :height "calc(100% - 300px)"}}
+       [logs/table (or (flatten-errors errors) logs)]]]
+     [:div
+      [:div {:style {:display :flex :justify-content :flex-end}}
+       [:> Button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
+        "Publish"]]
+      [:div {:style {:border "40px solid #ddd" :border-width "20px 7px" :border-radius "40px" :margin-top 20}}
        [react/view {:style {:width 375 :height 667}}
         [:div {:id "extension" :style {:display :flex :flex 1}}]]]]]))
 

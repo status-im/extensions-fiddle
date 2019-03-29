@@ -13,7 +13,7 @@
     [:> Dialog {:open (not (nil? publish)) :on-close #(re-frame/dispatch [:set :publish nil])}
      [:> DialogTitle
       "Publish extension"]
-     [:div {:style {:display :flex :align-items :center :justify-content :center :margin 40}}
+     [:div {:style {:padding 20}}
       (if in-progress?
         [:> CircularProgress]
         (let [ext-url (str "https://get.status.im/extension/ipfs@" hash "/")]
@@ -25,4 +25,4 @@
              [(react/qr-code) {:value ext-url}]]]
            [:div {:style {:display :flex :flex-direction :column}}
             [:div {:style {:margin-vertical 5 :font-weight :bold}} "OR share extension URL"]
-            [:div {:style {:display :flex }} ext-url]]]))]]))
+            [:div ext-url]]]))]]))
