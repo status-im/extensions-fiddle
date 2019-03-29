@@ -299,12 +299,7 @@ if((function (){var i__1221 = (0);
 while(true){
 if((i__1221 < size__4522__auto__)){
 var item = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4521__auto__,i__1221);
-cljs.core.chunk_append(b__1222,(function (){
-cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([item], 0));
-
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [item_view,item], null);
-})()
-);
+cljs.core.chunk_append(b__1222,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [item_view,item], null));
 
 var G__1223 = (i__1221 + (1));
 i__1221 = G__1223;
@@ -321,12 +316,7 @@ return cljs.core.chunk_cons(cljs.core.chunk(b__1222),null);
 }
 } else {
 var item = cljs.core.first(s__1220__$2);
-return cljs.core.cons((function (){
-cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([item], 0));
-
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [item_view,item], null);
-})()
-,react_native_web$components$flat_list_$_iter__1219(cljs.core.rest(s__1220__$2)));
+return cljs.core.cons(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [item_view,item], null),react_native_web$components$flat_list_$_iter__1219(cljs.core.rest(s__1220__$2)));
 }
 } else {
 return null;
