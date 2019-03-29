@@ -59,13 +59,20 @@
 (defn scroll-view [o & children]
   (apply abstract-view (react/scroll-view) o children))
 
+(defn flat-list [{:keys [key data item-view]}]
+  [(react/scroll-view)
+   (for [item data]
+     (do
+       (println item)
+       [item-view item]))])
+
 ;; TODO NOT SUPPORTED YET
 (defn component [])
 
 (defn button [{:keys [on-click enabled disabled] :as m} label]
-  [react/view [react/text "not supported yet"]]
-  #_[button/secondary-button (merge {:disabled? (or (when (contains? m :enabled) (or (nil? enabled) (false? enabled))) disabled)}
-                                    (when on-click {:on-press #(re-frame/dispatch (on-click {}))})) label])
+  [touchable-opacity {:on-press (when on-click on-click)}
+   [react/view {:background-color colors/blue-light :border-radius 4 :padding 5}
+    [react/text label]]])
 
 (defn checkbox [{:keys [on-change checked]}]
   [react/view {:style {:background-color colors/white}}
@@ -84,7 +91,7 @@
           'input                  {:data input :properties {:on-change :event :placeholder :string :keyboard-type :keyword :change-delay? :number :placeholder-text-color :any :selection-color :any}}
           'button                 {:data button :properties {:enabled :boolean :disabled :boolean :on-click :event}}
           'link                   {:data link :properties {:uri :string :text? :string :open-in? {:one-of #{:device :status}}}}
-          'list                   {:data list :properties {:data :vector :item-view :view :key? :keyword}}
+          'list                   {:data flat-list :properties {:data :vector :item-view :view :key? :keyword}}
           'checkbox               {:data checkbox :properties {:on-change :event :checked :boolean}}
           'activity-indicator     {:data activity-indicator :properties {:animating :boolean :color :string :size :keyword :hides-when-stopped :boolean}}
           'picker                 {:data component :properties {:on-change :event :selected :string :enabled :boolean :data :vector}}

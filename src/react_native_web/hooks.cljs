@@ -85,7 +85,8 @@
           [message-container (when preview (preview (merge {:outgoing false} message))) false]
           [message-container (when preview (preview (merge {:outgoing true} message))) true]])]]
      (when-let [suggestion (some #(when (= suggestion-id (:id %)) (:suggestions %)) parameters)]
-       [suggestion])
+       [react/view {:style {:flex 1}}
+        [suggestion]])
      [react/view {:style input-container}
       [react/view {:style input-root}
        [react/view {:style input-animated}
