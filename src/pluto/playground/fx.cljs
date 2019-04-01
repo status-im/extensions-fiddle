@@ -98,6 +98,22 @@
   :extension/append-log
   append-log)
 
+(defn- switch-filter-logs
+  [{:keys [db]} [_ checked]]
+  {:db (assoc db :filtered-logs checked)})
+
+(re-frame.core/reg-event-fx
+  :extension/switch-filter-logs
+  switch-filter-logs)
+
+(defn- clear-logs
+  [{:keys [db]} _]
+  {:db (dissoc db :logs)})
+
+(re-frame/reg-event-fx
+  :extension/clear-logs
+  clear-logs)
+
 (defn- set-selected
   [{:keys [db]} [_ path]]
   {:db (assoc db :selected path)})

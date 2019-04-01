@@ -65,21 +65,38 @@
 
 (def Button (aget js/MaterialUI "Button"))
 
+(defn button [props label]
+  [:> Button props
+   label])
+
+(def Switch (aget js/MaterialUI "Switch"))
+
+(defn switch [props]
+  [:> Switch props])
+
 (defn flatten-errors [m]
   (when (map? m)
     (apply concat (reduce-kv #(concat %1 (vals %3)) [] m))))
 
 (defview layout []
-  (letsubs [logs [:extension/logs]
+  (letsubs [logs [:extension/filtered-logs]
             errors [:extension/errors]]
     [:div {:style {:display :flex}}
      [publish/publish-dialog]
      [:div {:style {:display :inline-block :width "calc(100% - 400px)"}}
       [source/viewer {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]
       [:div {:style {:overflow :scroll :height "calc(100% - 300px)"}}
+       [:div {:style {:display :flex :justify-content :flex-end :align-items :center}}
+        [switch {:color "primary" :on-change #(re-frame/dispatch [:extension/switch-filter-logs %2])}]
+        [:span {:style {:margin "10px"}} "Filter traces"]
+        [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/clear-logs])}
+         "Clear logs"]]
        [logs/table (or (flatten-errors errors) logs)]]]
      [:div
       [:div {:style {:display :flex :justify-content :flex-end}}
+       [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
+        "Publish"]
+       #_
        [:> Button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
         "Publish"]]
       [:div {:style {:border "40px solid #ddd" :border-width "20px 7px" :border-radius "40px" :margin-top 20}}

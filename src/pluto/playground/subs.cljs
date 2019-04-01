@@ -40,6 +40,17 @@
   :logs)
 
 (re-frame/reg-sub
+  :extension/filtered-logs?
+  :filtered-logs)
+
+(re-frame/reg-sub
+  :extension/filtered-logs
+  :<- [:extension/logs]
+  :<- [:extension/filtered-logs?]
+  (fn [[logs filtered?]]
+    (filter #(if (true? filtered?) (not= (:category %) :pluto.log/trace) true) logs)))
+
+(re-frame/reg-sub
   :extension/errors
   :errors)
 

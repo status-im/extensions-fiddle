@@ -11,6 +11,7 @@
   (str (or data (merge target context))))
 
 (defn table [v]
+  (.log js/console v)
   [:div
    [:> Table
     [:> TableHead
