@@ -6,10 +6,10 @@ goog.require('cognitect.transit');
 goog.require('ajax.interceptors');
 goog.require('ajax.protocols');
 goog.require('ajax.util');
-ajax.transit.transit_type = (function ajax$transit$transit_type(p__5855){
-var map__5856 = p__5855;
-var map__5856__$1 = (((((!((map__5856 == null))))?(((((map__5856.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__5856.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__5856):map__5856);
-var type = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__5856__$1,cljs.core.cst$kw$type);
+ajax.transit.transit_type = (function ajax$transit$transit_type(p__5850){
+var map__5851 = p__5850;
+var map__5851__$1 = (((((!((map__5851 == null))))?(((((map__5851.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__5851.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__5851):map__5851);
+var type = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__5851__$1,cljs.core.cst$kw$type);
 var or__4131__auto__ = type;
 if(cljs.core.truth_(or__4131__auto__)){
 return or__4131__auto__;
@@ -41,8 +41,8 @@ return cognitect.transit.write(writer,params);
  * :handlers Custom Transit handlers (refer to Transit documentation)
  */
 ajax.transit.transit_request_format = (function ajax$transit$transit_request_format(var_args){
-var G__5859 = arguments.length;
-switch (G__5859) {
+var G__5854 = arguments.length;
+switch (G__5854) {
 case 0:
 return ajax.transit.transit_request_format.cljs$core$IFn$_invoke$arity$0();
 
@@ -91,8 +91,8 @@ return cognitect.transit.read(reader,ajax.protocols._body(response));
  * :handlers Custom Transit handlers (refer to Transit documentation)
  */
 ajax.transit.transit_response_format = (function ajax$transit$transit_response_format(var_args){
-var G__5862 = arguments.length;
-switch (G__5862) {
+var G__5857 = arguments.length;
+switch (G__5857) {
 case 0:
 return ajax.transit.transit_response_format.cljs$core$IFn$_invoke$arity$0();
 
