@@ -12,7 +12,7 @@
 (def TableCell (aget js/MaterialUI "TableCell"))
 
 (defn- reference [v]
-  [:span {:style {:color "red" :margin "10px"}} (str v)])
+  [source/viewer {:content (str v)}])
 
 (defmulti pretty-print-data
   (fn [{:keys [category type]}]
@@ -23,9 +23,7 @@
     [:div
      [reference query]
      [:span "to"]
-     (if value
-       [source/viewer {:content (str value)}]
-       [:span {:style {:margin "10px" :font-weight "bold"}} "nil"])]))
+     [source/viewer {:content (str (or value "nil"))}]]))
 
 (defmethod pretty-print-data [::log/trace :event/dispatch] [{:keys [data]}]
   [:<>
