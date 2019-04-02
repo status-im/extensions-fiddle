@@ -33,19 +33,16 @@
     (re-frame/subscribe data)
     (log/fire! ctx ::log/error :query/resolve data)))
 
-(defn cartouche [{:keys [path]} data]
+(defn cartouche [{:keys [path] :as m} data]
   (let [p @(re-frame/subscribe [:extension/selected])]
     [:div {:on-mouse-enter #(re-frame/dispatch [:extension/set-selected path])
            :on-mouse-leave #(re-frame/dispatch [:extension/set-selected nil])
            :style          (when (= p path) {:border "1px solid black"})}
      data]))
 
-(defn wrap-view [parent-ctx {:keys [data] :as m}]
-  (if (vector? data)
-    {:data
-     [cartouche parent-ctx
-      data]}
-    m))
+(defn wrap-view [parent-ctx data]
+  [cartouche parent-ctx
+    data])
 
 (def ctx
   {:env        {:id "Extension ID"}
@@ -81,23 +78,23 @@
 (defview layout []
   (letsubs [logs [:extension/filtered-logs]
             errors [:extension/errors]]
-    [:div {:style {:display :flex}}
+    [:div {:style {:display :flex :height "100vh"}}
      [publish/publish-dialog]
-     [:div {:style {:display :inline-block :width "calc(100% - 400px)"}}
-      [source/viewer {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]
-      [:div {:style {:overflow :scroll :height "calc(100% - 300px)"}}
-       [:div {:style {:display :flex :justify-content :flex-end :align-items :center}}
-        [switch {:color "primary" :on-change #(re-frame/dispatch [:extension/switch-filter-logs %2])}]
-        [:span {:style {:margin "10px"}} "Filter traces"]
-        [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/clear-logs])}
-         "Clear logs"]]
-       [logs/table (or (flatten-errors errors) logs)]]]
-     [:div
+     [:div {:style {:flex 4 :display :flex :flex-direction :column}}
+      [:div {:style {:flex 3 :height "200px"}}
+       [source/editor {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]]
+      [:div {:style {:flex 1 :display :flex :flex-direction :column :margin-top 10}}
+       [:div
+        [:div {:style {:flex 1 :display :flex :justify-content :flex-end :align-items :center}}
+         [switch {:color "primary" :on-change #(re-frame/dispatch [:extension/switch-filter-logs %2])}]
+         [:span {:style {:margin "10px"}} "Filter traces"]
+         [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/clear-logs])}
+          "Clear logs"]]]
+       [:div {:style {:overflow :auto}}
+        [logs/table (or (flatten-errors errors) logs)]]]]
+     [:div {:style {:flex 1 :margin "10px"}}
       [:div {:style {:display :flex :justify-content :flex-end}}
        [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
-        "Publish"]
-       #_
-       [:> Button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
         "Publish"]]
       [:div {:style {:border "40px solid #ddd" :border-width "20px 7px" :border-radius "40px" :margin-top 20}}
        [react/view {:style {:width 375 :height 667}}
