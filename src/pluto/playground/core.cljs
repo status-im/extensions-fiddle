@@ -78,21 +78,19 @@
 (defview layout []
   (letsubs [logs [:extension/filtered-logs]
             errors [:extension/errors]]
-    [:div {:style {:display :flex :height "100vh"}}
+    [:div {:style {:display :flex :flex 1}}
      [publish/publish-dialog]
-     [:div {:style {:flex 4 :display :flex :flex-direction :column}}
-      [:div {:style {:flex 3 :height "200px"}}
-       [source/editor {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]]
-      [:div {:style {:flex 1 :display :flex :flex-direction :column :margin-top 10}}
-       [:div
-        [:div {:style {:flex 1 :display :flex :justify-content :flex-end :align-items :center}}
-         [switch {:color "primary" :on-change #(re-frame/dispatch [:extension/switch-filter-logs %2])}]
-         [:span {:style {:margin "10px"}} "Filter traces"]
-         [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/clear-logs])}
-          "Clear logs"]]]
-       [:div {:style {:overflow :auto}}
-        [logs/table (or (flatten-errors errors) logs)]]]]
-     [:div {:style {:flex 1 :margin "10px"}}
+     [:div {:style {:display :inline-block :width "calc(100% - 400px)"}}
+      [source/editor {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]
+      [:div
+       [:div {:style {:display :flex :justify-content :flex-end :align-items :center}}
+        [switch {:color "primary" :on-change #(re-frame/dispatch [:extension/switch-filter-logs %2])}]
+        [:span {:style {:margin "10px"}} "Filter traces"]
+        [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/clear-logs])}
+         "Clear logs"]]]
+      [:div {:style {:height "calc(40% - 50px)" :overflow :scroll}}
+       [logs/table (or (flatten-errors errors) logs)]]]
+     [:div
       [:div {:style {:display :flex :justify-content :flex-end}}
        [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
         "Publish"]]

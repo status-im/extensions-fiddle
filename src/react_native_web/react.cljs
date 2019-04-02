@@ -18,6 +18,7 @@
 (defn scroll-view [] (get-web-class "ScrollView"))
 (defn text-input-class [] (get-web-class "TextInput"))
 (defn activity-indicator [] (get-web-class "ActivityIndicator"))
+(defn check-box [] (get-web-class "CheckBox"))
 
 (defn qr-code [] (adapt-class js/QRCode))
 
