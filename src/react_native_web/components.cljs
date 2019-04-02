@@ -64,20 +64,19 @@
    (for [item data]
      [item-view item])])
 
-;; TODO NOT SUPPORTED YET
-(defn component [])
-
 (defn button [{:keys [on-click enabled disabled] :as m} label]
   [touchable-opacity {:on-press (when on-click on-click)}
-   [react/view {:background-color colors/blue-light :border-radius 4 :padding 5}
+   [react/view {:background-color colors/blue-light :border-radius 4 :padding 5 :align-items :center}
     [react/text label]]])
 
 (defn checkbox [{:keys [on-change checked]}]
   [react/view {:style {:background-color colors/white}}
-   [react/text "Not supported yet"]
-   #_[checkbox/checkbox {:checked?        checked
-                         :style           {:padding 0}
-                         :on-value-change #(re-frame/dispatch (on-change {:value %}))}]])
+   [(react/check-box) {:value checked
+                       :on-value-change #(on-change {:value %})}]])
+
+;; TODO NOT SUPPORTED YET
+(defn component []
+  [text "Not supported yet"])
 
 (def all {'view                   {:data view}
           'scroll-view            {:data scroll-view :properties {:keyboard-should-persist-taps :keyword :content-container-style :map}}
@@ -92,6 +91,7 @@
           'list                   {:data flat-list :properties {:data :vector :item-view :view :key? :keyword}}
           'checkbox               {:data checkbox :properties {:on-change :event :checked :boolean}}
           'activity-indicator     {:data activity-indicator :properties {:animating :boolean :color :string :size :keyword :hides-when-stopped :boolean}}
+          ;; TODO NOT SUPPORTED YET
           'picker                 {:data component :properties {:on-change :event :selected :string :enabled :boolean :data :vector}}
           'nft-token-viewer       {:data component :properties {:token :string}}
           'transaction-status     {:data component :properties {:outgoing :string :tx-hash :string}}

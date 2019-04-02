@@ -3,10 +3,14 @@
             [clojure.string :as string]
             [ajax.core :as ajax]))
 
+(def ^:const ipfs-add-url "https://ipfs.infura.io:5001/api/v0/add")
+(def ^:const ipfs-add-param-name "extension.event.edn")
+(def ^:const ipfs-cat-url "https://ipfs.infura.io/ipfs/")
+
 (re-frame/reg-event-fx
  :extensions/identity-event
  (fn [_ [_ _ {:keys [cb]}]]
-   {:dispatch  (cb {})}))
+   {:dispatch (cb {})}))
 
 (re-frame/reg-fx
  ::alert
@@ -81,6 +85,11 @@
  (fn [{:keys [db]} [_ {id :id} {:keys [key]}]]
    {:db (update-in db [:extensions/store id] dissoc key)}))
 
+(re-frame/reg-event-fx
+ :store/clear-all
+ (fn [{:keys [db]} [_ {id :id} _]]
+   {:db (update db :extensions/store dissoc id)}))
+
 (defn- json? [res]
   (when-let [type (get-in res [:headers "content-type"])]
     (string/starts-with? type "application/json")))
@@ -117,24 +126,20 @@
  :http/get
  (fn [_ [_ _ {:keys [url on-success on-failure timeout]}]]
    (ajax/GET url {:with-credentials? false
-                  :response-format :text
-                  :handler #(when on-success (parse-result (str %) on-success))
-                  :error-handler on-failure})
+                  :response-format   :text
+                  :handler           #(when on-success (parse-result (str %) on-success))
+                  :error-handler     on-failure})
    nil))
 
 (re-frame/reg-event-fx
- :ipfs/cat
- (fn [_ [_ _ {:keys [hash on-success on-failure]}]]
-   nil #_{:http-raw-get (merge {:url (str constants/ipfs-cat-url hash)
-                                :success-event-creator
-                                     (fn [{:keys [status body]}]
-                                       (if (= 200 status)
-                                         (on-success {:value body})
-                                         (when on-failure
-                                           (on-failure {:value status}))))}
-                               (when on-failure
-                                 {:failure-event-creator on-failure})
-                               {:timeout-ms 5000})}))
+ :http/post
+ (fn [_ [_ _ {:keys [url body on-success on-failure timeout]}]]
+   (ajax/POST url {:with-credentials? false
+                   :body              (clj->js body)
+                   :response-format   :text
+                   :handler           #(when on-success (parse-result (str %) on-success))
+                   :error-handler     on-failure})
+   nil))
 
 (defn- parse-ipfs-add-response [res]
   (let [{:keys [Name Hash Size]} (parse-json res)]
@@ -145,33 +150,24 @@
 (re-frame/reg-event-fx
  :ipfs/add
  (fn [_ [_ _ {:keys [value on-success on-failure]}]]
-   nil
-   #_(let [formdata (doto
-                     (js/FormData.
-                      (.append constants/ipfs-add-param-name value)))]
-       {:http-raw-post (merge {:url  constants/ipfs-add-url
-                               :body formdata
-                               :success-event-creator
-                                     (fn [{:keys [status body]}]
-                                       (if (= 200 status)
-                                         (on-success {:value (parse-ipfs-add-response body)})
-                                         (when on-failure
-                                           (on-failure {:value status}))))}
-                              (when on-failure
-                                {:failure-event-creator on-failure})
-                              {:timeout-ms 5000})})))
+   (let [formdata (doto
+                   (js/FormData.)
+                   (.append ipfs-add-param-name value))]
+     (ajax/POST ipfs-add-url {:with-credentials? false
+                              :body              formdata
+                              :response-format   :text
+                              :handler           #(on-success {:value (parse-ipfs-add-response %)})
+                              :error-handler     on-failure}))
+   nil))
 
 (re-frame/reg-event-fx
- :http/post
- (fn [_ [_ _ {:keys [url body on-success on-failure timeout]}]]
-   nil
-   #_{:http-raw-post (merge {:url  url
-                             :body (clj->js body)
-                             :success-event-creator #(parse-result % on-success)}
-                            (when on-failure
-                              {:failure-event-creator on-failure})
-                            (when timeout
-                              {:timeout-ms timeout}))}))
+ :ipfs/cat
+ (fn [_ [_ _ {:keys [hash on-success on-failure]}]]
+   (ajax/GET (str ipfs-cat-url hash) {:with-credentials? false
+                                      :response-format   :text
+                                      :handler           #(on-success {:value %})
+                                      :error-handler     on-failure})
+   nil))
 
 (re-frame/reg-event-fx
  :extensions.chat.command/set-parameter
@@ -187,8 +183,8 @@
  :extensions.chat.command/set-parameter-with-custom-params
  (fn [{{:keys [current-chat-id] :as db} :db} [_ _ {:keys [value params]}]]
    {:db (-> db
-            (update-in  [:extension-props :params] merge params)
-            (assoc-in  [:extension-props :suggestion-id] nil))}))
+            (update-in [:extension-props :params] merge params)
+            (assoc-in [:extension-props :suggestion-id] nil))}))
 
 (re-frame/reg-event-fx
  :extensions.chat.command/send-plain-text-message
@@ -213,9 +209,9 @@
 
 (defn operation->fn [k]
   (case k
-    :plus   +
-    :minus  -
-    :times  *
+    :plus +
+    :minus -
+    :times *
     :divide /))
 
 (re-frame/reg-fx
@@ -228,6 +224,12 @@
  (fn [_ [_ _ m]]
    {::arithmetic m}))
 
+(re-frame/reg-event-fx
+ :extensions/open-url
+ (fn [cofx [_ _ {:keys [url]}]]
+   (.open js/window url "_blank")
+   nil))
+
 (def all {'identity
           {:permissions [:read]
            :data        :extensions/identity-event
@@ -236,10 +238,106 @@
           {:permissions [:read]
            :data        :alert
            :arguments   {:value :string}}
+          'log
+          {:permissions [:read]
+           :data        :log
+           :arguments   {:value :string}}
+          'arithmetic
+          {:permissions [:read]
+           :data        :extensions/arithmetic
+           :arguments   {:values    :vector
+                         :operation {:one-of #{:plus :minus :times :divide}}
+                         :on-result :event}}
+
+          ;;BROWSER
+          'browser/open-url
+          {:permissions [:read]
+           :data        :extensions/open-url
+           :arguments   {:url :string}}
+
+          ;;SCHEDULE
+          'schedule/start
+          {:permissions [:read]
+           :data        :extensions/schedule-start
+           :arguments   {:interval   :number
+                         :on-created :event
+                         :on-result  :event}}
+          'schedule/cancel
+          {:permissions [:read]
+           :data        :extensions/schedule-cancel
+           :arguments   {:value :number}}
+
+          ;;JSON
+          'json/parse
+          {:permissions [:read]
+           :data        :extensions/json-parse
+           :arguments   {:value     :string
+                         :on-result :event}}
+          'json/stringify
+          {:permissions [:read]
+           :data        :extensions/json-stringify
+           :arguments   {:value     :string
+                         :on-result :event}}
+
+          ;;STORE
+          'store/put
+          {:permissions [:read]
+           :data        :store/put
+           :arguments   {:key :string :value :any}}
+          'store/puts
+          {:permissions [:read]
+           :data        :store/puts
+           :arguments   {:value :vector}}
+          'store/append
+          {:permissions [:read]
+           :data        :store/append
+           :arguments   {:key :string :value :any}}
+          'store/clear
+          {:permissions [:read]
+           :data        :store/clear
+           :arguments   {:key :string}}
+          'store/clear-all
+          {:permissions [:read]
+           :data        :store/clear-all}
+
+          ;;HTTP
+          'http/get
+          {:permissions [:read]
+           :data        :http/get
+           :arguments   {:url         :string
+                         :timeout?    :string
+                         :on-success  :event
+                         :on-failure? :event}}
+          'http/post
+          {:permissions [:read]
+           :data        :http/post
+           :arguments   {:url         :string
+                         :body        :string
+                         :timeout?    :string
+                         :on-success  :event
+                         :on-failure? :event}}
+
+          ;;IPFS
+          'ipfs/cat
+          {:permissions [:read]
+           :data        :ipfs/cat
+           :arguments   {:hash        :string
+                         :on-success  :event
+                         :on-failure? :event}}
+          'ipfs/add
+          {:permissions [:read]
+           :data        :ipfs/add
+           :arguments   {:value       :string
+                         :on-success  :event
+                         :on-failure? :event}}
+
+          ;;TODO not implemented
           'selection-screen
           {:permissions [:read]
            :data        :extensions/show-selection-screen
            :arguments   {:items :vector :on-select :event :render :view :title :string :extractor-key :keyword}}
+
+          ;;CHAT
           'chat.command/set-parameter
           {:permissions [:read]
            :data        :extensions.chat.command/set-parameter
@@ -264,20 +362,8 @@
           {:permissions [:read]
            :value       :extensions.chat.command/open-public-chat
            :arguments   {:topic :string :navigate-to :boolean}}
-          'log
-          {:permissions [:read]
-           :data        :log
-           :arguments   {:value :string}}
-          'arithmetic
-          {:permissions [:read]
-           :data        :extensions/arithmetic
-           :arguments   {:values    :vector
-                         :operation {:one-of #{:plus :minus :times :divide}}
-                         :on-result :event}}
-          'browser/open-url
-          {:permissions [:read]
-           :value       :extensions/open-url
-           :arguments   {:url :string}}
+
+          ;;CAMERA
           'camera/picture
           {:permissions [:read]
            :value       :extensions/camera-picture
@@ -288,72 +374,8 @@
            :value       :extensions/camera-qr-code
            :arguments   {:on-success  :event
                          :on-failure? :event}}
-          'schedule/start
-          {:permissions [:read]
-           :data        :extensions/schedule-start
-           :arguments   {:interval   :number
-                         :on-created :event
-                         :on-result  :event}}
-          'schedule/cancel
-          {:permissions [:read]
-           :data        :extensions/schedule-cancel
-           :arguments   {:value      :number}}
-          'json/parse
-          {:permissions [:read]
-           :data        :extensions/json-parse
-           :arguments   {:value     :string
-                         :on-result :event}}
-          'json/stringify
-          {:permissions [:read]
-           :data        :extensions/json-stringify
-           :arguments   {:value     :string
-                         :on-result :event}}
-          'store/put
-          {:permissions [:read]
-           :data        :store/put
-           :arguments   {:key :string :value :any}}
-          'store/puts
-          {:permissions [:read]
-           :data        :store/puts
-           :arguments   {:value :vector}}
-          'store/append
-          {:permissions [:read]
-           :data        :store/append
-           :arguments   {:key :string :value :any}}
-          'store/clear
-          {:permissions [:read]
-           :data        :store/clear
-           :arguments   {:key :string}}
-          'store/clear-all
-          {:permissions [:read]
-           :data        :store/clear-all}
-          'http/get
-          {:permissions [:read]
-           :data        :http/get
-           :arguments   {:url         :string
-                         :timeout?    :string
-                         :on-success  :event
-                         :on-failure? :event}}
-          'http/post
-          {:permissions [:read]
-           :data        :http/post
-           :arguments   {:url         :string
-                         :body        :string
-                         :timeout?    :string
-                         :on-success  :event
-                         :on-failure? :event}}
-          'ipfs/cat
-          {:permissions [:read]
-           :data        :ipfs/cat
-           :arguments   {:hash        :string
-                         :on-success  :event
-                         :on-failure? :event}}
-          'ipfs/add
-          {:permissions [:read]
-           :data        :ipfs/add
-           :arguments   {:value       :string
-                         :on-success  :event
-                         :on-failure? :event}}
+
+          ;;ETHEREUM
           'ethereum/transaction-receipt
           {:permissions [:read]
            :data        :extensions/ethereum-transaction-receipt
@@ -379,7 +401,7 @@
           'ethereum/create-address
           {:permissions [:read]
            :data        :extensions/ethereum-create-address
-           :arguments   {:on-result  :event}}
+           :arguments   {:on-result :event}}
           'ethereum/send-transaction
           {:permissions [:read]
            :data        :extensions/ethereum-send-transaction
@@ -421,7 +443,7 @@
           'ethereum/cancel-filter
           {:permissions [:read]
            :data        :extensions/ethereum-cancel-filter
-           :arguments   {:id  :string}}
+           :arguments   {:id :string}}
           'ethereum.ens/resolve
           {:permissions [:read]
            :data        :extensions/ethereum-resolve-ens
@@ -431,16 +453,16 @@
           'ethereum.erc20/total-supply
           {:permissions [:read]
            :data        :extensions/ethereum-erc20-total-supply
-           :arguments   {:contract     :string
-                         :on-success   :event
-                         :on-failure?  :event}}
+           :arguments   {:contract    :string
+                         :on-success  :event
+                         :on-failure? :event}}
           'ethereum.erc20/balance-of
           {:permissions [:read]
            :data        :extensions/ethereum-erc20-balance-of
-           :arguments   {:contract     :string
-                         :token-owner  :string
-                         :on-success   :event
-                         :on-failure?  :event}}
+           :arguments   {:contract    :string
+                         :token-owner :string
+                         :on-success  :event
+                         :on-failure? :event}}
           'ethereum.erc20/transfer
           {:permissions [:read]
            :data        :extensions/ethereum-erc20-transfer
@@ -469,9 +491,9 @@
           'ethereum.erc20/allowance
           {:permissions [:read]
            :data        :extensions/ethereum-erc20-allowance
-           :arguments   {:contract     :string
-                         :token-owner  :string
-                         :spender      :string
+           :arguments   {:contract    :string
+                         :token-owner :string
+                         :spender     :string
                          :on-success  :event
                          :on-failure? :event}}
           'ethereum.erc721/owner-of
@@ -566,7 +588,7 @@
           'ethereum/shh-uninstall-filter
           {:permissions [:read]
            :data        :extensions/shh-uninstall-filter
-           :arguments   {:id  :string}}
+           :arguments   {:id :string}}
           'ethereum/shh-get-filter-changes
           {:permissions [:read]
            :data        :extensions/shh-get-filter-changes

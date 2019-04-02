@@ -16,6 +16,7 @@
                                   {:lineWrapping       true
                                    :viewportMargin     20
                                    :maxHighlightLength js/Infinity
+                                   :readOnly           true
                                    :mode               "clojure"}))]
          (js/parinferCodeMirror.init el)
          (js/parinferCodeMirror.setMode el "smart")
@@ -44,4 +45,4 @@
                                            1000)))))))
       :reagent-render
       (fn [_]
-        [:div {:style {:display :block :width "100%" :min-width "0px"}}])})))
+        [:div {:style {:height "60%"}}])})))

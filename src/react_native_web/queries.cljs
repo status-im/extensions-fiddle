@@ -6,6 +6,19 @@
  (fn [_ [_ _ {:keys [value]}]]
    value))
 
+(re-frame/reg-sub
+ :extensions.contacts/all
+ (fn [_ _]
+   [{:photo "?" :name "Test Name 1" :address "0x00testaddress01" :public-key "0x00testpulickey01"}
+    {:photo "?" :name "Test Name 2" :address "0x00testaddress02" :public-key "0x00testpulickey02"}
+    {:photo "?" :name "Test Name 3" :address "0x00testaddress03" :public-key "0x00testpulickey03"}]))
+
+:get-collectible-token
+(re-frame/reg-sub
+ :extensions.wallet/tokens
+ (fn [_ [_ _ _]]
+   {:name "Test"}))
+
 (defn get-token-for [network all-tokens token]
   {:decimals 18
    :address  "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"})
