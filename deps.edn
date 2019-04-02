@@ -9,7 +9,7 @@
            cljsjs/marked              {:mvn/version "0.3.5-1"}
            cljsjs/kjua                {:mvn/version "0.1.1-1"}
            cljs-ajax                  {:mvn/version "0.8.0"}}
- :paths   ["src"]
+ :paths   ["src" "resources"]
  :aliases {:dev {:extra-paths ["src" "resources" "target"]
                  :extra-deps  {com.bhauman/figwheel-main       {:mvn/version "0.2.0"}
                                com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
