@@ -1,8 +1,10 @@
 (ns pluto.playground.components.dialogs
   (:require-macros [react-native-web.views :refer [defview letsubs]])
-  (:require [re-frame.core :as re-frame]
+  (:require [clojure.edn :as edn]
+            [re-frame.core :as re-frame]
             [react-native-web.react :as react]
             [cljsjs.material-ui]
+            [pluto.playground.components.source :as source]
             [status-im.colors :as colors]))
 
 (def Dialog (aget js/MaterialUI "Dialog"))
@@ -60,7 +62,18 @@
       (for [item examples-data]
         [example-item item])]]))
 
+(defn app-db-browser []
+  (let [browse @(re-frame/subscribe [:get :browse-app-db])
+        m @(re-frame/subscribe [:store/all])]
+    [:> Dialog {:open browse :on-close #(re-frame/dispatch [:set :browse-app-db false])}
+     [:> DialogTitle
+      "Edit local app-db"]
+     [:div {:style {:padding 20 :width "50vw" :height "80vh"}}
+      [source/editor2 {:content   (str (or m {}))
+                       :on-change #(re-frame/dispatch [:fiddle/set-app-db nil (edn/read-string %)])}]]]))
+
 (defn dialogs []
   [:div
    [publish]
-   [examples]])
+   [examples]
+   [app-db-browser]])

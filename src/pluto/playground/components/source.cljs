@@ -46,3 +46,23 @@
       :reagent-render
       (fn [_]
         [:div {:style {:height "60%"}}])})))
+
+(defn editor2 [{:keys [on-change content]}]
+  (reagent/create-class
+    {:component-did-mount
+     (fn [this]
+       (let [el (js/CodeMirror. (reagent/dom-node this)
+                                (clj->js
+                                  {:lineWrapping       true
+                                   :viewportMargin     20
+                                   :maxHighlightLength js/Infinity
+                                   :mode               "clojure"}))]
+         (js/parinferCodeMirror.init el)
+         (js/parinferCodeMirror.setMode el "smart")
+         (js/parinferCodeMirror.setOptions el #js {:forceBalance true})
+         (.setValue el content)
+         (when on-change
+           (.on el "change" #(on-change (.getValue el))))))
+     :reagent-render
+     (fn [_]
+       [:div {:style {:overflow "auto"}}])}))
