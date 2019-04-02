@@ -152,3 +152,15 @@
  :fetch-extension
  (fn [{:keys [db]} _]
    {:fetch-extension-fx nil}))
+
+(re-frame.core/reg-fx
+ :set-url-fx
+ (fn [hash]
+   (ipfs/set-url hash)))
+
+(re-frame.core/reg-event-fx
+ :open-example
+ (fn [{db :db} [_ hash]]
+   {:db (dissoc db :examples)
+    :set-url-fx hash
+    :dispatch [:fetch-extension]}))

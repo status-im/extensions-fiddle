@@ -13,7 +13,7 @@
             [re-frame.registrar :as registrar]
             [re-frame.loggers :as re-frame.loggers]
             [react-native-web.react :as react]
-            [pluto.playground.components.publish :as publish]))
+            [pluto.playground.components.dialogs :as dialogs]))
 
 (def warn (js/console.warn.bind js/console))
 (re-frame.loggers/set-loggers!
@@ -79,7 +79,7 @@
   (letsubs [logs [:extension/filtered-logs]
             errors [:extension/errors]]
     [:div {:style {:display :flex :flex 1}}
-     [publish/publish-dialog]
+     [dialogs/dialogs]
      [:div {:style {:display :inline-block :width "calc(100% - 400px)"}}
       [source/editor {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]
       [:div
@@ -91,7 +91,10 @@
       [:div {:style {:height "calc(40% - 50px)" :overflow :auto}}
        [logs/table (or (flatten-errors errors) logs)]]]
      [:div
-      [:div {:style {:display :flex :justify-content :flex-end}}
+      [:div {:style {:display :flex :justify-content :flex-end :padding-right 20 :padding-top 5}}
+       [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :examples true])}
+        "Examples"]
+       [:div {:style {:width 10}}]
        [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
         "Publish"]]
       [:div {:style {:border "40px solid #ddd" :border-width "20px 7px" :border-radius "40px" :margin 20}}
