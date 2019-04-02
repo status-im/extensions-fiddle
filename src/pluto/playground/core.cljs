@@ -81,7 +81,11 @@
     [:div {:style {:display :flex :flex 1}}
      [dialogs/dialogs]
      [:div {:style {:display :inline-block :width "calc(100% - 400px)"}}
-      [source/editor {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]
+      [:div
+       [:div {:style {:display :flex :justify-content :flex-end :align-items :center :margin "10px"}}
+        [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :browse-app-db true])}
+         "Local app DB"]]
+       [source/editor {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]]
       [:div
        [:div {:style {:display :flex :justify-content :flex-end :align-items :center :margin "10px"}}
         [switch {:color "primary" :on-change #(re-frame/dispatch [:extension/switch-filter-logs %2])}]
@@ -91,7 +95,7 @@
       [:div {:style {:height "calc(40% - 50px)" :overflow :auto}}
        [logs/table (or (flatten-errors errors) logs)]]]
      [:div
-      [:div {:style {:display :flex :justify-content :flex-end :padding-right 20 :padding-top 5}}
+      [:div {:style {:display :flex :justify-content :flex-end :padding-right 20 :margin "10px"}}
        [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :examples true])}
         "Examples"]
        [:div {:style {:width 10}}]
