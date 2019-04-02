@@ -83,18 +83,18 @@
      [:div {:style {:display :inline-block :width "calc(100% - 400px)"}}
       [source/editor {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]
       [:div
-       [:div {:style {:display :flex :justify-content :flex-end :align-items :center}}
+       [:div {:style {:display :flex :justify-content :flex-end :align-items :center :margin "10px"}}
         [switch {:color "primary" :on-change #(re-frame/dispatch [:extension/switch-filter-logs %2])}]
         [:span {:style {:margin "10px"}} "Filter traces"]
         [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/clear-logs])}
          "Clear logs"]]]
-      [:div {:style {:height "calc(40% - 50px)" :overflow :scroll}}
+      [:div {:style {:height "calc(40% - 50px)" :overflow :auto}}
        [logs/table (or (flatten-errors errors) logs)]]]
      [:div
       [:div {:style {:display :flex :justify-content :flex-end}}
        [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
         "Publish"]]
-      [:div {:style {:border "40px solid #ddd" :border-width "20px 7px" :border-radius "40px" :margin-top 20}}
+      [:div {:style {:border "40px solid #ddd" :border-width "20px 7px" :border-radius "40px" :margin 20}}
        [react/view {:style {:width 375 :height 667}}
         [:div {:id "extension" :style {:display :flex :flex 1}}]]]]]))
 

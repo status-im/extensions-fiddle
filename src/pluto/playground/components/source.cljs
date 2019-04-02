@@ -24,7 +24,7 @@
          (.setValue el content)))
      :reagent-render
      (fn [_]
-       [:div {:style {:height "80px" :overflow "auto"}}])}))
+       [:div {:style {:overflow "auto"}}])}))
 
 (defn editor [{:keys [on-change]}]
   (let [debounce (atom nil)]
