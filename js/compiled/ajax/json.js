@@ -54,27 +54,27 @@ var ajax$json$make_json_response_format_$_json_response_format = null;
 var ajax$json$make_json_response_format_$_json_response_format__0 = (function (){
 return ajax$json$make_json_response_format_$_json_response_format.cljs$core$IFn$_invoke$arity$1(cljs.core.PersistentArrayMap.EMPTY);
 });
-var ajax$json$make_json_response_format_$_json_response_format__1 = (function (p__5861){
-var map__5862 = p__5861;
-var map__5862__$1 = (((((!((map__5862 == null))))?(((((map__5862.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__5862.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__5862):map__5862);
-var prefix = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__5862__$1,cljs.core.cst$kw$prefix);
-var keywords_QMARK_ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__5862__$1,cljs.core.cst$kw$keywords_QMARK_);
-var raw = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__5862__$1,cljs.core.cst$kw$raw);
-return ajax.interceptors.map__GT_ResponseFormat(new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$read,((function (map__5862,map__5862__$1,prefix,keywords_QMARK_,raw){
+var ajax$json$make_json_response_format_$_json_response_format__1 = (function (p__5852){
+var map__5853 = p__5852;
+var map__5853__$1 = (((((!((map__5853 == null))))?(((((map__5853.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__5853.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__5853):map__5853);
+var prefix = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__5853__$1,cljs.core.cst$kw$prefix);
+var keywords_QMARK_ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__5853__$1,cljs.core.cst$kw$keywords_QMARK_);
+var raw = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__5853__$1,cljs.core.cst$kw$raw);
+return ajax.interceptors.map__GT_ResponseFormat(new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$read,((function (map__5853,map__5853__$1,prefix,keywords_QMARK_,raw){
 return (function ajax$json$make_json_response_format_$_json_response_format_$_json_read_response_format(xhrio){
-var G__5864 = raw;
-var G__5865 = keywords_QMARK_;
-var G__5866 = ajax.json.strip_prefix(prefix,ajax.protocols._body(xhrio));
-return (read_json.cljs$core$IFn$_invoke$arity$3 ? read_json.cljs$core$IFn$_invoke$arity$3(G__5864,G__5865,G__5866) : read_json.call(null,G__5864,G__5865,G__5866));
-});})(map__5862,map__5862__$1,prefix,keywords_QMARK_,raw))
+var G__5855 = raw;
+var G__5856 = keywords_QMARK_;
+var G__5857 = ajax.json.strip_prefix(prefix,ajax.protocols._body(xhrio));
+return (read_json.cljs$core$IFn$_invoke$arity$3 ? read_json.cljs$core$IFn$_invoke$arity$3(G__5855,G__5856,G__5857) : read_json.call(null,G__5855,G__5856,G__5857));
+});})(map__5853,map__5853__$1,prefix,keywords_QMARK_,raw))
 ,cljs.core.cst$kw$description,["JSON",(cljs.core.truth_(prefix)?[" prefix '",cljs.core.str.cljs$core$IFn$_invoke$arity$1(prefix),"'"].join(''):null),(cljs.core.truth_(keywords_QMARK_)?" keywordize":null)].join(''),cljs.core.cst$kw$content_DASH_type,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["application/json"], null)], null));
 });
-ajax$json$make_json_response_format_$_json_response_format = function(p__5861){
+ajax$json$make_json_response_format_$_json_response_format = function(p__5852){
 switch(arguments.length){
 case 0:
 return ajax$json$make_json_response_format_$_json_response_format__0.call(this);
 case 1:
-return ajax$json$make_json_response_format_$_json_response_format__1.call(this,p__5861);
+return ajax$json$make_json_response_format_$_json_response_format__1.call(this,p__5852);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
