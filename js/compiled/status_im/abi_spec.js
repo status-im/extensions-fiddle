@@ -55,7 +55,7 @@ return Web3Utils.hexToUtf8(["0x",cljs.core.str.cljs$core$IFn$_invoke$arity$1(x)]
 });
 status_im.abi_spec.hex_to_number = (function status_im$abi_spec$hex_to_number(x){
 if(cljs.core.truth_(x)){
-return toBigNumber(["0x",cljs.core.str.cljs$core$IFn$_invoke$arity$1(x)].join(''));
+return toBigNumber(["0x",cljs.core.str.cljs$core$IFn$_invoke$arity$1(x)].join(''),(16)).toNumber();
 } else {
 return null;
 }
