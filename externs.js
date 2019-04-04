@@ -9,6 +9,7 @@ Web3Utils.hexToUtf8 = function(){};
 Web3Utils.sha3 = function(){};
 
 var toBigNumber = function(){};
+var toNumber = function(){};
 
 var ethereum = {};
 ethereum.enable = function(){};
