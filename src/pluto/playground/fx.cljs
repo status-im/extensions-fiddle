@@ -43,14 +43,10 @@
 (re-frame/reg-fx
   :extension/parse
   (fn [[ctx data]]
-    (let [{:keys [data errors] :as m} (pluto/parse ctx data)]
+    (let [{:keys [data errors]} (pluto/parse ctx data)]
       (if errors
         (re-frame/dispatch [:extension/update-errors errors])
-        (do
-          (reagent/render-component
-           (hooks/hook-in (first (:hooks data)))
-           (.getElementById js/document "extension"))
-          (re-frame/dispatch [:extension/update-parsed data]))))))
+        (re-frame/dispatch [:extension/update-parsed data])))))
 
 (defn- update-extension-data
   [{:keys [db]} [_ ctx data]]
@@ -151,7 +147,8 @@
 (re-frame.core/reg-event-fx
  :fetch-extension
  (fn [{:keys [db]} _]
-   {:fetch-extension-fx nil}))
+   {:fetch-extension-fx nil
+    :dispatch           [:store/clear-all]}))
 
 (re-frame.core/reg-fx
  :set-url-fx
@@ -164,3 +161,8 @@
    {:db (dissoc db :examples)
     :set-url-fx hash
     :dispatch [:fetch-extension]}))
+
+(re-frame.core/reg-event-fx
+  :extension/set-properties
+  (fn [{:keys [db]} [_ id m]]
+    {:db (assoc-in db [:extensions/properties id] m)}))
