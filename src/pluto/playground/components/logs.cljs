@@ -28,6 +28,7 @@
 (defmethod pretty-print-data [::log/trace :event/dispatch] [{:keys [data]}]
   [:<>
    (for [event data]
+     ^{:key event}
      [reference event])])
 
 ;; TODO unify static and runtime (log) errors
@@ -42,6 +43,11 @@
   [:div {:style {:max-height "100px" :overflow "auto"}}
    child])
 
+(defn- pretty-print-category [category]
+  (reagent/as-element
+    [:div {:style {:color (if (= category ::log/error) :red :blue)}}
+     category]))
+
 (defn table [v]
   [:div
    [:> Table
@@ -53,10 +59,10 @@
       [:> TableCell "Data"]]]
     [:> TableBody
      (for [{:keys [id category type] :as m} v]
-       ^{:key id}
+       ^{:key (or id m)}
        [:> TableRow
         [:> TableCell id]
-        [:> TableCell category]
+        [:> TableCell (pretty-print-category category)]
         [:> TableCell type]
         [:> TableCell
          [data-wrapper

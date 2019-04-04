@@ -13,7 +13,6 @@
   (.log js/console "trigger" query arguments))
 
 (defn tree [ctx m]
-  (println m)
   [:div
    (for [[k v] (filter primitive? m)] ;; TODO only events and views?
      ^{:key k}

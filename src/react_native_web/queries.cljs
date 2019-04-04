@@ -13,12 +13,6 @@
     {:photo "?" :name "Test Name 2" :address "0x00testaddress02" :public-key "0x00testpulickey02"}
     {:photo "?" :name "Test Name 3" :address "0x00testaddress03" :public-key "0x00testpulickey03"}]))
 
-:get-collectible-token
-(re-frame/reg-sub
- :extensions.wallet/tokens
- (fn [_ [_ _ _]]
-   {:name "Test"}))
-
 (defn get-token-for [network all-tokens token]
   {:decimals 18
    :address  "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"})

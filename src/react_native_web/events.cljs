@@ -57,7 +57,7 @@
     :else (nil? o)))
 
 (re-frame/reg-event-fx
-  :fiddle/set-app-db
+  :extension/set-app-db
   (fn [{:keys [db]} [_ {id :hook-id} m]]
     {:db (assoc-in db [:extensions/store id] m)}))
 

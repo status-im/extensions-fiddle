@@ -69,3 +69,8 @@
 (re-frame/reg-sub
   :extension/preview
   preview)
+
+(re-frame/reg-sub
+  :extension/properties
+  (fn [db [_ id _]]
+    (get-in db [:extensions/properties id])))

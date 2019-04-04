@@ -6,9 +6,9 @@
             [pluto.core :as pluto]
             [clojure.string :as string]))
 
-(defn settings-hook [id {:keys [view]}]
+(defn settings-hook [id {:keys [view]} props]
   [react/view {:style {:flex 1}}
-   [view]])
+   [view props]])
 
 (defn message-container [preview outgoing]
   [react/view
@@ -74,7 +74,7 @@
 (defn rand-str [len]
   (apply str (take len (repeatedly #(char (+ (rand 26) 65))))))
 
-(defview chat-view [preview parameters command-id]
+(defview chat-view [preview parameters command-id props]
   (letsubs [{:keys [messages params suggestion-id]} [:get :extension-props]]
     [react/view {:style {:flex 1}}
      [(react/scroll-view) {:style {:flex 1 :background-color :white}}
@@ -82,8 +82,9 @@
        (for [message messages]
          ^{:key (str message (rand-str 10))}
          [react/view
-          [message-container (when preview (preview (merge {:outgoing false} message))) false]
-          [message-container (when preview (preview (merge {:outgoing true} message))) true]])]]
+          (let [m (merge {:outgoing false} message props)]
+            [message-container (when preview (preview m)) false]
+            [message-container (when preview (preview m)) true])])]]
      (when-let [suggestion (some #(when (= suggestion-id (:id %)) (:suggestions %)) parameters)]
        [react/view {:style {:max-height 300}}
         [suggestion]])
@@ -105,13 +106,15 @@
         #_[icons/icon :main-icons/arrow-up {:container-style send-message-icon
                                             :color           :white}]]]]]))
 
-(defn command-hook  [id {:keys [parameters preview]}]
-  [chat-view preview parameters id])
+(defn command-hook  [id {:keys [parameters preview]} props]
+  [chat-view preview parameters id props])
 
-(defn hook-in [[id parsed]]
+(defn hook-in [[id parsed] props]
   (when id
     (let [hook-id (last (string/split (name id) #"\."))
           type (pluto/hook-type id)]
       (case type
-        "chat.command" (command-hook hook-id parsed)
-        "wallet.settings" (settings-hook hook-id parsed)))))
+        "chat.command" (command-hook hook-id parsed props)
+        "wallet.settings" (settings-hook hook-id parsed props)
+        [:div
+         (str "Unknown hook type " type)]))))

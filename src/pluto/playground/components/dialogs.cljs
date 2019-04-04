@@ -55,11 +55,12 @@
 
 (defview examples []
   (letsubs [show? [:get :examples]]
-    [:> Dialog {:open show? :on-close #(re-frame/dispatch [:set :examples nil])}
+    [:> Dialog {:open (or show? false) :on-close #(re-frame/dispatch [:set :examples nil])}
      [:> DialogTitle
       "Extensions examples"]
      [:div {:style {:padding 20 :overflow :auto}}
       (for [item examples-data]
+        ^ {:key item}
         [example-item item])]]))
 
 (defn app-db-browser []
@@ -70,10 +71,27 @@
       "Edit local app-db"]
      [:div {:style {:padding 20 :width "50vw" :height "80vh"}}
       [source/editor2 {:content   (str (or m {}))
-                       :on-change #(re-frame/dispatch [:fiddle/set-app-db nil (edn/read-string %)])}]]]))
+                       :on-change #(re-frame/dispatch [:extension/set-app-db nil (edn/read-string %)])}]]]))
 
-(defn dialogs []
+(defn- set-properties [id s]
+  (try
+    (re-frame/dispatch [:extension/set-properties id (edn/read-string s)])
+    (catch js/Error _)))
+
+(defn properties-browser [selection]
+  (let [browse @(re-frame/subscribe [:get :browse-properties])
+        m @(re-frame/subscribe [:extension/properties selection])]
+    [:> Dialog {:open browse :on-close #(re-frame/dispatch [:set :browse-properties false])}
+     [:> DialogTitle
+      "Edit properties"]
+     [:div {:style {:padding 20 :width "50vw" :height "80vh"}}
+      [source/editor2 {:content   (str (or m {}))
+                       :on-change #(set-properties selection %)}]]]))
+
+
+(defn dialogs [selection]
   [:div
    [publish]
    [examples]
-   [app-db-browser]])
+   [app-db-browser]
+   [properties-browser selection]])
