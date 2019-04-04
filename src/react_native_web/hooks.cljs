@@ -74,17 +74,17 @@
 (defn rand-str [len]
   (apply str (take len (repeatedly #(char (+ (rand 26) 65))))))
 
-(defview chat-view [preview parameters command-id props]
+(defview chat-view [preview parameters command-id props on-send]
   (letsubs [{:keys [messages params suggestion-id]} [:get :extension-props]]
     [react/view {:style {:flex 1}}
      [(react/scroll-view) {:style {:flex 1 :background-color :white}}
       [react/view
        (for [message messages]
-         ^{:key (str message (rand-str 10))}
-         [react/view
-          (let [m (merge {:outgoing false} message props)]
-            [message-container (when preview (preview m)) false]
-            [message-container (when preview (preview m)) true])])]]
+         (let [m (fn [out?] (merge {:outgoing out?} message props))]
+           ^{:key (str message (rand-str 10))}
+           [react/view
+            [message-container (when preview (preview (m false))) false]
+            [message-container (when preview (preview (m true))) true]]))]]
      (when-let [suggestion (some #(when (= suggestion-id (:id %)) (:suggestions %)) parameters)]
        [react/view {:style {:max-height 300}}
         [suggestion]])
@@ -99,6 +99,7 @@
                              :on-focus       #(re-frame/dispatch [:set-in [:extension-props :suggestion-id] id])
                              :style          {:margin-right 5 :width 50}}])]]
       [(react/touchable-highlight) {:on-press #(do
+                                                 (when on-send (on-send))
                                                  (re-frame/dispatch [:set-in [:extension-props :suggestion-id] nil])
                                                  (re-frame/dispatch [:set-in [:extension-props :messages] (conj messages {:content {:params params}})]))}
        [react/view {:style send-message-container}
@@ -106,8 +107,8 @@
         #_[icons/icon :main-icons/arrow-up {:container-style send-message-icon
                                             :color           :white}]]]]]))
 
-(defn command-hook  [id {:keys [parameters preview]} props]
-  [chat-view preview parameters id props])
+(defn command-hook  [id {:keys [parameters preview on-send]} props]
+  [chat-view preview parameters id props on-send])
 
 (defn hook-in [[id parsed] props]
   (when id
