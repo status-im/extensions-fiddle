@@ -34,7 +34,7 @@
   [{:header "General"}
    {:name "Components" :hash "QmadX7aF2tBaLJjEnNP4Bewc9JZbT5CGjZgKX71MCpvaDS"}
    {:name "Queries" :hash "QmRyL2JJ7HoGQKQfHruWuECUp1bAkbxYjprQgFQGsmns1v"}
-   {:name "Events" :hash "QmUYEKhnXibFhSQ7rDWcPfBUwFr6A379N7dFtbW6PQZaee"}
+   {:name "Events" :hash "QmU9rAboLD23SdCbAxtjtfwwzhbVNcq4tNBe1bGhWHYoZN"}
    {:header "Chat commands"}
    {:name "Hello world" :hash "QmV8JsEA2fBnjstH3MJzK5SgF9F7qNSyKLo2LapYia5pX4"}
    {:name "Ethereum logs tests" :hash "QmaKKKUgDsJKQJ5Q9BJg8V1SRDhhiKbyyQycoExF3eehUZ"}
@@ -55,7 +55,7 @@
 
 (defview examples []
   (letsubs [show? [:get :examples]]
-    [:> Dialog {:open (or show? false) :on-close #(re-frame/dispatch [:set :examples nil])}
+    [:> Dialog {:open (boolean show?) :on-close #(re-frame/dispatch [:set :examples nil])}
      [:> DialogTitle
       "Extensions examples"]
      [:div {:style {:padding 20 :overflow :auto}}
@@ -63,10 +63,10 @@
         ^ {:key item}
         [example-item item])]]))
 
-(defn app-db-browser []
-  (let [browse @(re-frame/subscribe [:get :browse-app-db])
-        m @(re-frame/subscribe [:store/all])]
-    [:> Dialog {:open browse :on-close #(re-frame/dispatch [:set :browse-app-db false])}
+(defview app-db-browser []
+  (letsubs [browse [:get :browse-app-db]
+            m [:store/all]]
+    [:> Dialog {:open (boolean browse) :on-close #(re-frame/dispatch [:set :browse-app-db false])}
      [:> DialogTitle
       "Edit local app-db"]
      [:div {:style {:padding 20 :width "50vw" :height "80vh"}}
@@ -78,20 +78,20 @@
     (re-frame/dispatch [:extension/set-properties id (edn/read-string s)])
     (catch js/Error _)))
 
-(defn properties-browser [selection]
-  (let [browse @(re-frame/subscribe [:get :browse-properties])
-        m @(re-frame/subscribe [:extension/properties selection])]
-    [:> Dialog {:open browse :on-close #(re-frame/dispatch [:set :browse-properties false])}
-     [:> DialogTitle
-      "Edit properties"]
-     [:div {:style {:padding 20 :width "50vw" :height "80vh"}}
-      [source/editor2 {:content   (str (or m {}))
-                       :on-change #(set-properties selection %)}]]]))
+(defview properties-browser []
+  (letsubs [browse [:get :browse-properties]
+            selection [:extension-selection]]
+    (let [m @(re-frame/subscribe [:extension/properties selection])]
+      [:> Dialog {:open (boolean browse) :on-close #(re-frame/dispatch [:set :browse-properties false])}
+       [:> DialogTitle
+        "Edit properties"]
+       [:div {:style {:padding 20 :width "50vw" :height "80vh"}}
+        [source/editor2 {:content   (str (or m {}))
+                         :on-change #(set-properties selection %)}]]])))
 
-
-(defn dialogs [selection]
+(defn dialogs []
   [:div
    [publish]
    [examples]
    [app-db-browser]
-   [properties-browser selection]])
+   [properties-browser]])

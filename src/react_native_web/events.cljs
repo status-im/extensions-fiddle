@@ -1,7 +1,9 @@
 (ns react-native-web.events
   (:require [re-frame.core :as re-frame]
             [clojure.string :as string]
-            [ajax.core :as ajax]))
+            [ajax.core :as ajax]
+            react-native-web.ethereum
+            react-native-web.ethereum.logs))
 
 (def ^:const ipfs-add-url "https://ipfs.infura.io:5001/api/v0/add")
 (def ^:const ipfs-add-param-name "extension.event.edn")
@@ -336,6 +338,31 @@
                          :on-success  :event
                          :on-failure? :event}}
 
+          ;;ETHEREUM
+
+          'ethereum/call
+          {:permissions [:read]
+           :data        :extensions/ethereum-call
+           :arguments   {:to          :string
+                         :method      :string
+                         :params?     :vector
+                         :outputs?    :vector
+                         :on-success  :event
+                         :on-failure? :event}}
+
+          'ethereum/send-transaction
+          {:permissions [:read]
+           :data        :extensions/ethereum-send-transaction
+           :arguments   {:to          :string
+                         :gas?        :string
+                         :gas-price?  :string
+                         :value?      :string
+                         :method?     :string
+                         :params?     :vector
+                         :nonce?      :string
+                         :on-success? :event
+                         :on-failure? :event}}
+
           ;;TODO not implemented
           'selection-screen
           {:permissions [:read]
@@ -381,6 +408,15 @@
                          :on-failure? :event}}
 
           ;;ETHEREUM
+
+          'ethereum/sign
+          {:permissions [:read]
+           :data        :extensions/ethereum-sign
+           :arguments   {:message?    :string
+                         :data?       :string
+                         :on-success  :event
+                         :on-failure? :event}}
+
           'ethereum/transaction-receipt
           {:permissions [:read]
            :data        :extensions/ethereum-transaction-receipt
@@ -396,29 +432,13 @@
                          :topics-hints :vector
                          :on-success   :event
                          :on-failure?  :event}}
-          'ethereum/sign
-          {:permissions [:read]
-           :data        :extensions/ethereum-sign
-           :arguments   {:message?    :string
-                         :data?       :string
-                         :on-success  :event
-                         :on-failure? :event}}
+
+          ;;TODO What is for?
           'ethereum/create-address
           {:permissions [:read]
            :data        :extensions/ethereum-create-address
            :arguments   {:on-result :event}}
-          'ethereum/send-transaction
-          {:permissions [:read]
-           :data        :extensions/ethereum-send-transaction
-           :arguments   {:to          :string
-                         :gas?        :string
-                         :gas-price?  :string
-                         :value?      :string
-                         :method?     :string
-                         :params?     :vector
-                         :nonce?      :string
-                         :on-success? :event
-                         :on-failure? :event}}
+
           'ethereum/logs
           {:permissions [:read]
            :data        :extensions/ethereum-logs
@@ -449,12 +469,16 @@
           {:permissions [:read]
            :data        :extensions/ethereum-cancel-filter
            :arguments   {:id :string}}
+
+          ;;ENS
           'ethereum.ens/resolve
           {:permissions [:read]
            :data        :extensions/ethereum-resolve-ens
            :arguments   {:name        :string
                          :on-success  :event
                          :on-failure? :event}}
+
+          ;;ERC20 Tokens
           'ethereum.erc20/total-supply
           {:permissions [:read]
            :data        :extensions/ethereum-erc20-total-supply
@@ -501,6 +525,9 @@
                          :spender     :string
                          :on-success  :event
                          :on-failure? :event}}
+
+
+          ;; ERC721 NFT Collactables
           'ethereum.erc721/owner-of
           {:permissions [:read]
            :data        :extensions/ethereum-erc721-owner-of
@@ -541,15 +568,9 @@
                          :data?       :string
                          :on-success  :event
                          :on-failure? :event}}
-          'ethereum/call
-          {:permissions [:read]
-           :data        :extensions/ethereum-call
-           :arguments   {:to          :string
-                         :method      :string
-                         :params?     :vector
-                         :outputs?    :vector
-                         :on-success  :event
-                         :on-failure? :event}}
+
+          ;;SHH
+
           'ethereum/shh_post
           {:permissions [:read]
            :data        :extensions/shh-post

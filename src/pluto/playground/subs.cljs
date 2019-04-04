@@ -74,3 +74,26 @@
   :extension/properties
   (fn [db [_ id _]]
     (get-in db [:extensions/properties id])))
+
+(re-frame/reg-sub
+ :extension-keys
+ :<- [:extension/parsed]
+ (fn [{:keys [views hooks]}]
+   (concat (map #(str "hooks/" (name %)) (keys hooks))
+           (map #(str "views/" (name %)) (keys views)))))
+
+(re-frame/reg-sub
+  :extension-selection
+  :<- [:get :extension-selection]
+  :<- [:extension-keys]
+  (fn [[extension-selection extension-keys]]
+    (if extension-selection
+      extension-selection
+      (first extension-keys))))
+
+(re-frame/reg-sub
+ :extension/selected-properties
+ :<- [:get :extensions/properties]
+ :<- [:extension-selection]
+ (fn [[props id]]
+   (get props id)))
