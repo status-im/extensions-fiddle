@@ -74,7 +74,7 @@
       "Edit local app-db"]
      [:div {:style {:padding 20 :display :flex :min-width 500 :height "80vh"}}
       [source/editor2 {:content   (with-out-str (fipp/pprint (or m {})))
-                       :on-change #(re-frame/dispatch [:extension/set-app-db nil (edn/read-string %)])}]]]))
+                       :on-change #(re-frame/dispatch [:extension/set-app-db (edn/read-string %)])}]]]))
 
 (defn- set-properties [id s]
   (try

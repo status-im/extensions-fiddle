@@ -166,3 +166,8 @@
   :extension/set-properties
   (fn [{:keys [db]} [_ id m]]
     {:db (assoc-in db [:extensions/properties id] m)}))
+
+(re-frame/reg-event-fx
+ :extension/set-app-db
+ (fn [{:keys [db]} [_ m]]
+   {:db (assoc-in db [:extensions/store "Extension ID"] m)}))

@@ -58,11 +58,6 @@
     (seqable? o) (empty? o)
     :else (nil? o)))
 
-(re-frame/reg-event-fx
-  :extension/set-app-db
-  (fn [{:keys [db]} [_ {id :hook-id} m]]
-    {:db (assoc-in db [:extensions/store id] m)}))
-
 (defn put-or-dissoc [db id key value]
   (if (empty-value? value)
     (update-in db [:extensions/store id] dissoc key)
