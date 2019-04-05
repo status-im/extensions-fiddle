@@ -109,7 +109,10 @@
 (defview eth-wallet []
   (letsubs [ethereum-addr [:get :ethereum-addr]]
     [:div {:style {:flex 1 :display :flex :justify-content :flex-end :padding 10}}
-     (when ethereum-addr [:div "Wallet connected: " ethereum-addr])]))
+     (if ethereum-addr
+       [:div {:style {:color "inherit"}} "Wallet connected: " ethereum-addr]
+       [button {:color "inherit" :on-click #(re-frame/dispatch [:extensions/init-wallet])}
+        "Connect wallet"])]))
 
 (defview view-selection []
   (letsubs [selection [:extension-selection]
@@ -147,7 +150,8 @@
          [:div {:style {:display :flex :flex 1 :align-items :center :justify-content :space-between :margin margin}}
            [:> Typography {:color "inherit" :variant "h6"}
             "Extensions Fiddle"]
-           [:div
+           [:div {:style {:display :flex :flex-direction :row}}
+            [eth-wallet]
             [button {:color "inherit" :on-click #(re-frame/dispatch [:set :examples true])}
              "Examples"]
             [button {:color "inherit" :on-click #(re-frame/dispatch [:extension/publish])}
