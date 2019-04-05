@@ -83,7 +83,7 @@
           'keyboard-avoiding-view {:data view}
           'text                   {:data text}
           'touchable-opacity      {:data touchable-opacity :properties {:on-press :event}}
-          'icon                   {:data component :properties {:key :keyword :color :any}}
+          'icon                   {:data view :properties {:key :keyword :color :any}}
           'image                  {:data image :properties {:uri :string :source :string}}
           'input                  {:data input :properties {:on-change :event :placeholder :string :keyboard-type :keyword :change-delay? :number :placeholder-text-color :any :selection-color :any}}
           'button                 {:data button :properties {:enabled :boolean :disabled :boolean :on-click :event}}

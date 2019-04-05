@@ -92,9 +92,23 @@
         [source/editor2 {:content   (with-out-str (fipp/pprint (or m {})))
                          :on-change #(set-properties selection %)}]]])))
 
+(defview selection-screen []
+  (letsubs [{:keys [items render title extractor-key on-select] :as params} [:get :selection-screen]]
+    [:> Dialog {:open (not (nil? params)) :on-close #(re-frame/dispatch [:set :selection-screen nil])}
+     [:> DialogTitle
+      title]
+     [:div {:style {:padding 20 :overflow :auto}}
+      (for [item items]
+        ^{:key item}
+        [:div {:style {:padding 5 :cursor :pointer} :on-click  #(do
+                                                                  (re-frame/dispatch [:set :selection-screen nil])
+                                                                  (on-select item))}
+         [render item]])]]))
+
 (defn dialogs []
   [:div
    [publish]
    [examples]
    [app-db-browser]
-   [properties-browser]])
+   [properties-browser]
+   [selection-screen]])
