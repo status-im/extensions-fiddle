@@ -41,11 +41,6 @@
  (fn [db [_ {id :id} {:keys [key]}]]
    (get-in db [:extensions/store id key])))
 
-(re-frame/reg-sub
- :store/all
- (fn [db [_ {id :id} _]]
-   (get-in db [:extensions/store id])))
-
 (def all {'identity            {:data :extensions/identity :arguments {:value :map}}
           'store/get           {:data :store/get :arguments {:key :string}}
           'contacts/all        {:data :extensions.contacts/all} ;; :photo :name :address :public-key
