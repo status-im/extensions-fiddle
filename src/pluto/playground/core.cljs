@@ -41,6 +41,10 @@
      [:> MenuItem {:value value}
       label])])
 
+(def AppBar (aget js/MaterialUI "AppBar"))
+(def Toolbar (aget js/MaterialUI "Toolbar"))
+(def Typography (aget js/MaterialUI "Typography"))
+
 (def warn (js/console.warn.bind js/console))
 (re-frame.loggers/set-loggers!
  {:warn (fn [& args]
@@ -95,9 +99,11 @@
     (let [[type id] (parse-extension-id extension-selection)]
       (case type
         :hooks (hooks/hook-in [id (get-in data [:hooks id])] props)
-        :views [:div {:style {:display :flex :flex 1}}
+        :views [:div {:style {:display :flex :flex 1 :align-items :center
+                              :justify-content :center :max-width "100%"}}
                 ^{:key (str props id data)}
-                [view props data id]]
+                [:div {:style {:max-width "100%" :border "blue 1px solid"}}
+                 [view props data id]]]
         nil))))
 
 (defview eth-wallet []
@@ -124,35 +130,61 @@
             errors [:extension/errors]]
     [logs/table (or (flatten-errors errors) logs)]))
 
+(def margin 10)
+
 (defview layout []
-  [:div {:style {:display :flex :flex 1}}
-   [dialogs/dialogs]
-   [:div {:style {:display :inline-block :width "calc(100% - 400px)"}}
-    [eth-wallet]
-    [source/editor {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]
-    [:div
-     [:div {:style {:display :flex :justify-content :flex-end :align-items :center :margin "10px"}}
-      [switch {:color "primary" :on-change #(re-frame/dispatch [:extension/switch-filter-logs %2])}]
-      [:span {:style {:margin "10px"}} "Filter traces"]
-      [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/clear-logs])}
-       "Clear logs"]]]
-    [:div {:style {:height "calc(40% - 50px)" :overflow :auto}}
-     [logs-errors]]]
-   [:div
-    [:div {:style {:display :flex :justify-content :flex-end :padding-right 20 :margin "10px"}}
-     [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :examples true])}
-      "Examples"]
-     [:div {:style {:width 10}}]
-     [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/publish])}
-      "Publish"]]
-    [react/view {:style {:width 375 :height 667 :border-color "#ddd" :border-width 6 :border-radius 3
-                         :margin-horizontal 20 :margin-vertical 5}}
-     [selected-ui]]
-    [:div {:style {:display :flex :justify-content :center :flex-direction :column :padding 10}}
-     [:div {:style {:display :flex :justify-content :flex-end}}
-      [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :browse-app-db true])}
-       "Local app DB"]]
-     [view-selection]]]])
+  (letsubs [logs   [:extension/filtered-logs]
+            errors [:extension/errors]
+            {:keys [views hooks] :as data}   [:extension/parsed]
+            extension-selection [:get :extension-selection]]
+    (let [keys (concat (map #(str "hooks/" (name %)) (keys hooks))
+                       (map #(str "views/" (name %)) (keys views)))
+          selection (or extension-selection (first keys))
+          props     @(re-frame/subscribe [:extension/properties selection])]
+      [:div
+       [:> AppBar {:position :static}
+        [:> Toolbar {:variant "dense"}
+         [:div {:style {:display :flex :flex 1 :align-items :center :justify-content :space-between :margin margin}}
+           [:> Typography {:color "inherit" :variant "h6"}
+            "Extensions Fiddle"]
+           [:div
+            [button {:color "inherit" :on-click #(re-frame/dispatch [:set :examples true])}
+             "Examples"]
+            [button {:color "inherit" :on-click #(re-frame/dispatch [:extension/publish])}
+             "Publish"]]]]]
+       [:div {:style {:display :flex :flex 1}}
+        [dialogs/dialogs selection]
+        [:div {:style {:display :inline-block :width "calc(100% - 400px)"}}
+         [source/editor {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]
+         [:div {:style {:background-color "#fafafa"}}
+          [:div {:style {:display :flex :flex 1 :align-items :center :justify-content :space-between}}
+           [:> Typography {:style {:margin-left margin} :color "inherit" :variant "h6"}
+            "Logs"]
+           [:div {:style {:display :flex :justify-content :flex-end :align-items :center}}
+            [switch {:color "inherit" :on-change #(re-frame/dispatch [:extension/switch-filter-logs %2])}]
+            [:> Typography {:color "inherit" :style {:margin "10px"}}
+             "Filter traces"]
+            [button {:color "inherit" :on-click #(re-frame/dispatch [:extension/clear-logs])}
+             "Clear logs"]]]
+          [:div {:style {:height "calc(40% - 100px)" :overflow :auto}}
+           [logs/table (or (flatten-errors errors) logs)]]]]
+        [:div {:style {:background-color "#fafafa" :width 400 :height "calc(100% - 64px)" :overflow :auto}}
+         [:div {:style {:border "40px solid #ddd" :border-width "20px 7px" :border-radius "40px" :margin 20}}
+          [react/view {:style {:height 667}}
+           [:div {:id "extension" :style {:display :flex :flex 1}}
+            [selected-ui props selection data]]]]
+         [:div {:style {:display :flex :justify-content :center :flex-direction :column :margin margin}}
+          [:div {:style {:display :flex :justify-content :flex-end}}
+           [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :browse-app-db true])}
+            "Local app DB"]]
+          [:div {:style {:display :flex :justify-content :flex-end :align-items :center :margin-top margin}}
+           [select
+            {:on-change #(re-frame/dispatch [:set :extension-selection (.-key %2)])
+             :selected  selection
+             :options   (map #(do {:value % :label %}) keys)}]
+           [:div {:style {:margin-left margin}}
+            [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :browse-properties true])}
+             "Data"]]]]]]])))
 
 (defn mount-root []
   (reagent/render [layout] (.getElementById js/document "app")))

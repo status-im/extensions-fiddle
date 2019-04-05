@@ -27,8 +27,10 @@
             [:div {:style {:display :flex :margin 20}}
              [(react/qr-code) {:value ext-url}]]]
            [:div {:style {:display :flex :flex-direction :column}}
-            [:div {:style {:margin-vertical 5 :font-weight :bold}} "OR share extension URL"]
-            [:div ext-url]]]))]]))
+            [:div {:style {:margin-vertical 5 :font-weight :bold}} "OR"]
+            [:div {:style {:margin-vertical 5}}
+             "share extension"
+             [:a {:style {:margin-left 10} :href ext-url} "URL"]]]]))]]))
 
 (def examples-data
   [{:header "General"}
@@ -69,7 +71,7 @@
     [:> Dialog {:open (boolean browse) :on-close #(re-frame/dispatch [:set :browse-app-db false])}
      [:> DialogTitle
       "Edit local app-db"]
-     [:div {:style {:padding 20 :width "50vw" :height "80vh"}}
+     [:div {:style {:padding 20 :display :flex :min-width 500 :height "80vh"}}
       [source/editor2 {:content   (str (or m {}))
                        :on-change #(re-frame/dispatch [:extension/set-app-db nil (edn/read-string %)])}]]]))
 
@@ -85,7 +87,7 @@
       [:> Dialog {:open (boolean browse) :on-close #(re-frame/dispatch [:set :browse-properties false])}
        [:> DialogTitle
         "Edit properties"]
-       [:div {:style {:padding 20 :width "50vw" :height "80vh"}}
+       [:div {:style {:padding 20 :display :flex :min-width 500 :height "80vh"}}
         [source/editor2 {:content   (str (or m {}))
                          :on-change #(set-properties selection %)}]]])))
 

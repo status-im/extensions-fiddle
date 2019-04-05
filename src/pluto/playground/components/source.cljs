@@ -45,7 +45,7 @@
                                            1000)))))))
       :reagent-render
       (fn [_]
-        [:div {:style {:height "60%"}}])})))
+        [:div {:style {:height "55%"}}])})))
 
 (defn editor2 [{:keys [on-change content]}]
   (reagent/create-class
