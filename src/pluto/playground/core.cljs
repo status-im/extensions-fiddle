@@ -20,6 +20,8 @@
 
 ;; Components
 
+(def margin 10)
+
 (def Button (aget js/MaterialUI "Button"))
 
 (defn button [props label]
@@ -117,14 +119,12 @@
 (defview view-selection []
   (letsubs [selection [:extension-selection]
             extension-keys [:extension-keys]]
-    [:div {:style {:display :flex :justify-content :flex-end :align-items :center :margin "10px"}}
-     [:span {:style {:margin 10}}
-      "Selection"]
+    [:div {:style {:display :flex :justify-content :flex-end :align-items :center :margin-top margin}}
      [select
       {:on-change #(re-frame/dispatch [:set :extension-selection (.-key %2)])
        :selected  selection
        :options   (map #(do {:value % :label %}) extension-keys)}]
-     [:div {:style {:margin 10}}
+     [:div {:style {:margin-left margin}}
       [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :browse-properties true])}
        "Data"]]]))
 
@@ -133,18 +133,9 @@
             errors [:extension/errors]]
     [logs/table (or (flatten-errors errors) logs)]))
 
-(def margin 10)
-
 (defview layout []
-  (letsubs [logs   [:extension/filtered-logs]
-            errors [:extension/errors]
-            {:keys [events views hooks] :as data}   [:extension/parsed]
-            extension-selection [:get :extension-selection]]
-    (let [event-names (keys events)
-          keys (concat (map #(str "hooks/" (name %)) (keys hooks))
-                       (map #(str "views/" (name %)) (keys views)))
-          selection (or extension-selection (first keys))
-          props     @(re-frame/subscribe [:extension/properties selection])]
+  (letsubs [{:keys [events]} [:extension/parsed]]
+    (let [event-names (keys events)]
       [:div
        [:> AppBar {:position :static}
         [:> Toolbar {:variant "dense"}
@@ -158,7 +149,7 @@
             [button {:color "inherit" :on-click #(re-frame/dispatch [:extension/publish])}
              "Publish"]]]]]
        [:div {:style {:display :flex :flex 1}}
-        [dialogs/dialogs selection]
+        [dialogs/dialogs]
         [:div {:style {:display :inline-block :width "calc(100% - 400px)"}}
          [source/editor {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]
          [:div {:style {:background-color "#fafafa"}}
@@ -172,26 +163,19 @@
             [button {:color "inherit" :on-click #(re-frame/dispatch [:extension/clear-logs])}
              "Clear logs"]]]
           [:div {:style {:height "calc(40% - 100px)" :overflow :auto}}
-           [logs/table (or (flatten-errors errors) logs)]]]]
+           [logs-errors]]]]
         [:div {:style {:background-color "#fafafa" :width 400 :height "calc(100% - 64px)" :overflow :auto}}
          [:div {:style {:border "40px solid #ddd" :border-width "20px 7px" :border-radius "40px" :margin 20}}
           [react/view {:style {:height 667}}
            [:div {:style {:display :flex :flex 1}}
-            [selected-ui props selection data]]]]
+            [selected-ui]]]]
          [:div {:style {:display :flex :justify-content :center :flex-direction :column :margin margin}}
           [:> Typography {:style {:margin-left margin} :color "inherit" :variant "h6"}
            "Inspect"]
           [:div {:style {:display :flex :justify-content :flex-end}}
            [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :browse-app-db true])}
             "Local app DB"]]
-          [:div {:style {:display :flex :justify-content :flex-end :align-items :center :margin-top margin}}
-           [select
-            {:on-change #(re-frame/dispatch [:set :extension-selection (.-key %2)])
-             :selected  selection
-             :options   (map #(do {:value % :label %}) keys)}]
-           [:div {:style {:margin-left margin}}
-            [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :browse-properties true])}
-             "Data"]]]
+          [view-selection]
           #_
           [:div {:style {:display :flex :justify-content :flex-end :align-items :center :margin-top margin}}
            [select
