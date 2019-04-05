@@ -1,5 +1,6 @@
 (ns pluto.playground.components.logs
   (:require [reagent.core :as reagent]
+            [fipp.edn :as fipp]
             [pluto.error  :as error]
             [pluto.log    :as log]
             [pluto.playground.components.source :as source]
@@ -12,7 +13,7 @@
 (def TableCell (aget js/MaterialUI "TableCell"))
 
 (defn- reference [v]
-  [source/viewer {:content (str v)}])
+  [source/viewer {:content (with-out-str (fipp/pprint v))}])
 
 (defmulti pretty-print-data
   (fn [{:keys [category type]}]
@@ -23,7 +24,7 @@
     [:div
      [reference query]
      [:span "to"]
-     [source/viewer {:content (str (or value "nil"))}]]))
+     [source/viewer {:content (with-out-str (fipp/pprint (or value "nil")))}]]))
 
 (defmethod pretty-print-data [::log/trace :event/dispatch] [{:keys [data]}]
   [:<>
@@ -57,13 +58,14 @@
       [:> TableCell "Category"]
       [:> TableCell "Type"]
       [:> TableCell "Data"]]]
-    [:> TableBody
-     (for [{:keys [id category type] :as m} v]
-       ^{:key (or id m)}
-       [:> TableRow
-        [:> TableCell id]
-        [:> TableCell (pretty-print-category category)]
-        [:> TableCell type]
-        [:> TableCell
-         [data-wrapper
-          (pretty-print-data m)]]])]]])
+    (when (not (keyword? (first v))) ;; Workaround weird data received when no logs/errors
+      [:> TableBody
+       (for [{:keys [id category type] :as m} v]
+         ^{:key (or id m)}
+         [:> TableRow
+          [:> TableCell id]
+          [:> TableCell (pretty-print-category category)]
+          [:> TableCell type]
+          [:> TableCell
+           [data-wrapper
+            (pretty-print-data m)]]])])]])

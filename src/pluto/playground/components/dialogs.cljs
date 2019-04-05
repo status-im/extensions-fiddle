@@ -1,6 +1,7 @@
 (ns pluto.playground.components.dialogs
   (:require-macros [react-native-web.views :refer [defview letsubs]])
   (:require [clojure.edn :as edn]
+            [fipp.edn :as fipp]
             [re-frame.core :as re-frame]
             [react-native-web.react :as react]
             [cljsjs.material-ui]
@@ -72,7 +73,7 @@
      [:> DialogTitle
       "Edit local app-db"]
      [:div {:style {:padding 20 :display :flex :min-width 500 :height "80vh"}}
-      [source/editor2 {:content   (str (or m {}))
+      [source/editor2 {:content   (with-out-str (fipp/pprint (or m {})))
                        :on-change #(re-frame/dispatch [:extension/set-app-db nil (edn/read-string %)])}]]]))
 
 (defn- set-properties [id s]
@@ -88,7 +89,7 @@
        [:> DialogTitle
         "Edit properties"]
        [:div {:style {:padding 20 :display :flex :min-width 500 :height "80vh"}}
-        [source/editor2 {:content   (str (or m {}))
+        [source/editor2 {:content   (with-out-str (fipp/pprint (or m {})))
                          :on-change #(set-properties selection %)}]]])))
 
 (defn dialogs []

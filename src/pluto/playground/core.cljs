@@ -161,7 +161,7 @@
            [:> Typography {:style {:margin-left margin} :color "inherit" :variant "h6"}
             "Logs"]
            [:div {:style {:display :flex :justify-content :flex-end :align-items :center}}
-            [switch {:color "inherit" :on-change #(re-frame/dispatch [:extension/switch-filter-logs %2])}]
+            [switch {:color "primary" :on-change #(re-frame/dispatch [:extension/switch-filter-logs %2])}]
             [:> Typography {:color "inherit" :style {:margin "10px"}}
              "Filter traces"]
             [button {:color "inherit" :on-click #(re-frame/dispatch [:extension/clear-logs])}
@@ -171,9 +171,11 @@
         [:div {:style {:background-color "#fafafa" :width 400 :height "calc(100% - 64px)" :overflow :auto}}
          [:div {:style {:border "40px solid #ddd" :border-width "20px 7px" :border-radius "40px" :margin 20}}
           [react/view {:style {:height 667}}
-           [:div {:id "extension" :style {:display :flex :flex 1}}
+           [:div {:style {:display :flex :flex 1}}
             [selected-ui props selection data]]]]
          [:div {:style {:display :flex :justify-content :center :flex-direction :column :margin margin}}
+          [:> Typography {:style {:margin-left margin} :color "inherit" :variant "h6"}
+           "Inspect"]
           [:div {:style {:display :flex :justify-content :flex-end}}
            [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :browse-app-db true])}
             "Local app DB"]]
