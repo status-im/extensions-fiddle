@@ -207,12 +207,8 @@
 
 (re-frame/reg-event-fx
  :extensions/show-selection-screen
- (fn [cofx [_ _ {:keys [on-select] :as params}]]
-   nil #_(navigation/navigate-to-cofx cofx
-                                      :selection-modal-screen
-                                      (assoc params :on-select #(do
-                                                                  (re-frame/dispatch [:navigate-back])
-                                                                  (re-frame/dispatch (on-select %)))))))
+ (fn [{db :db} [_ _ params]]
+   {:db (assoc db :selection-screen params)}))
 
 (defn operation->fn [k]
   (case k
