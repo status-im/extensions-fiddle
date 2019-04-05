@@ -173,32 +173,32 @@
 
 (re-frame/reg-event-fx
  :extensions.chat.command/set-parameter
- (fn [_ [_ _ {:keys [value]}]]
-   nil #_{:dispatch [:chat.ui/set-command-parameter value]}))
+ (fn [{db :db} [_ _ {:keys [value]}]]
+   (let [param-id (get-in db [:extension-props :suggestion-id])]
+     {:db (update-in db [:extension-props :params] merge {param-id value})})))
 
 (re-frame/reg-event-fx
  :extensions.chat.command/set-custom-parameter
- (fn [{{:keys [current-chat-id] :as db} :db} [_ _ {:keys [key value]}]]
-   nil #_{:db (assoc-in db [:chats current-chat-id :custom-params key] value)}))
+ (fn [{db :db} [_ _ {:keys [key value]}]]
+   {:db (update-in db [:extension-props :params] merge {key value})}))
 
 (re-frame/reg-event-fx
  :extensions.chat.command/set-parameter-with-custom-params
- (fn [{{:keys [current-chat-id] :as db} :db} [_ _ {:keys [value params]}]]
-   {:db (-> db
-            (update-in [:extension-props :params] merge params)
-            (assoc-in [:extension-props :suggestion-id] nil))}))
+ (fn [{db :db} [_ _ {:keys [value params]}]]
+   (let [param-id (get-in db [:extension-props :suggestion-id])]
+     {:db (-> db
+              (update-in [:extension-props :params] merge params {param-id value})
+              (assoc-in [:extension-props :suggestion-id] nil))})))
 
 (re-frame/reg-event-fx
  :extensions.chat.command/send-plain-text-message
- (fn [_ [_ _ {:keys [value]}]]
-   nil #_{:dispatch [:chat/send-plain-text-message value]}))
+ (fn [{db :db} [_ _ {:keys [value]}]]
+   {:db (update-in db [:extension-props :messages] conj {:plain-message value})}))
 
 (re-frame/reg-event-fx
  :extensions.chat.command/send-message
- (fn [{{:keys [current-chat-id] :as db} :db :as cofx} [_ {:keys [hook-id]} {:keys [params]}]]
-   nil #_(when hook-id
-           (when-let [command (last (first (filter #(= (ffirst %) (name hook-id)) (:id->command db))))]
-             (commands-sending/send cofx current-chat-id command params)))))
+ (fn [{db :db} [_ _ {:keys [params]}]]
+   {:db (update-in db [:extension-props :messages] conj {:content {:params params}})}))
 
 (re-frame/reg-event-fx
  :extensions/show-selection-screen

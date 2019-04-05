@@ -158,7 +158,7 @@
 (re-frame.core/reg-event-fx
  :open-example
  (fn [{db :db} [_ hash]]
-   {:db (dissoc db :examples :extensions/properties :extensions/properties :extension-selection :extensions/store)
+   {:db (dissoc db :examples :extensions/properties :extension-selection :extensions/store :extension-props)
     :set-url-fx hash
     :dispatch [:fetch-extension]}))
 

@@ -74,17 +74,19 @@
 (defn rand-str [len]
   (apply str (take len (repeatedly #(char (+ (rand 26) 65))))))
 
-(defview chat-view [preview parameters command-id props on-send]
+(defview chat-view [preview parameters command-id props on-send on-send-sync]
   (letsubs [{:keys [messages params suggestion-id]} [:get :extension-props]]
     [react/view {:style {:flex 1}}
      [(react/scroll-view) {:style {:flex 1 :background-color :white}}
       [react/view
-       (for [message messages]
-         (let [m (fn [out?] (merge {:outgoing out?} message props))]
-           ^{:key (str message (rand-str 10))}
-           [react/view
-            [message-container (when preview (preview (m false))) false]
-            [message-container (when preview (preview (m true))) true]]))]]
+       (for [{:keys [plain-message] :as message} messages]
+         (if plain-message
+           [message-container [react/text {:style {:max-width 200 :color :white}} plain-message] true]
+           (let [m (fn [out?] (merge {:outgoing out?} message props))]
+             ^{:key (str message (rand-str 10))}
+             [react/view
+              [message-container (when preview (preview (m false))) false]
+              [message-container (when preview (preview (m true))) true]])))]]
      (when-let [suggestion (some #(when (= suggestion-id (:id %)) (:suggestions %)) parameters)]
        [react/view {:style {:max-height 300}}
         [suggestion]])
@@ -95,20 +97,27 @@
         (for [{:keys [placeholder id]} parameters]
           ^{:key id}
           [react/text-input {:placeholder    placeholder
+                             :value          (or (get params id) "")
                              :on-change-text #(re-frame/dispatch [:set-in [:extension-props :params id] %])
                              :on-focus       #(re-frame/dispatch [:set-in [:extension-props :suggestion-id] id])
                              :style          {:margin-right 5 :width 50}}])]]
-      [(react/touchable-highlight) {:on-press #(do
-                                                 (when on-send (on-send))
-                                                 (re-frame/dispatch [:set-in [:extension-props :suggestion-id] nil])
-                                                 (re-frame/dispatch [:set-in [:extension-props :messages] (conj messages {:content {:params params}})]))}
+      [(react/touchable-highlight) {:on-press #(if on-send-sync
+                                                 (do
+                                                   (on-send-sync {:content {:params params}})
+                                                   (re-frame/dispatch [:set-in [:extension-props :suggestion-id] nil])
+                                                   (re-frame/dispatch [:set-in [:extension-props :params] nil]))
+                                                 (do
+                                                   (when on-send (on-send))
+                                                   (re-frame/dispatch [:set-in [:extension-props :suggestion-id] nil])
+                                                   (re-frame/dispatch [:set-in [:extension-props :params] nil])
+                                                   (re-frame/dispatch [:set-in [:extension-props :messages] (conj messages {:content {:params params}})])))}
        [react/view {:style send-message-container}
         [react/text {:style {:color :white}} ">"]
         #_[icons/icon :main-icons/arrow-up {:container-style send-message-icon
                                             :color           :white}]]]]]))
 
-(defn command-hook  [id {:keys [parameters preview on-send]} props]
-  [chat-view preview parameters id props on-send])
+(defn command-hook  [id {:keys [parameters preview on-send on-send-sync]} props]
+  [chat-view preview parameters id props on-send on-send-sync])
 
 (defn hook-in [[id parsed] props]
   (when id
