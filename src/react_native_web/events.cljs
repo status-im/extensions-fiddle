@@ -70,7 +70,7 @@
 
 (re-frame/reg-event-fx
  :store/put
- (fn [{:keys [db]} [_ {id :hook-id} {:keys [key value]}]]
+ (fn [{:keys [db]} [_ {id :id} {:keys [key value]}]]
    {:db (put-or-dissoc db id key value)}))
 
 (re-frame/reg-event-fx

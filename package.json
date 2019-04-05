@@ -4,7 +4,6 @@
     "webpack": "^3.10.0"
   },
   "scripts": {
-    "watch": "webpack -d --watch",
     "build": "webpack -p"
   },
   "dependencies": {

@@ -1,6 +1,6 @@
 (ns react-native-web.queries
-  (:require [re-frame.core :as re-frame]))
-
+  (:require [re-frame.core :as re-frame]
+            [status-im.tokens :as tokens]))
 (re-frame/reg-sub
  :extensions/identity
  (fn [_ [_ _ {:keys [value]}]]
@@ -31,16 +31,19 @@
 (re-frame/reg-sub
  :extensions.wallet/tokens
  (fn [_ [_ _ {filter-vector :filter}]]
-   [{:name "Test"}]))
+   (let [tokens (remove :nft? (:mainnet tokens/all-default-tokens))]
+     (if filter-vector
+       (filter #((set filter-vector) (:symbol %)) tokens)
+       tokens))))
 
 (re-frame/reg-sub
  :store/get
- (fn [db [_ {id :hook-id} {:keys [key]}]]
+ (fn [db [_ {id :id} {:keys [key]}]]
    (get-in db [:extensions/store id key])))
 
 (re-frame/reg-sub
  :store/all
- (fn [db [_ {id :hook-id} _]]
+ (fn [db [_ {id :id} _]]
    (get-in db [:extensions/store id])))
 
 (def all {'identity            {:data :extensions/identity :arguments {:value :map}}
