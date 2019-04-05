@@ -10,7 +10,9 @@ dev:
 	clojure -A:dev
 
 deploy-website: install compile
-	./node_modules/gh-pages/bin/gh-pages.js --dotfiles --message "Deploying latest version" --dist resources/public
+	$(eval VERSION = $(shell git rev-parse --short HEAD))
+	$(eval MESSAGE = 'Deploying \#$(VERSION)')
+	./node_modules/gh-pages/bin/gh-pages.js --dotfiles --message ${MESSAGE} --dist resources/public
 
 clean:
 	rm -rf target node_modules/ .cpcache/
