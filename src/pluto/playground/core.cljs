@@ -102,7 +102,7 @@
         :views [:div {:style {:display :flex :flex 1 :align-items :center
                               :justify-content :center :max-width "100%"}}
                 ^{:key (str props id data)}
-                [:div {:style {:max-width "100%" :border "blue 1px solid"}}
+                [:div {:style {:display :flex :flex 1 :height :max-content :overflow :auto :max-width "100%" :border "blue 1px solid"}}
                  [view props data id]]]
         nil))))
 
@@ -138,9 +138,10 @@
 (defview layout []
   (letsubs [logs   [:extension/filtered-logs]
             errors [:extension/errors]
-            {:keys [views hooks] :as data}   [:extension/parsed]
+            {:keys [events views hooks] :as data}   [:extension/parsed]
             extension-selection [:get :extension-selection]]
-    (let [keys (concat (map #(str "hooks/" (name %)) (keys hooks))
+    (let [event-names (keys events)
+          keys (concat (map #(str "hooks/" (name %)) (keys hooks))
                        (map #(str "views/" (name %)) (keys views)))
           selection (or extension-selection (first keys))
           props     @(re-frame/subscribe [:extension/properties selection])]
@@ -190,7 +191,25 @@
              :options   (map #(do {:value % :label %}) keys)}]
            [:div {:style {:margin-left margin}}
             [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :browse-properties true])}
-             "Data"]]]]]]])))
+             "Data"]]]
+          #_
+          [:div {:style {:display :flex :justify-content :flex-end :align-items :center :margin-top margin}}
+           [select
+            {:on-change #(re-frame/dispatch [:set :extension-selection (.-key %2)])
+             :selected  (first event-names)
+             :options   (map #(do {:value % :label %}) event-names)}]
+           [:div {:style {:margin-left margin}}
+            [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :browse-properties true])}
+             "Trigger"]]]
+          #_
+          [:div {:style {:display :flex :justify-content :flex-end :align-items :center :margin-top margin}}
+           [select
+            {:on-change #(re-frame/dispatch [:set :extension-selection (.-key %2)])
+             :selected  (first queries)
+             :options   (map #(do {:value % :label %}) queries)}]
+           [:div {:style {:margin-left margin}}
+            [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :browse-properties true])}
+             "Watch"]]]]]]])))
 
 (defn mount-root []
   (reagent/render [layout] (.getElementById js/document "app")))
