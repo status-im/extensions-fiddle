@@ -10,90 +10,90 @@ goog.require('react_native_web.ethereum.logs');
 react_native_web.events.ipfs_add_url = "https://ipfs.infura.io:5001/api/v0/add";
 react_native_web.events.ipfs_add_param_name = "extension.event.edn";
 react_native_web.events.ipfs_cat_url = "https://ipfs.infura.io/ipfs/";
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_identity_DASH_event,(function (_,p__1389){
-var vec__1390 = p__1389;
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1390,(0),null);
-var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1390,(1),null);
-var map__1393 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1390,(2),null);
-var map__1393__$1 = (((((!((map__1393 == null))))?(((((map__1393.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1393.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1393):map__1393);
-var cb = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1393__$1,cljs.core.cst$kw$cb);
-return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$dispatch,(function (){var G__1395 = cljs.core.PersistentArrayMap.EMPTY;
-return (cb.cljs$core$IFn$_invoke$arity$1 ? cb.cljs$core$IFn$_invoke$arity$1(G__1395) : cb.call(null,G__1395));
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_identity_DASH_event,(function (_,p__1398){
+var vec__1399 = p__1398;
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1399,(0),null);
+var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1399,(1),null);
+var map__1402 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1399,(2),null);
+var map__1402__$1 = (((((!((map__1402 == null))))?(((((map__1402.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1402.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1402):map__1402);
+var cb = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1402__$1,cljs.core.cst$kw$cb);
+return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$dispatch,(function (){var G__1404 = cljs.core.PersistentArrayMap.EMPTY;
+return (cb.cljs$core$IFn$_invoke$arity$1 ? cb.cljs$core$IFn$_invoke$arity$1(G__1404) : cb.call(null,G__1404));
 })()], null);
 }));
-var G__1396_1398 = cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_alert;
-var G__1397_1399 = ((function (G__1396_1398){
+var G__1405_1407 = cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_alert;
+var G__1406_1408 = ((function (G__1405_1407){
 return (function (value){
 return alert(value);
-});})(G__1396_1398))
+});})(G__1405_1407))
 ;
-(re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2(G__1396_1398,G__1397_1399) : re_frame.core.reg_fx.call(null,G__1396_1398,G__1397_1399));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$alert,(function (_,p__1400){
-var vec__1401 = p__1400;
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1401,(0),null);
-var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1401,(1),null);
-var map__1404 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1401,(2),null);
-var map__1404__$1 = (((((!((map__1404 == null))))?(((((map__1404.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1404.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1404):map__1404);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1404__$1,cljs.core.cst$kw$value);
+(re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2(G__1405_1407,G__1406_1408) : re_frame.core.reg_fx.call(null,G__1405_1407,G__1406_1408));
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$alert,(function (_,p__1409){
+var vec__1410 = p__1409;
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1410,(0),null);
+var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1410,(1),null);
+var map__1413 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1410,(2),null);
+var map__1413__$1 = (((((!((map__1413 == null))))?(((((map__1413.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1413.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1413):map__1413);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1413__$1,cljs.core.cst$kw$value);
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_alert,value], null);
 }));
-var G__1406_1408 = cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_log;
-var G__1407_1409 = ((function (G__1406_1408){
+var G__1415_1417 = cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_log;
+var G__1416_1418 = ((function (G__1415_1417){
 return (function (value){
 return console.log(value);
-});})(G__1406_1408))
+});})(G__1415_1417))
 ;
-(re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2(G__1406_1408,G__1407_1409) : re_frame.core.reg_fx.call(null,G__1406_1408,G__1407_1409));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$log,(function (_,p__1410){
-var vec__1411 = p__1410;
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1411,(0),null);
-var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1411,(1),null);
-var map__1414 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1411,(2),null);
-var map__1414__$1 = (((((!((map__1414 == null))))?(((((map__1414.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1414.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1414):map__1414);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1414__$1,cljs.core.cst$kw$value);
+(re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2(G__1415_1417,G__1416_1418) : re_frame.core.reg_fx.call(null,G__1415_1417,G__1416_1418));
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$log,(function (_,p__1419){
+var vec__1420 = p__1419;
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1420,(0),null);
+var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1420,(1),null);
+var map__1423 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1420,(2),null);
+var map__1423__$1 = (((((!((map__1423 == null))))?(((((map__1423.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1423.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1423):map__1423);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1423__$1,cljs.core.cst$kw$value);
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_log,value], null);
 }));
-var G__1416_1423 = cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_schedule_DASH_start;
-var G__1417_1424 = ((function (G__1416_1423){
-return (function (p__1418){
-var map__1419 = p__1418;
-var map__1419__$1 = (((((!((map__1419 == null))))?(((((map__1419.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1419.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1419):map__1419);
-var interval = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1419__$1,cljs.core.cst$kw$interval);
-var on_created = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1419__$1,cljs.core.cst$kw$on_DASH_created);
-var on_result = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1419__$1,cljs.core.cst$kw$on_DASH_result);
-var id = setInterval(((function (map__1419,map__1419__$1,interval,on_created,on_result,G__1416_1423){
+var G__1425_1432 = cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_schedule_DASH_start;
+var G__1426_1433 = ((function (G__1425_1432){
+return (function (p__1427){
+var map__1428 = p__1427;
+var map__1428__$1 = (((((!((map__1428 == null))))?(((((map__1428.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1428.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1428):map__1428);
+var interval = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1428__$1,cljs.core.cst$kw$interval);
+var on_created = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1428__$1,cljs.core.cst$kw$on_DASH_created);
+var on_result = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1428__$1,cljs.core.cst$kw$on_DASH_result);
+var id = setInterval(((function (map__1428,map__1428__$1,interval,on_created,on_result,G__1425_1432){
 return (function (){
-var G__1421 = cljs.core.PersistentArrayMap.EMPTY;
-return (on_result.cljs$core$IFn$_invoke$arity$1 ? on_result.cljs$core$IFn$_invoke$arity$1(G__1421) : on_result.call(null,G__1421));
-});})(map__1419,map__1419__$1,interval,on_created,on_result,G__1416_1423))
+var G__1430 = cljs.core.PersistentArrayMap.EMPTY;
+return (on_result.cljs$core$IFn$_invoke$arity$1 ? on_result.cljs$core$IFn$_invoke$arity$1(G__1430) : on_result.call(null,G__1430));
+});})(map__1428,map__1428__$1,interval,on_created,on_result,G__1425_1432))
 ,interval);
-var G__1422 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,id], null);
-return (on_created.cljs$core$IFn$_invoke$arity$1 ? on_created.cljs$core$IFn$_invoke$arity$1(G__1422) : on_created.call(null,G__1422));
-});})(G__1416_1423))
+var G__1431 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,id], null);
+return (on_created.cljs$core$IFn$_invoke$arity$1 ? on_created.cljs$core$IFn$_invoke$arity$1(G__1431) : on_created.call(null,G__1431));
+});})(G__1425_1432))
 ;
-(re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2(G__1416_1423,G__1417_1424) : re_frame.core.reg_fx.call(null,G__1416_1423,G__1417_1424));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_schedule_DASH_start,(function (_,p__1425){
-var vec__1426 = p__1425;
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1426,(0),null);
-var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1426,(1),null);
-var m = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1426,(2),null);
+(re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2(G__1425_1432,G__1426_1433) : re_frame.core.reg_fx.call(null,G__1425_1432,G__1426_1433));
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_schedule_DASH_start,(function (_,p__1434){
+var vec__1435 = p__1434;
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1435,(0),null);
+var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1435,(1),null);
+var m = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1435,(2),null);
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_schedule_DASH_start,m], null);
 }));
-var G__1429_1434 = cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_schedule_DASH_cancel;
-var G__1430_1435 = ((function (G__1429_1434){
-return (function (p__1431){
-var map__1432 = p__1431;
-var map__1432__$1 = (((((!((map__1432 == null))))?(((((map__1432.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1432.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1432):map__1432);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1432__$1,cljs.core.cst$kw$value);
+var G__1438_1443 = cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_schedule_DASH_cancel;
+var G__1439_1444 = ((function (G__1438_1443){
+return (function (p__1440){
+var map__1441 = p__1440;
+var map__1441__$1 = (((((!((map__1441 == null))))?(((((map__1441.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1441.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1441):map__1441);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1441__$1,cljs.core.cst$kw$value);
 return clearInterval(value);
-});})(G__1429_1434))
+});})(G__1438_1443))
 ;
-(re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2(G__1429_1434,G__1430_1435) : re_frame.core.reg_fx.call(null,G__1429_1434,G__1430_1435));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_schedule_DASH_cancel,(function (_,p__1436){
-var vec__1437 = p__1436;
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1437,(0),null);
-var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1437,(1),null);
-var m = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1437,(2),null);
+(re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2(G__1438_1443,G__1439_1444) : re_frame.core.reg_fx.call(null,G__1438_1443,G__1439_1444));
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_schedule_DASH_cancel,(function (_,p__1445){
+var vec__1446 = p__1445;
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1446,(0),null);
+var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1446,(1),null);
+var m = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1446,(2),null);
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_schedule_DASH_cancel,m], null);
 }));
 react_native_web.events.empty_value_QMARK_ = (function react_native_web$events$empty_value_QMARK_(o){
@@ -104,16 +104,16 @@ return (o == null);
 
 }
 });
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extension_SLASH_set_DASH_app_DASH_db,(function (p__1440,p__1441){
-var map__1442 = p__1440;
-var map__1442__$1 = (((((!((map__1442 == null))))?(((((map__1442.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1442.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1442):map__1442);
-var db = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1442__$1,cljs.core.cst$kw$db);
-var vec__1443 = p__1441;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1443,(0),null);
-var map__1446 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1443,(1),null);
-var map__1446__$1 = (((((!((map__1446 == null))))?(((((map__1446.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1446.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1446):map__1446);
-var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1446__$1,cljs.core.cst$kw$hook_DASH_id);
-var m = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1443,(2),null);
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extension_SLASH_set_DASH_app_DASH_db,(function (p__1449,p__1450){
+var map__1451 = p__1449;
+var map__1451__$1 = (((((!((map__1451 == null))))?(((((map__1451.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1451.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1451):map__1451);
+var db = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1451__$1,cljs.core.cst$kw$db);
+var vec__1452 = p__1450;
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1452,(0),null);
+var map__1455 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1452,(1),null);
+var map__1455__$1 = (((((!((map__1455 == null))))?(((((map__1455.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1455.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1455):map__1455);
+var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1455__$1,cljs.core.cst$kw$hook_DASH_id);
+var m = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1452,(2),null);
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$db,cljs.core.assoc_in(db,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extensions_SLASH_store,id], null),m)], null);
 }));
 react_native_web.events.put_or_dissoc = (function react_native_web$events$put_or_dissoc(db,id,key,value){
@@ -123,88 +123,88 @@ return cljs.core.update_in.cljs$core$IFn$_invoke$arity$4(db,new cljs.core.Persis
 return cljs.core.assoc_in(db,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extensions_SLASH_store,id,key], null),value);
 }
 });
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$store_SLASH_put,(function (p__1449,p__1450){
-var map__1451 = p__1449;
-var map__1451__$1 = (((((!((map__1451 == null))))?(((((map__1451.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1451.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1451):map__1451);
-var db = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1451__$1,cljs.core.cst$kw$db);
-var vec__1452 = p__1450;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1452,(0),null);
-var map__1455 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1452,(1),null);
-var map__1455__$1 = (((((!((map__1455 == null))))?(((((map__1455.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1455.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1455):map__1455);
-var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1455__$1,cljs.core.cst$kw$hook_DASH_id);
-var map__1456 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1452,(2),null);
-var map__1456__$1 = (((((!((map__1456 == null))))?(((((map__1456.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1456.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1456):map__1456);
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1456__$1,cljs.core.cst$kw$key);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1456__$1,cljs.core.cst$kw$value);
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$store_SLASH_put,(function (p__1458,p__1459){
+var map__1460 = p__1458;
+var map__1460__$1 = (((((!((map__1460 == null))))?(((((map__1460.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1460.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1460):map__1460);
+var db = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1460__$1,cljs.core.cst$kw$db);
+var vec__1461 = p__1459;
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1461,(0),null);
+var map__1464 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1461,(1),null);
+var map__1464__$1 = (((((!((map__1464 == null))))?(((((map__1464.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1464.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1464):map__1464);
+var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1464__$1,cljs.core.cst$kw$hook_DASH_id);
+var map__1465 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1461,(2),null);
+var map__1465__$1 = (((((!((map__1465 == null))))?(((((map__1465.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1465.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1465):map__1465);
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1465__$1,cljs.core.cst$kw$key);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1465__$1,cljs.core.cst$kw$value);
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$db,react_native_web.events.put_or_dissoc(db,id,key,value)], null);
 }));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$store_SLASH_puts,(function (p__1462,p__1463){
-var map__1464 = p__1462;
-var map__1464__$1 = (((((!((map__1464 == null))))?(((((map__1464.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1464.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1464):map__1464);
-var db = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1464__$1,cljs.core.cst$kw$db);
-var vec__1465 = p__1463;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1465,(0),null);
-var map__1468 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1465,(1),null);
-var map__1468__$1 = (((((!((map__1468 == null))))?(((((map__1468.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1468.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1468):map__1468);
-var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1468__$1,cljs.core.cst$kw$id);
-var map__1469 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1465,(2),null);
-var map__1469__$1 = (((((!((map__1469 == null))))?(((((map__1469.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1469.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1469):map__1469);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1469__$1,cljs.core.cst$kw$value);
-return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$db,cljs.core.reduce.cljs$core$IFn$_invoke$arity$3(((function (map__1464,map__1464__$1,db,vec__1465,_,map__1468,map__1468__$1,id,map__1469,map__1469__$1,value){
-return (function (p1__1460_SHARP_,p2__1461_SHARP_){
-return react_native_web.events.put_or_dissoc(p1__1460_SHARP_,id,cljs.core.cst$kw$key.cljs$core$IFn$_invoke$arity$1(p2__1461_SHARP_),cljs.core.cst$kw$value.cljs$core$IFn$_invoke$arity$1(p2__1461_SHARP_));
-});})(map__1464,map__1464__$1,db,vec__1465,_,map__1468,map__1468__$1,id,map__1469,map__1469__$1,value))
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$store_SLASH_puts,(function (p__1471,p__1472){
+var map__1473 = p__1471;
+var map__1473__$1 = (((((!((map__1473 == null))))?(((((map__1473.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1473.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1473):map__1473);
+var db = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1473__$1,cljs.core.cst$kw$db);
+var vec__1474 = p__1472;
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1474,(0),null);
+var map__1477 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1474,(1),null);
+var map__1477__$1 = (((((!((map__1477 == null))))?(((((map__1477.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1477.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1477):map__1477);
+var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1477__$1,cljs.core.cst$kw$id);
+var map__1478 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1474,(2),null);
+var map__1478__$1 = (((((!((map__1478 == null))))?(((((map__1478.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1478.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1478):map__1478);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1478__$1,cljs.core.cst$kw$value);
+return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$db,cljs.core.reduce.cljs$core$IFn$_invoke$arity$3(((function (map__1473,map__1473__$1,db,vec__1474,_,map__1477,map__1477__$1,id,map__1478,map__1478__$1,value){
+return (function (p1__1469_SHARP_,p2__1470_SHARP_){
+return react_native_web.events.put_or_dissoc(p1__1469_SHARP_,id,cljs.core.cst$kw$key.cljs$core$IFn$_invoke$arity$1(p2__1470_SHARP_),cljs.core.cst$kw$value.cljs$core$IFn$_invoke$arity$1(p2__1470_SHARP_));
+});})(map__1473,map__1473__$1,db,vec__1474,_,map__1477,map__1477__$1,id,map__1478,map__1478__$1,value))
 ,db,value)], null);
 }));
 react_native_web.events.append = (function react_native_web$events$append(acc,k,v){
 var o = cljs.core.get.cljs$core$IFn$_invoke$arity$2(acc,k);
 return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(acc,k,cljs.core.conj.cljs$core$IFn$_invoke$arity$2(((cljs.core.vector_QMARK_(o))?o:(new cljs.core.PersistentVector(null,1,(5),cljs.core.PersistentVector.EMPTY_NODE,[o],null))),v));
 });
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$store_SLASH_append,(function (p__1473,p__1474){
-var map__1475 = p__1473;
-var map__1475__$1 = (((((!((map__1475 == null))))?(((((map__1475.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1475.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1475):map__1475);
-var db = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1475__$1,cljs.core.cst$kw$db);
-var vec__1476 = p__1474;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1476,(0),null);
-var map__1479 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1476,(1),null);
-var map__1479__$1 = (((((!((map__1479 == null))))?(((((map__1479.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1479.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1479):map__1479);
-var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1479__$1,cljs.core.cst$kw$id);
-var map__1480 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1476,(2),null);
-var map__1480__$1 = (((((!((map__1480 == null))))?(((((map__1480.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1480.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1480):map__1480);
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1480__$1,cljs.core.cst$kw$key);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1480__$1,cljs.core.cst$kw$value);
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$store_SLASH_append,(function (p__1482,p__1483){
+var map__1484 = p__1482;
+var map__1484__$1 = (((((!((map__1484 == null))))?(((((map__1484.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1484.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1484):map__1484);
+var db = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1484__$1,cljs.core.cst$kw$db);
+var vec__1485 = p__1483;
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1485,(0),null);
+var map__1488 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1485,(1),null);
+var map__1488__$1 = (((((!((map__1488 == null))))?(((((map__1488.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1488.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1488):map__1488);
+var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1488__$1,cljs.core.cst$kw$id);
+var map__1489 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1485,(2),null);
+var map__1489__$1 = (((((!((map__1489 == null))))?(((((map__1489.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1489.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1489):map__1489);
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1489__$1,cljs.core.cst$kw$key);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1489__$1,cljs.core.cst$kw$value);
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$db,cljs.core.update_in.cljs$core$IFn$_invoke$arity$5(db,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extensions_SLASH_store,id], null),react_native_web.events.append,key,value)], null);
 }));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$store_SLASH_clear,(function (p__1484,p__1485){
-var map__1486 = p__1484;
-var map__1486__$1 = (((((!((map__1486 == null))))?(((((map__1486.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1486.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1486):map__1486);
-var db = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1486__$1,cljs.core.cst$kw$db);
-var vec__1487 = p__1485;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1487,(0),null);
-var map__1490 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1487,(1),null);
-var map__1490__$1 = (((((!((map__1490 == null))))?(((((map__1490.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1490.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1490):map__1490);
-var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1490__$1,cljs.core.cst$kw$id);
-var map__1491 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1487,(2),null);
-var map__1491__$1 = (((((!((map__1491 == null))))?(((((map__1491.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1491.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1491):map__1491);
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1491__$1,cljs.core.cst$kw$key);
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$store_SLASH_clear,(function (p__1493,p__1494){
+var map__1495 = p__1493;
+var map__1495__$1 = (((((!((map__1495 == null))))?(((((map__1495.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1495.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1495):map__1495);
+var db = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1495__$1,cljs.core.cst$kw$db);
+var vec__1496 = p__1494;
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1496,(0),null);
+var map__1499 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1496,(1),null);
+var map__1499__$1 = (((((!((map__1499 == null))))?(((((map__1499.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1499.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1499):map__1499);
+var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1499__$1,cljs.core.cst$kw$id);
+var map__1500 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1496,(2),null);
+var map__1500__$1 = (((((!((map__1500 == null))))?(((((map__1500.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1500.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1500):map__1500);
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1500__$1,cljs.core.cst$kw$key);
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$db,cljs.core.update_in.cljs$core$IFn$_invoke$arity$4(db,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extensions_SLASH_store,id], null),cljs.core.dissoc,key)], null);
 }));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$store_SLASH_clear_DASH_all,(function (p__1495,p__1496){
-var map__1497 = p__1495;
-var map__1497__$1 = (((((!((map__1497 == null))))?(((((map__1497.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1497.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1497):map__1497);
-var db = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1497__$1,cljs.core.cst$kw$db);
-var vec__1498 = p__1496;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1498,(0),null);
-var map__1501 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1498,(1),null);
-var map__1501__$1 = (((((!((map__1501 == null))))?(((((map__1501.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1501.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1501):map__1501);
-var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1501__$1,cljs.core.cst$kw$id);
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1498,(2),null);
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$store_SLASH_clear_DASH_all,(function (p__1504,p__1505){
+var map__1506 = p__1504;
+var map__1506__$1 = (((((!((map__1506 == null))))?(((((map__1506.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1506.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1506):map__1506);
+var db = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1506__$1,cljs.core.cst$kw$db);
+var vec__1507 = p__1505;
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1507,(0),null);
+var map__1510 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1507,(1),null);
+var map__1510__$1 = (((((!((map__1510 == null))))?(((((map__1510.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1510.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1510):map__1510);
+var id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1510__$1,cljs.core.cst$kw$id);
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1507,(2),null);
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$db,cljs.core.update.cljs$core$IFn$_invoke$arity$4(db,cljs.core.cst$kw$extensions_SLASH_store,cljs.core.dissoc,id)], null);
 }));
 react_native_web.events.json_QMARK_ = (function react_native_web$events$json_QMARK_(res){
-var temp__5720__auto__ = cljs.core.get_in.cljs$core$IFn$_invoke$arity$2(res,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$headers,"content-type"], null));
-if(cljs.core.truth_(temp__5720__auto__)){
-var type = temp__5720__auto__;
+var temp__5457__auto__ = cljs.core.get_in.cljs$core$IFn$_invoke$arity$2(res,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$headers,"content-type"], null));
+if(cljs.core.truth_(temp__5457__auto__)){
+var type = temp__5457__auto__;
 return clojure.string.starts_with_QMARK_(type,"application/json");
 } else {
 return null;
@@ -217,240 +217,237 @@ return cljs.core.js__GT_clj.cljs$core$IFn$_invoke$arity$variadic(JSON.parse(o),c
 return null;
 }
 });
-var G__1504_1510 = cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_json_DASH_parse;
-var G__1505_1511 = ((function (G__1504_1510){
-return (function (p__1506){
-var map__1507 = p__1506;
-var map__1507__$1 = (((((!((map__1507 == null))))?(((((map__1507.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1507.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1507):map__1507);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1507__$1,cljs.core.cst$kw$value);
-var on_result = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1507__$1,cljs.core.cst$kw$on_DASH_result);
-var G__1509 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,react_native_web.events.parse_json(value)], null);
-return (on_result.cljs$core$IFn$_invoke$arity$1 ? on_result.cljs$core$IFn$_invoke$arity$1(G__1509) : on_result.call(null,G__1509));
-});})(G__1504_1510))
-;
-(re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2(G__1504_1510,G__1505_1511) : re_frame.core.reg_fx.call(null,G__1504_1510,G__1505_1511));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_json_DASH_parse,(function (_,p__1512){
-var vec__1513 = p__1512;
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1513,(0),null);
-var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1513,(1),null);
-var m = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1513,(2),null);
-return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_json_DASH_parse,m], null);
-}));
-var G__1516_1519 = cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_json_DASH_stringify;
-var G__1517_1520 = ((function (G__1516_1519){
-return (function (value,on_result){
-var G__1518 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,JSON.stringify(cljs.core.clj__GT_js(value))], null);
+var G__1513_1519 = cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_json_DASH_parse;
+var G__1514_1520 = ((function (G__1513_1519){
+return (function (p__1515){
+var map__1516 = p__1515;
+var map__1516__$1 = (((((!((map__1516 == null))))?(((((map__1516.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1516.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1516):map__1516);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1516__$1,cljs.core.cst$kw$value);
+var on_result = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1516__$1,cljs.core.cst$kw$on_DASH_result);
+var G__1518 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,react_native_web.events.parse_json(value)], null);
 return (on_result.cljs$core$IFn$_invoke$arity$1 ? on_result.cljs$core$IFn$_invoke$arity$1(G__1518) : on_result.call(null,G__1518));
-});})(G__1516_1519))
+});})(G__1513_1519))
 ;
-(re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2(G__1516_1519,G__1517_1520) : re_frame.core.reg_fx.call(null,G__1516_1519,G__1517_1520));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_json_DASH_stringify,(function (_,p__1521){
+(re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2(G__1513_1519,G__1514_1520) : re_frame.core.reg_fx.call(null,G__1513_1519,G__1514_1520));
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_json_DASH_parse,(function (_,p__1521){
 var vec__1522 = p__1521;
 var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1522,(0),null);
 var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1522,(1),null);
-var map__1525 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1522,(2),null);
-var map__1525__$1 = (((((!((map__1525 == null))))?(((((map__1525.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1525.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1525):map__1525);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1525__$1,cljs.core.cst$kw$value);
+var m = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1522,(2),null);
+return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_json_DASH_parse,m], null);
+}));
+var G__1525_1528 = cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_json_DASH_stringify;
+var G__1526_1529 = ((function (G__1525_1528){
+return (function (value,on_result){
+var G__1527 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,JSON.stringify(cljs.core.clj__GT_js(value))], null);
+return (on_result.cljs$core$IFn$_invoke$arity$1 ? on_result.cljs$core$IFn$_invoke$arity$1(G__1527) : on_result.call(null,G__1527));
+});})(G__1525_1528))
+;
+(re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2(G__1525_1528,G__1526_1529) : re_frame.core.reg_fx.call(null,G__1525_1528,G__1526_1529));
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_json_DASH_stringify,(function (_,p__1530){
+var vec__1531 = p__1530;
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1531,(0),null);
+var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1531,(1),null);
+var map__1534 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1531,(2),null);
+var map__1534__$1 = (((((!((map__1534 == null))))?(((((map__1534.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1534.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1534):map__1534);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1534__$1,cljs.core.cst$kw$value);
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_json_DASH_stringify,value], null);
 }));
 react_native_web.events.parse_result = (function react_native_web$events$parse_result(result,on_success){
 var res = (function (){try{return react_native_web.events.parse_json(result);
-}catch (e1527){if((e1527 instanceof Error)){
-var _ = e1527;
+}catch (e1536){if((e1536 instanceof Error)){
+var _ = e1536;
 return null;
 } else {
-throw e1527;
+throw e1536;
 
 }
 }})();
-var G__1528 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$body,(function (){var or__4131__auto__ = res;
+var G__1537 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$body,(function (){var or__4131__auto__ = res;
 if(cljs.core.truth_(or__4131__auto__)){
 return or__4131__auto__;
 } else {
 return result;
 }
 })()], null);
-return (on_success.cljs$core$IFn$_invoke$arity$1 ? on_success.cljs$core$IFn$_invoke$arity$1(G__1528) : on_success.call(null,G__1528));
+return (on_success.cljs$core$IFn$_invoke$arity$1 ? on_success.cljs$core$IFn$_invoke$arity$1(G__1537) : on_success.call(null,G__1537));
 });
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$http_SLASH_get,(function (_,p__1530){
-var vec__1531 = p__1530;
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1531,(0),null);
-var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1531,(1),null);
-var map__1534 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1531,(2),null);
-var map__1534__$1 = (((((!((map__1534 == null))))?(((((map__1534.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1534.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1534):map__1534);
-var url = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1534__$1,cljs.core.cst$kw$url);
-var on_success = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1534__$1,cljs.core.cst$kw$on_DASH_success);
-var on_failure = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1534__$1,cljs.core.cst$kw$on_DASH_failure);
-var timeout = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1534__$1,cljs.core.cst$kw$timeout);
-ajax.core.GET.cljs$core$IFn$_invoke$arity$variadic(url,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$with_DASH_credentials_QMARK_,false,cljs.core.cst$kw$response_DASH_format,cljs.core.cst$kw$text,cljs.core.cst$kw$handler,((function (vec__1531,___$1,___$2,map__1534,map__1534__$1,url,on_success,on_failure,timeout){
-return (function (p1__1529_SHARP_){
-if(cljs.core.truth_(on_success)){
-return react_native_web.events.parse_result(cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__1529_SHARP_),on_success);
-} else {
-return null;
-}
-});})(vec__1531,___$1,___$2,map__1534,map__1534__$1,url,on_success,on_failure,timeout))
-,cljs.core.cst$kw$error_DASH_handler,on_failure], null)], 0));
-
-return null;
-}));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$http_SLASH_post,(function (_,p__1537){
-var vec__1538 = p__1537;
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1538,(0),null);
-var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1538,(1),null);
-var map__1541 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1538,(2),null);
-var map__1541__$1 = (((((!((map__1541 == null))))?(((((map__1541.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1541.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1541):map__1541);
-var url = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1541__$1,cljs.core.cst$kw$url);
-var body = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1541__$1,cljs.core.cst$kw$body);
-var on_success = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1541__$1,cljs.core.cst$kw$on_DASH_success);
-var on_failure = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1541__$1,cljs.core.cst$kw$on_DASH_failure);
-var timeout = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1541__$1,cljs.core.cst$kw$timeout);
-ajax.core.POST.cljs$core$IFn$_invoke$arity$variadic(url,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 5, [cljs.core.cst$kw$with_DASH_credentials_QMARK_,false,cljs.core.cst$kw$body,cljs.core.clj__GT_js(body),cljs.core.cst$kw$response_DASH_format,cljs.core.cst$kw$text,cljs.core.cst$kw$handler,((function (vec__1538,___$1,___$2,map__1541,map__1541__$1,url,body,on_success,on_failure,timeout){
-return (function (p1__1536_SHARP_){
-if(cljs.core.truth_(on_success)){
-return react_native_web.events.parse_result(cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__1536_SHARP_),on_success);
-} else {
-return null;
-}
-});})(vec__1538,___$1,___$2,map__1541,map__1541__$1,url,body,on_success,on_failure,timeout))
-,cljs.core.cst$kw$error_DASH_handler,on_failure], null)], 0));
-
-return null;
-}));
-react_native_web.events.parse_ipfs_add_response = (function react_native_web$events$parse_ipfs_add_response(res){
-var map__1543 = react_native_web.events.parse_json(res);
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$http_SLASH_get,(function (_,p__1539){
+var vec__1540 = p__1539;
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1540,(0),null);
+var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1540,(1),null);
+var map__1543 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1540,(2),null);
 var map__1543__$1 = (((((!((map__1543 == null))))?(((((map__1543.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1543.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1543):map__1543);
-var Name = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1543__$1,cljs.core.cst$kw$Name);
-var Hash = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1543__$1,cljs.core.cst$kw$Hash);
-var Size = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1543__$1,cljs.core.cst$kw$Size);
-return new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$name,Name,cljs.core.cst$kw$hash,Hash,cljs.core.cst$kw$size,Size], null);
-});
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$ipfs_SLASH_add,(function (_,p__1546){
+var url = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1543__$1,cljs.core.cst$kw$url);
+var on_success = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1543__$1,cljs.core.cst$kw$on_DASH_success);
+var on_failure = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1543__$1,cljs.core.cst$kw$on_DASH_failure);
+var timeout = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1543__$1,cljs.core.cst$kw$timeout);
+ajax.core.GET.cljs$core$IFn$_invoke$arity$variadic(url,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$with_DASH_credentials_QMARK_,false,cljs.core.cst$kw$response_DASH_format,cljs.core.cst$kw$text,cljs.core.cst$kw$handler,((function (vec__1540,___$1,___$2,map__1543,map__1543__$1,url,on_success,on_failure,timeout){
+return (function (p1__1538_SHARP_){
+if(cljs.core.truth_(on_success)){
+return react_native_web.events.parse_result(cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__1538_SHARP_),on_success);
+} else {
+return null;
+}
+});})(vec__1540,___$1,___$2,map__1543,map__1543__$1,url,on_success,on_failure,timeout))
+,cljs.core.cst$kw$error_DASH_handler,on_failure], null)], 0));
+
+return null;
+}));
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$http_SLASH_post,(function (_,p__1546){
 var vec__1547 = p__1546;
 var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1547,(0),null);
 var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1547,(1),null);
 var map__1550 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1547,(2),null);
 var map__1550__$1 = (((((!((map__1550 == null))))?(((((map__1550.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1550.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1550):map__1550);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1550__$1,cljs.core.cst$kw$value);
+var url = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1550__$1,cljs.core.cst$kw$url);
+var body = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1550__$1,cljs.core.cst$kw$body);
 var on_success = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1550__$1,cljs.core.cst$kw$on_DASH_success);
 var on_failure = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1550__$1,cljs.core.cst$kw$on_DASH_failure);
-var formdata_1554 = (function (){var G__1552 = (new FormData());
-G__1552.append("extension.event.edn",value);
-
-return G__1552;
-})();
-ajax.core.POST.cljs$core$IFn$_invoke$arity$variadic("https://ipfs.infura.io:5001/api/v0/add",cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 5, [cljs.core.cst$kw$with_DASH_credentials_QMARK_,false,cljs.core.cst$kw$body,formdata_1554,cljs.core.cst$kw$response_DASH_format,cljs.core.cst$kw$text,cljs.core.cst$kw$handler,((function (formdata_1554,vec__1547,___$1,___$2,map__1550,map__1550__$1,value,on_success,on_failure){
+var timeout = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1550__$1,cljs.core.cst$kw$timeout);
+ajax.core.POST.cljs$core$IFn$_invoke$arity$variadic(url,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 5, [cljs.core.cst$kw$with_DASH_credentials_QMARK_,false,cljs.core.cst$kw$body,cljs.core.clj__GT_js(body),cljs.core.cst$kw$response_DASH_format,cljs.core.cst$kw$text,cljs.core.cst$kw$handler,((function (vec__1547,___$1,___$2,map__1550,map__1550__$1,url,body,on_success,on_failure,timeout){
 return (function (p1__1545_SHARP_){
-var G__1553 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,react_native_web.events.parse_ipfs_add_response(p1__1545_SHARP_)], null);
-return (on_success.cljs$core$IFn$_invoke$arity$1 ? on_success.cljs$core$IFn$_invoke$arity$1(G__1553) : on_success.call(null,G__1553));
-});})(formdata_1554,vec__1547,___$1,___$2,map__1550,map__1550__$1,value,on_success,on_failure))
+if(cljs.core.truth_(on_success)){
+return react_native_web.events.parse_result(cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__1545_SHARP_),on_success);
+} else {
+return null;
+}
+});})(vec__1547,___$1,___$2,map__1550,map__1550__$1,url,body,on_success,on_failure,timeout))
 ,cljs.core.cst$kw$error_DASH_handler,on_failure], null)], 0));
 
 return null;
 }));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$ipfs_SLASH_cat,(function (_,p__1556){
-var vec__1557 = p__1556;
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1557,(0),null);
-var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1557,(1),null);
-var map__1560 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1557,(2),null);
-var map__1560__$1 = (((((!((map__1560 == null))))?(((((map__1560.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1560.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1560):map__1560);
-var hash = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1560__$1,cljs.core.cst$kw$hash);
-var on_success = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1560__$1,cljs.core.cst$kw$on_DASH_success);
-var on_failure = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1560__$1,cljs.core.cst$kw$on_DASH_failure);
-ajax.core.GET.cljs$core$IFn$_invoke$arity$variadic(["https://ipfs.infura.io/ipfs/",cljs.core.str.cljs$core$IFn$_invoke$arity$1(hash)].join(''),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$with_DASH_credentials_QMARK_,false,cljs.core.cst$kw$response_DASH_format,cljs.core.cst$kw$text,cljs.core.cst$kw$handler,((function (vec__1557,___$1,___$2,map__1560,map__1560__$1,hash,on_success,on_failure){
-return (function (p1__1555_SHARP_){
-var G__1562 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,p1__1555_SHARP_], null);
+react_native_web.events.parse_ipfs_add_response = (function react_native_web$events$parse_ipfs_add_response(res){
+var map__1552 = react_native_web.events.parse_json(res);
+var map__1552__$1 = (((((!((map__1552 == null))))?(((((map__1552.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1552.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1552):map__1552);
+var Name = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1552__$1,cljs.core.cst$kw$Name);
+var Hash = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1552__$1,cljs.core.cst$kw$Hash);
+var Size = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1552__$1,cljs.core.cst$kw$Size);
+return new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$name,Name,cljs.core.cst$kw$hash,Hash,cljs.core.cst$kw$size,Size], null);
+});
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$ipfs_SLASH_add,(function (_,p__1555){
+var vec__1556 = p__1555;
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1556,(0),null);
+var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1556,(1),null);
+var map__1559 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1556,(2),null);
+var map__1559__$1 = (((((!((map__1559 == null))))?(((((map__1559.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1559.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1559):map__1559);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1559__$1,cljs.core.cst$kw$value);
+var on_success = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1559__$1,cljs.core.cst$kw$on_DASH_success);
+var on_failure = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1559__$1,cljs.core.cst$kw$on_DASH_failure);
+var formdata_1563 = (function (){var G__1561 = (new FormData());
+G__1561.append("extension.event.edn",value);
+
+return G__1561;
+})();
+ajax.core.POST.cljs$core$IFn$_invoke$arity$variadic("https://ipfs.infura.io:5001/api/v0/add",cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 5, [cljs.core.cst$kw$with_DASH_credentials_QMARK_,false,cljs.core.cst$kw$body,formdata_1563,cljs.core.cst$kw$response_DASH_format,cljs.core.cst$kw$text,cljs.core.cst$kw$handler,((function (formdata_1563,vec__1556,___$1,___$2,map__1559,map__1559__$1,value,on_success,on_failure){
+return (function (p1__1554_SHARP_){
+var G__1562 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,react_native_web.events.parse_ipfs_add_response(p1__1554_SHARP_)], null);
 return (on_success.cljs$core$IFn$_invoke$arity$1 ? on_success.cljs$core$IFn$_invoke$arity$1(G__1562) : on_success.call(null,G__1562));
-});})(vec__1557,___$1,___$2,map__1560,map__1560__$1,hash,on_success,on_failure))
+});})(formdata_1563,vec__1556,___$1,___$2,map__1559,map__1559__$1,value,on_success,on_failure))
 ,cljs.core.cst$kw$error_DASH_handler,on_failure], null)], 0));
 
 return null;
 }));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions$chat$command_SLASH_set_DASH_parameter,(function (_,p__1563){
-var vec__1564 = p__1563;
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1564,(0),null);
-var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1564,(1),null);
-var map__1567 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1564,(2),null);
-var map__1567__$1 = (((((!((map__1567 == null))))?(((((map__1567.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1567.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1567):map__1567);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1567__$1,cljs.core.cst$kw$value);
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$ipfs_SLASH_cat,(function (_,p__1565){
+var vec__1566 = p__1565;
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1566,(0),null);
+var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1566,(1),null);
+var map__1569 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1566,(2),null);
+var map__1569__$1 = (((((!((map__1569 == null))))?(((((map__1569.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1569.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1569):map__1569);
+var hash = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1569__$1,cljs.core.cst$kw$hash);
+var on_success = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1569__$1,cljs.core.cst$kw$on_DASH_success);
+var on_failure = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1569__$1,cljs.core.cst$kw$on_DASH_failure);
+ajax.core.GET.cljs$core$IFn$_invoke$arity$variadic(["https://ipfs.infura.io/ipfs/",cljs.core.str.cljs$core$IFn$_invoke$arity$1(hash)].join(''),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$with_DASH_credentials_QMARK_,false,cljs.core.cst$kw$response_DASH_format,cljs.core.cst$kw$text,cljs.core.cst$kw$handler,((function (vec__1566,___$1,___$2,map__1569,map__1569__$1,hash,on_success,on_failure){
+return (function (p1__1564_SHARP_){
+var G__1571 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,p1__1564_SHARP_], null);
+return (on_success.cljs$core$IFn$_invoke$arity$1 ? on_success.cljs$core$IFn$_invoke$arity$1(G__1571) : on_success.call(null,G__1571));
+});})(vec__1566,___$1,___$2,map__1569,map__1569__$1,hash,on_success,on_failure))
+,cljs.core.cst$kw$error_DASH_handler,on_failure], null)], 0));
+
 return null;
 }));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions$chat$command_SLASH_set_DASH_custom_DASH_parameter,(function (p__1569,p__1570){
-var map__1571 = p__1569;
-var map__1571__$1 = (((((!((map__1571 == null))))?(((((map__1571.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1571.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1571):map__1571);
-var map__1572 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1571__$1,cljs.core.cst$kw$db);
-var map__1572__$1 = (((((!((map__1572 == null))))?(((((map__1572.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1572.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1572):map__1572);
-var db = map__1572__$1;
-var current_chat_id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1572__$1,cljs.core.cst$kw$current_DASH_chat_DASH_id);
-var vec__1573 = p__1570;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1573,(0),null);
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1573,(1),null);
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions$chat$command_SLASH_set_DASH_parameter,(function (_,p__1572){
+var vec__1573 = p__1572;
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1573,(0),null);
+var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1573,(1),null);
 var map__1576 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1573,(2),null);
 var map__1576__$1 = (((((!((map__1576 == null))))?(((((map__1576.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1576.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1576):map__1576);
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1576__$1,cljs.core.cst$kw$key);
 var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1576__$1,cljs.core.cst$kw$value);
 return null;
 }));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions$chat$command_SLASH_set_DASH_parameter_DASH_with_DASH_custom_DASH_params,(function (p__1580,p__1581){
-var map__1582 = p__1580;
-var map__1582__$1 = (((((!((map__1582 == null))))?(((((map__1582.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1582.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1582):map__1582);
-var map__1583 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1582__$1,cljs.core.cst$kw$db);
-var map__1583__$1 = (((((!((map__1583 == null))))?(((((map__1583.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1583.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1583):map__1583);
-var db = map__1583__$1;
-var current_chat_id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1583__$1,cljs.core.cst$kw$current_DASH_chat_DASH_id);
-var vec__1584 = p__1581;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1584,(0),null);
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1584,(1),null);
-var map__1587 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1584,(2),null);
-var map__1587__$1 = (((((!((map__1587 == null))))?(((((map__1587.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1587.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1587):map__1587);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1587__$1,cljs.core.cst$kw$value);
-var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1587__$1,cljs.core.cst$kw$params);
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions$chat$command_SLASH_set_DASH_custom_DASH_parameter,(function (p__1578,p__1579){
+var map__1580 = p__1578;
+var map__1580__$1 = (((((!((map__1580 == null))))?(((((map__1580.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1580.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1580):map__1580);
+var map__1581 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1580__$1,cljs.core.cst$kw$db);
+var map__1581__$1 = (((((!((map__1581 == null))))?(((((map__1581.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1581.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1581):map__1581);
+var db = map__1581__$1;
+var current_chat_id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1581__$1,cljs.core.cst$kw$current_DASH_chat_DASH_id);
+var vec__1582 = p__1579;
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1582,(0),null);
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1582,(1),null);
+var map__1585 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1582,(2),null);
+var map__1585__$1 = (((((!((map__1585 == null))))?(((((map__1585.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1585.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1585):map__1585);
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1585__$1,cljs.core.cst$kw$key);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1585__$1,cljs.core.cst$kw$value);
+return null;
+}));
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions$chat$command_SLASH_set_DASH_parameter_DASH_with_DASH_custom_DASH_params,(function (p__1589,p__1590){
+var map__1591 = p__1589;
+var map__1591__$1 = (((((!((map__1591 == null))))?(((((map__1591.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1591.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1591):map__1591);
+var map__1592 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1591__$1,cljs.core.cst$kw$db);
+var map__1592__$1 = (((((!((map__1592 == null))))?(((((map__1592.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1592.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1592):map__1592);
+var db = map__1592__$1;
+var current_chat_id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1592__$1,cljs.core.cst$kw$current_DASH_chat_DASH_id);
+var vec__1593 = p__1590;
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1593,(0),null);
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1593,(1),null);
+var map__1596 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1593,(2),null);
+var map__1596__$1 = (((((!((map__1596 == null))))?(((((map__1596.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1596.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1596):map__1596);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1596__$1,cljs.core.cst$kw$value);
+var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1596__$1,cljs.core.cst$kw$params);
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$db,cljs.core.assoc_in(cljs.core.update_in.cljs$core$IFn$_invoke$arity$4(db,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extension_DASH_props,cljs.core.cst$kw$params], null),cljs.core.merge,params),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$extension_DASH_props,cljs.core.cst$kw$suggestion_DASH_id], null),null)], null);
 }));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions$chat$command_SLASH_send_DASH_plain_DASH_text_DASH_message,(function (_,p__1591){
-var vec__1592 = p__1591;
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1592,(0),null);
-var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1592,(1),null);
-var map__1595 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1592,(2),null);
-var map__1595__$1 = (((((!((map__1595 == null))))?(((((map__1595.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1595.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1595):map__1595);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1595__$1,cljs.core.cst$kw$value);
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions$chat$command_SLASH_send_DASH_plain_DASH_text_DASH_message,(function (_,p__1600){
+var vec__1601 = p__1600;
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1601,(0),null);
+var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1601,(1),null);
+var map__1604 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1601,(2),null);
+var map__1604__$1 = (((((!((map__1604 == null))))?(((((map__1604.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1604.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1604):map__1604);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1604__$1,cljs.core.cst$kw$value);
 return null;
 }));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions$chat$command_SLASH_send_DASH_message,(function (p__1598,p__1599){
-var map__1600 = p__1598;
-var map__1600__$1 = (((((!((map__1600 == null))))?(((((map__1600.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1600.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1600):map__1600);
-var cofx = map__1600__$1;
-var map__1601 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1600__$1,cljs.core.cst$kw$db);
-var map__1601__$1 = (((((!((map__1601 == null))))?(((((map__1601.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1601.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1601):map__1601);
-var db = map__1601__$1;
-var current_chat_id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1601__$1,cljs.core.cst$kw$current_DASH_chat_DASH_id);
-var vec__1602 = p__1599;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1602,(0),null);
-var map__1605 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1602,(1),null);
-var map__1605__$1 = (((((!((map__1605 == null))))?(((((map__1605.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1605.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1605):map__1605);
-var hook_id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1605__$1,cljs.core.cst$kw$hook_DASH_id);
-var map__1606 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1602,(2),null);
-var map__1606__$1 = (((((!((map__1606 == null))))?(((((map__1606.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1606.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1606):map__1606);
-var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1606__$1,cljs.core.cst$kw$params);
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions$chat$command_SLASH_send_DASH_message,(function (p__1607,p__1608){
+var map__1609 = p__1607;
+var map__1609__$1 = (((((!((map__1609 == null))))?(((((map__1609.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1609.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1609):map__1609);
+var cofx = map__1609__$1;
+var map__1610 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1609__$1,cljs.core.cst$kw$db);
+var map__1610__$1 = (((((!((map__1610 == null))))?(((((map__1610.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1610.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1610):map__1610);
+var db = map__1610__$1;
+var current_chat_id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1610__$1,cljs.core.cst$kw$current_DASH_chat_DASH_id);
+var vec__1611 = p__1608;
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1611,(0),null);
+var map__1614 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1611,(1),null);
+var map__1614__$1 = (((((!((map__1614 == null))))?(((((map__1614.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1614.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1614):map__1614);
+var hook_id = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1614__$1,cljs.core.cst$kw$hook_DASH_id);
+var map__1615 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1611,(2),null);
+var map__1615__$1 = (((((!((map__1615 == null))))?(((((map__1615.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1615.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1615):map__1615);
+var params = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1615__$1,cljs.core.cst$kw$params);
 return null;
 }));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_show_DASH_selection_DASH_screen,(function (p__1611,p__1612){
-var map__1613 = p__1611;
-var map__1613__$1 = (((((!((map__1613 == null))))?(((((map__1613.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1613.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1613):map__1613);
-var db = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1613__$1,cljs.core.cst$kw$db);
-var vec__1614 = p__1612;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1614,(0),null);
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1614,(1),null);
-var map__1617 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1614,(2),null);
-var map__1617__$1 = (((((!((map__1617 == null))))?(((((map__1617.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1617.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1617):map__1617);
-var params = map__1617__$1;
-var on_select = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1617__$1,cljs.core.cst$kw$on_DASH_select);
-return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$db,cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(db,cljs.core.cst$kw$selection_DASH_screen,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$on_DASH_select,on_select], null))], null);
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_show_DASH_selection_DASH_screen,(function (cofx,p__1621){
+var vec__1622 = p__1621;
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1622,(0),null);
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1622,(1),null);
+var map__1625 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1622,(2),null);
+var map__1625__$1 = (((((!((map__1625 == null))))?(((((map__1625.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1625.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1625):map__1625);
+var params = map__1625__$1;
+var on_select = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1625__$1,cljs.core.cst$kw$on_DASH_select);
+return null;
 }));
 react_native_web.events.operation__GT_fn = (function react_native_web$events$operation__GT_fn(k){
-var G__1620 = k;
-var G__1620__$1 = (((G__1620 instanceof cljs.core.Keyword))?G__1620.fqn:null);
-switch (G__1620__$1) {
+var G__1627 = k;
+var G__1627__$1 = (((G__1627 instanceof cljs.core.Keyword))?G__1627.fqn:null);
+switch (G__1627__$1) {
 case "plus":
 return cljs.core._PLUS_;
 
@@ -468,37 +465,37 @@ return cljs.core._SLASH_;
 
 break;
 default:
-throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__1620__$1)].join('')));
+throw (new Error(["No matching clause: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(G__1627__$1)].join('')));
 
 }
 });
-var G__1622_1628 = cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_arithmetic;
-var G__1623_1629 = ((function (G__1622_1628){
-return (function (p__1624){
-var map__1625 = p__1624;
-var map__1625__$1 = (((((!((map__1625 == null))))?(((((map__1625.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1625.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1625):map__1625);
-var operation = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1625__$1,cljs.core.cst$kw$operation);
-var values = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1625__$1,cljs.core.cst$kw$values);
-var on_result = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1625__$1,cljs.core.cst$kw$on_DASH_result);
-var G__1627 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,cljs.core.apply.cljs$core$IFn$_invoke$arity$2(react_native_web.events.operation__GT_fn(operation),values)], null);
-return (on_result.cljs$core$IFn$_invoke$arity$1 ? on_result.cljs$core$IFn$_invoke$arity$1(G__1627) : on_result.call(null,G__1627));
-});})(G__1622_1628))
+var G__1629_1635 = cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_arithmetic;
+var G__1630_1636 = ((function (G__1629_1635){
+return (function (p__1631){
+var map__1632 = p__1631;
+var map__1632__$1 = (((((!((map__1632 == null))))?(((((map__1632.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1632.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1632):map__1632);
+var operation = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1632__$1,cljs.core.cst$kw$operation);
+var values = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1632__$1,cljs.core.cst$kw$values);
+var on_result = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1632__$1,cljs.core.cst$kw$on_DASH_result);
+var G__1634 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,cljs.core.apply.cljs$core$IFn$_invoke$arity$2(react_native_web.events.operation__GT_fn(operation),values)], null);
+return (on_result.cljs$core$IFn$_invoke$arity$1 ? on_result.cljs$core$IFn$_invoke$arity$1(G__1634) : on_result.call(null,G__1634));
+});})(G__1629_1635))
 ;
-(re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2(G__1622_1628,G__1623_1629) : re_frame.core.reg_fx.call(null,G__1622_1628,G__1623_1629));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_arithmetic,(function (_,p__1630){
-var vec__1631 = p__1630;
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1631,(0),null);
-var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1631,(1),null);
-var m = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1631,(2),null);
+(re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2 ? re_frame.core.reg_fx.cljs$core$IFn$_invoke$arity$2(G__1629_1635,G__1630_1636) : re_frame.core.reg_fx.call(null,G__1629_1635,G__1630_1636));
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_arithmetic,(function (_,p__1637){
+var vec__1638 = p__1637;
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1638,(0),null);
+var ___$2 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1638,(1),null);
+var m = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1638,(2),null);
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$react_DASH_native_DASH_web$events_SLASH_arithmetic,m], null);
 }));
-re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_open_DASH_url,(function (cofx,p__1634){
-var vec__1635 = p__1634;
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1635,(0),null);
-var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1635,(1),null);
-var map__1638 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1635,(2),null);
-var map__1638__$1 = (((((!((map__1638 == null))))?(((((map__1638.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1638.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1638):map__1638);
-var url = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1638__$1,cljs.core.cst$kw$url);
+re_frame.core.reg_event_fx.cljs$core$IFn$_invoke$arity$2(cljs.core.cst$kw$extensions_SLASH_open_DASH_url,(function (cofx,p__1641){
+var vec__1642 = p__1641;
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1642,(0),null);
+var ___$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1642,(1),null);
+var map__1645 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__1642,(2),null);
+var map__1645__$1 = (((((!((map__1645 == null))))?(((((map__1645.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1645.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1645):map__1645);
+var url = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1645__$1,cljs.core.cst$kw$url);
 window.open(url,"_blank");
 
 return null;
