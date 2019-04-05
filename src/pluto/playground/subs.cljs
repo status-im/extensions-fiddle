@@ -97,3 +97,8 @@
  :<- [:extension-selection]
  (fn [[props id]]
    (get props id)))
+
+(re-frame/reg-sub
+ :store/all
+ (fn [db _]
+   (get-in db [:extensions/store "Extension ID"])))
