@@ -23,26 +23,26 @@ pluto.storage.gist.GistStorage = (function (){
 });
 pluto.storage.gist.GistStorage.prototype.pluto$storage$Storage$ = cljs.core.PROTOCOL_SENTINEL;
 
-pluto.storage.gist.GistStorage.prototype.pluto$storage$Storage$fetch$arity$3 = (function (_,p__2512,callback){
+pluto.storage.gist.GistStorage.prototype.pluto$storage$Storage$fetch$arity$3 = (function (_,p__537,callback){
 var self__ = this;
-var map__2513 = p__2512;
-var map__2513__$1 = (((((!((map__2513 == null))))?(((((map__2513.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__2513.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__2513):map__2513);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__2513__$1,cljs.core.cst$kw$value);
+var map__538 = p__537;
+var map__538__$1 = (((((!((map__538 == null))))?(((((map__538.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__538.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__538):map__538);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__538__$1,cljs.core.cst$kw$value);
 var ___$1 = this;
 var xhr = (new XMLHttpRequest());
 xhr.open("GET",pluto.storage.gist.gist_url(value),true);
 
 xhr.send(null);
 
-return xhr.onreadystatechange = ((function (xhr,___$1,map__2513,map__2513__$1,value){
+return xhr.onreadystatechange = ((function (xhr,___$1,map__538,map__538__$1,value){
 return (function (){
 if(cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(xhr.readyState,(4))){
-var G__2515 = pluto.storage.gist.result(xhr);
-return (callback.cljs$core$IFn$_invoke$arity$1 ? callback.cljs$core$IFn$_invoke$arity$1(G__2515) : callback.call(null,G__2515));
+var G__540 = pluto.storage.gist.result(xhr);
+return (callback.cljs$core$IFn$_invoke$arity$1 ? callback.cljs$core$IFn$_invoke$arity$1(G__540) : callback.call(null,G__540));
 } else {
 return null;
 }
-});})(xhr,___$1,map__2513,map__2513__$1,value))
+});})(xhr,___$1,map__538,map__538__$1,value))
 ;
 });
 

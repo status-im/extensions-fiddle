@@ -16,12 +16,12 @@ return cb;
 return and__4120__auto__;
 }
 })())){
-var vec__2523 = clojure.string.split.cljs$core$IFn$_invoke$arity$2(uri,"@");
-var type = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__2523,(0),null);
-var id = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__2523,(1),null);
-var temp__5720__auto__ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(pluto.storages.all,type);
-if(cljs.core.truth_(temp__5720__auto__)){
-var s = temp__5720__auto__;
+var vec__2460 = clojure.string.split.cljs$core$IFn$_invoke$arity$2(uri,"@");
+var type = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__2460,(0),null);
+var id = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__2460,(1),null);
+var temp__5457__auto__ = cljs.core.get.cljs$core$IFn$_invoke$arity$2(pluto.storages.all,type);
+if(cljs.core.truth_(temp__5457__auto__)){
+var s = temp__5457__auto__;
 return pluto.storage.fetch(s,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,id], null),cb);
 } else {
 return null;
