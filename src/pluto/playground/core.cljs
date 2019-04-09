@@ -86,7 +86,7 @@
 
 (defn flatten-errors [m]
   (when (map? m)
-    (apply concat (reduce-kv #(concat %1 (vals %3)) [] m))))
+    (apply concat (reduce-kv #(concat %1 (if (map? %3) (vals %3) %3)) [] m))))
 
 (defn parse-extension-id [extension-selection]
   (map keyword (string/split extension-selection #"/")))
