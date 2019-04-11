@@ -196,7 +196,8 @@
              "Watch"]]]]]]])))
 
 (defn mount-root []
-  (reagent/render [layout] (.getElementById js/document "app")))
+  (when-let [el (.getElementById js/document "app")]
+    (reagent/render [layout] el)))
 
 (defn ^:export bootstrap []
   (re-frame/dispatch [:fetch-extension])

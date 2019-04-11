@@ -1,0 +1,64 @@
+# Chores
+
+Get rid of bundle.js (figure out how to use `react-native-web` and `web3-utils`)
+Remove webpack configuration
+Rely on status-components
+Rely on cljc-ethereum
+
+https://extensions.status.im/?hash=QmbsDXPqRsQQ4eGL8fafqQk2htWcM4cc1d76SCzezEqfoA
+Editing a local event (removing let) crashes fiddle. Error handling?
+Uncaught TypeError: me.cljs$core$IMapEntry$_val$arity$1 is not a function
+    at Object.cljs$core$ISeq$_first$arity$1 (core.cljs:9056)
+    at Object.cljs$core$_first [as _first] (core.cljs:603)
+    at Object.cljs$core$first [as first] (core.cljs:1234)
+    at Object.cljs$core$ISeq$_first$arity$1 (core.cljs:3451)
+    at Object.cljs$core$_first [as _first] (core.cljs:603)
+    at Object.cljs$core$apply_to [as apply_to] (core.cljs:3877)
+    at Function.cljs$core$IFn$_invoke$arity$2 (core.cljs:3929)
+    at cljs$core$apply (core.cljs:3922)
+    at pluto$playground$core$flatten_errors (core.cljs:90)
+    at core.cljs:135
+
+# Features
+
+## Workspace
+
+Save in localState
+Some screen to see all projects
+
+
+# Limitations
+
+Events should receive whole ctx, not just env. Then ::log can reuse :log-fn
+No inline view
+Refer to whole properties?
+Local events w/o let block
+Inline events should inherit value
+
+
+A docker image with IPFS/geth/fiddle to have everything local
+
+Easily link with your paired devices
+
+
+Finish events firing
+Listen to queries (and see changes)
+Mock queries
+
+Runner
+Workspace? (list of all WIP extensions)
+Preview fullscreen
+Drag and drop components
+Easy way to push to a remote status?
+
+Debugger?
+
+History (data)
+History (UI changes)
+https://vimsical.com/vims/5969777d-8dae-48a6-8b6c-838928b59382
+https://github.com/vimsical/vimsical/blob/master/src/frontend/vimsical/frontend/code_editor/views.cljs
+
+Move to monaco
+https://microsoft.github.io/monaco-editor/
+https://github.com/Microsoft/monaco-editor
+https://blog.expo.io/building-a-code-editor-with-monaco-f84b3a06deaf

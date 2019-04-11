@@ -7,7 +7,7 @@
 
 (def ^:const ipfs-add-url "https://ipfs.infura.io:5001/api/v0/add")
 (def ^:const ipfs-add-param-name "extension.event.edn")
-(def ^:const ipfs-cat-url "https://ipfs.infura.io/ipfs/")
+(def ^:const ipfs-cat-url "http://127.0.0.1:8080/ipfs/")
 
 (re-frame/reg-event-fx
  :extensions/identity-event
@@ -128,7 +128,7 @@
  :http/get
  (fn [_ [_ _ {:keys [url on-success on-failure timeout]}]]
    (ajax/GET url {:with-credentials? false
-                  :response-format   :text
+                  :response-format   :arraybuffer
                   :handler           #(when on-success (parse-result (str %) on-success))
                   :error-handler     on-failure})
    nil))
@@ -162,13 +162,82 @@
                               :error-handler     on-failure}))
    nil))
 
+(defn- wasm-global [{:keys [type value mutable?]}]
+  (new js/WebAssembly.Global (clj->js (cond-> {:value type} mutable? (assoc :mutable mutable?))) value))
+
+(defn- wasm-memory [{:keys [initial maximum]}]
+  (new js/WebAssembly.Memory (clj->js (cond-> {:initial initial} maximum (assoc :maximum maximum)))))
+
+(defn- wasm-table [{:keys [initial maximum]}]
+  (new js/WebAssembly.Table (clj->js (cond-> {:initial initial :element "anyfunc"} maximum (assoc :maximum maximum)))))
+
+(defmulti mock-import
+  "Import kind can be either function, memory, table or global"
+  identity)
+
+(defmethod mock-import "function" [_]
+  (fn [o] (.log js/console o)))
+
+(defmethod mock-import "global" [_]
+  0)
+
+(defmethod mock-import "memory" [_]
+  (wasm-memory {:initial 256 :maximum 256}))
+
+(defmethod mock-import "table" [_]
+  (wasm-table {:initial 8 :maximum 8}))
+
+(defmethod mock-import :default [o]
+  (println (str "Unknown kind <" o ">")))
+
+(defn- merge-mock [m {:strs [module name kind]}]
+  (update-in m [module name] #(mock-import kind)))
+
+(defn- mock-imports [imports]
+  (reduce merge-mock {} imports))
+
+(defn- wasm-compile [value f]
+  (.then
+    (js/WebAssembly.compile value)
+    #(let [name (first (js/WebAssembly.Module.customSections % "name"))]
+       (f (cond-> {:module  %
+                   :exports (js->clj (js/WebAssembly.Module.exports %) :keywordize-keys true)
+                   :imports (js->clj (js/WebAssembly.Module.imports %) :keywordize-keys true)}
+                  name (assoc :name name))))))
+
+(re-frame/reg-event-fx
+  :wasm/call
+  (fn [_ [_ _ {:keys [value function imports arguments on-success on-failure]}]]
+    ;; TODO how to get events as fn?
+    (wasm-compile
+      value
+      #(let [{:keys [module exports] :as m} %]
+         (.then
+           (js/WebAssembly.instantiate module (clj->js (merge imports (mock-imports (:imports m)))))
+           (fn [o]
+             (let [exports (.-exports o)]
+               (if-let [f (aget exports function)]
+                 (when on-success
+                   (on-success {:value (apply f arguments)}))
+                 (when on-failure
+                   (on-failure {:value (str "Function <" function "> not exported")}))))))))
+    nil))
+
+(re-frame/reg-event-fx
+  :wasm/inspect
+  (fn [_ [_ _ {:keys [value on-success on-failure]}]]
+    ;; TODO how to get events as fn?
+    (wasm-compile
+      value
+      #(on-success {:value %}))
+    nil))
+
 (re-frame/reg-event-fx
  :ipfs/cat
  (fn [_ [_ _ {:keys [hash on-success on-failure]}]]
-   (ajax/GET (str ipfs-cat-url hash) {:with-credentials? false
-                                      :response-format   :text
-                                      :handler           #(on-success {:value %})
-                                      :error-handler     on-failure})
+   (-> (js/fetch (str ipfs-cat-url hash))
+     (.then #(-> (.arrayBuffer %)
+                 (.then (fn [o] (on-success {:value o}))))))
    nil))
 
 (re-frame/reg-event-fx
@@ -246,6 +315,32 @@
            :arguments   {:values    :vector
                          :operation {:one-of #{:plus :minus :times :divide}}
                          :on-result :event}}
+
+          'wasm/call
+          ;; does not run ?
+          {:permissions [:read]
+           :data        :wasm/call
+           ;; load some wat file? as string, blob?
+           :arguments   {:value :any
+                         :imports :map
+                         :function :string
+                         :arguments :map
+                         :on-success :event
+                         :on-error :event}
+           :return      {:instance {:exports :vector}
+                         :module   :any}}
+
+          'wasm/inspect
+          {:permissions [:read]
+           :data        :wasm/inspect
+           ;; load some wat file? as string, blob?
+           :arguments   {:value :any
+                         :on-success :event
+                         :on-error :event}
+           :return      {:instance {:exports :vector}
+                         :module   :any}}
+          ;; IPFS/cat => :value
+
 
           ;;BROWSER
           'browser/open-url
