@@ -5,31 +5,39 @@ goog.require('cljs.core.constants');
 goog.require('react_native_web.react');
 goog.require('re_frame.core');
 goog.require('status_im.colors');
-react_native_web.components.input = (function react_native_web$components$input(p__1264){
-var map__1265 = p__1264;
-var map__1265__$1 = (((((!((map__1265 == null))))?(((((map__1265.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1265.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1265):map__1265);
-var keyboard_type = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1265__$1,cljs.core.cst$kw$keyboard_DASH_type);
-var style = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1265__$1,cljs.core.cst$kw$style);
-var on_change = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1265__$1,cljs.core.cst$kw$on_DASH_change);
-var placeholder = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1265__$1,cljs.core.cst$kw$placeholder);
-var placeholder_text_color = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1265__$1,cljs.core.cst$kw$placeholder_DASH_text_DASH_color);
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.text_input,cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$placeholder,placeholder], null),(cljs.core.truth_(placeholder_text_color)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$placeholder_DASH_text_DASH_color,placeholder_text_color], null):null),(cljs.core.truth_(style)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,style], null):null),(cljs.core.truth_(keyboard_type)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$keyboard_DASH_type,keyboard_type], null):null),(cljs.core.truth_(on_change)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$on_DASH_change_DASH_text,((function (map__1265,map__1265__$1,keyboard_type,style,on_change,placeholder,placeholder_text_color){
-return (function (p1__1263_SHARP_){
-var G__1267 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,p1__1263_SHARP_], null);
-return (on_change.cljs$core$IFn$_invoke$arity$1 ? on_change.cljs$core$IFn$_invoke$arity$1(G__1267) : on_change.call(null,G__1267));
-});})(map__1265,map__1265__$1,keyboard_type,style,on_change,placeholder,placeholder_text_color))
+react_native_web.components.input = (function react_native_web$components$input(p__1584){
+var map__1585 = p__1584;
+var map__1585__$1 = (((((!((map__1585 == null))))?(((((map__1585.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1585.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1585):map__1585);
+var keyboard_type = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1585__$1,cljs.core.cst$kw$keyboard_DASH_type);
+var style = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1585__$1,cljs.core.cst$kw$style);
+var on_change = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1585__$1,cljs.core.cst$kw$on_DASH_change);
+var placeholder = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1585__$1,cljs.core.cst$kw$placeholder);
+var placeholder_text_color = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1585__$1,cljs.core.cst$kw$placeholder_DASH_text_DASH_color);
+var auto_focus = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1585__$1,cljs.core.cst$kw$auto_DASH_focus);
+var on_submit = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1585__$1,cljs.core.cst$kw$on_DASH_submit);
+var default_value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1585__$1,cljs.core.cst$kw$default_DASH_value);
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.text_input,cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$placeholder,placeholder], null),(cljs.core.truth_(placeholder_text_color)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$placeholder_DASH_text_DASH_color,placeholder_text_color], null):null),(cljs.core.truth_(style)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,style], null):null),(cljs.core.truth_(keyboard_type)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$keyboard_DASH_type,keyboard_type], null):null),(cljs.core.truth_(auto_focus)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$auto_DASH_focus,auto_focus], null):null),(cljs.core.truth_(default_value)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$default_DASH_value,default_value], null):null),(cljs.core.truth_(on_change)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$on_DASH_change_DASH_text,((function (map__1585,map__1585__$1,keyboard_type,style,on_change,placeholder,placeholder_text_color,auto_focus,on_submit,default_value){
+return (function (p1__1583_SHARP_){
+var G__1587 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,p1__1583_SHARP_], null);
+return (on_change.cljs$core$IFn$_invoke$arity$1 ? on_change.cljs$core$IFn$_invoke$arity$1(G__1587) : on_change.call(null,G__1587));
+});})(map__1585,map__1585__$1,keyboard_type,style,on_change,placeholder,placeholder_text_color,auto_focus,on_submit,default_value))
+], null):null),(cljs.core.truth_(on_submit)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$on_DASH_submit_DASH_editing,((function (map__1585,map__1585__$1,keyboard_type,style,on_change,placeholder,placeholder_text_color,auto_focus,on_submit,default_value){
+return (function (){
+var G__1588 = cljs.core.PersistentArrayMap.EMPTY;
+return (on_submit.cljs$core$IFn$_invoke$arity$1 ? on_submit.cljs$core$IFn$_invoke$arity$1(G__1588) : on_submit.call(null,G__1588));
+});})(map__1585,map__1585__$1,keyboard_type,style,on_change,placeholder,placeholder_text_color,auto_focus,on_submit,default_value))
 ], null):null)], 0))], null);
 });
 react_native_web.components.touchable_opacity = (function react_native_web$components$touchable_opacity(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___1274 = arguments.length;
-var i__4731__auto___1275 = (0);
+var len__4730__auto___1595 = arguments.length;
+var i__4731__auto___1596 = (0);
 while(true){
-if((i__4731__auto___1275 < len__4730__auto___1274)){
-args__4736__auto__.push((arguments[i__4731__auto___1275]));
+if((i__4731__auto___1596 < len__4730__auto___1595)){
+args__4736__auto__.push((arguments[i__4731__auto___1596]));
 
-var G__1276 = (i__4731__auto___1275 + (1));
-i__4731__auto___1275 = G__1276;
+var G__1597 = (i__4731__auto___1596 + (1));
+i__4731__auto___1596 = G__1597;
 continue;
 } else {
 }
@@ -40,59 +48,59 @@ var argseq__4737__auto__ = ((((1) < args__4736__auto__.length))?(new cljs.core.I
 return react_native_web.components.touchable_opacity.cljs$core$IFn$_invoke$arity$variadic((arguments[(0)]),argseq__4737__auto__);
 });
 
-react_native_web.components.touchable_opacity.cljs$core$IFn$_invoke$arity$variadic = (function (p__1270,children){
-var map__1271 = p__1270;
-var map__1271__$1 = (((((!((map__1271 == null))))?(((((map__1271.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1271.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1271):map__1271);
-var style = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1271__$1,cljs.core.cst$kw$style);
-var on_press = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1271__$1,cljs.core.cst$kw$on_DASH_press);
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.touchable_highlight(),cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([(cljs.core.truth_(on_press)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$on_DASH_press,((function (map__1271,map__1271__$1,style,on_press){
+react_native_web.components.touchable_opacity.cljs$core$IFn$_invoke$arity$variadic = (function (p__1591,children){
+var map__1592 = p__1591;
+var map__1592__$1 = (((((!((map__1592 == null))))?(((((map__1592.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1592.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1592):map__1592);
+var style = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1592__$1,cljs.core.cst$kw$style);
+var on_press = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1592__$1,cljs.core.cst$kw$on_DASH_press);
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.touchable_highlight(),cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([(cljs.core.truth_(on_press)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$on_DASH_press,((function (map__1592,map__1592__$1,style,on_press){
 return (function (){
-var G__1273 = cljs.core.PersistentArrayMap.EMPTY;
-return (on_press.cljs$core$IFn$_invoke$arity$1 ? on_press.cljs$core$IFn$_invoke$arity$1(G__1273) : on_press.call(null,G__1273));
-});})(map__1271,map__1271__$1,style,on_press))
+var G__1594 = cljs.core.PersistentArrayMap.EMPTY;
+return (on_press.cljs$core$IFn$_invoke$arity$1 ? on_press.cljs$core$IFn$_invoke$arity$1(G__1594) : on_press.call(null,G__1594));
+});})(map__1592,map__1592__$1,style,on_press))
 ], null):null),(cljs.core.truth_(style)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,style], null):null)], 0))], null),children);
 });
 
 react_native_web.components.touchable_opacity.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-react_native_web.components.touchable_opacity.cljs$lang$applyTo = (function (seq1268){
-var G__1269 = cljs.core.first(seq1268);
-var seq1268__$1 = cljs.core.next(seq1268);
+react_native_web.components.touchable_opacity.cljs$lang$applyTo = (function (seq1589){
+var G__1590 = cljs.core.first(seq1589);
+var seq1589__$1 = cljs.core.next(seq1589);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__1269,seq1268__$1);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__1590,seq1589__$1);
 });
 
-react_native_web.components.image = (function react_native_web$components$image(p__1277){
-var map__1278 = p__1277;
-var map__1278__$1 = (((((!((map__1278 == null))))?(((((map__1278.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1278.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1278):map__1278);
-var uri = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1278__$1,cljs.core.cst$kw$uri);
-var style = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1278__$1,cljs.core.cst$kw$style);
+react_native_web.components.image = (function react_native_web$components$image(p__1598){
+var map__1599 = p__1598;
+var map__1599__$1 = (((((!((map__1599 == null))))?(((((map__1599.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1599.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1599):map__1599);
+var uri = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1599__$1,cljs.core.cst$kw$uri);
+var style = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1599__$1,cljs.core.cst$kw$style);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.image(),cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$width,(100),cljs.core.cst$kw$height,(100)], null),style], 0))], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$source,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$uri,uri], null)], null)], 0))], null);
 });
-react_native_web.components.link = (function react_native_web$components$link(p__1280){
-var map__1281 = p__1280;
-var map__1281__$1 = (((((!((map__1281 == null))))?(((((map__1281.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1281.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1281):map__1281);
-var uri = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1281__$1,cljs.core.cst$kw$uri);
-return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.text,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$color,status_im.colors.white,cljs.core.cst$kw$text_DASH_decoration_DASH_line,cljs.core.cst$kw$underline], null),cljs.core.cst$kw$on_DASH_press,((function (map__1281,map__1281__$1,uri){
+react_native_web.components.link = (function react_native_web$components$link(p__1601){
+var map__1602 = p__1601;
+var map__1602__$1 = (((((!((map__1602 == null))))?(((((map__1602.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1602.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1602):map__1602);
+var uri = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1602__$1,cljs.core.cst$kw$uri);
+return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.text,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$color,status_im.colors.white,cljs.core.cst$kw$text_DASH_decoration_DASH_line,cljs.core.cst$kw$underline], null),cljs.core.cst$kw$on_DASH_press,((function (map__1602,map__1602__$1,uri){
 return (function (){
-var G__1283 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$browser$ui_SLASH_message_DASH_link_DASH_pressed,uri], null);
-return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__1283) : re_frame.core.dispatch.call(null,G__1283));
-});})(map__1281,map__1281__$1,uri))
+var G__1604 = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$browser$ui_SLASH_message_DASH_link_DASH_pressed,uri], null);
+return (re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1 ? re_frame.core.dispatch.cljs$core$IFn$_invoke$arity$1(G__1604) : re_frame.core.dispatch.call(null,G__1604));
+});})(map__1602,map__1602__$1,uri))
 ], null),uri], null);
 });
 react_native_web.components.activity_indicator_size = (function react_native_web$components$activity_indicator_size(k){
-var pred__1284 = cljs.core._EQ_;
-var expr__1285 = k;
-if(cljs.core.truth_((function (){var G__1287 = cljs.core.cst$kw$small;
-var G__1288 = expr__1285;
-return (pred__1284.cljs$core$IFn$_invoke$arity$2 ? pred__1284.cljs$core$IFn$_invoke$arity$2(G__1287,G__1288) : pred__1284.call(null,G__1287,G__1288));
+var pred__1605 = cljs.core._EQ_;
+var expr__1606 = k;
+if(cljs.core.truth_((function (){var G__1608 = cljs.core.cst$kw$small;
+var G__1609 = expr__1606;
+return (pred__1605.cljs$core$IFn$_invoke$arity$2 ? pred__1605.cljs$core$IFn$_invoke$arity$2(G__1608,G__1609) : pred__1605.call(null,G__1608,G__1609));
 })())){
 return "small";
 } else {
-if(cljs.core.truth_((function (){var G__1289 = cljs.core.cst$kw$large;
-var G__1290 = expr__1285;
-return (pred__1284.cljs$core$IFn$_invoke$arity$2 ? pred__1284.cljs$core$IFn$_invoke$arity$2(G__1289,G__1290) : pred__1284.call(null,G__1289,G__1290));
+if(cljs.core.truth_((function (){var G__1610 = cljs.core.cst$kw$large;
+var G__1611 = expr__1606;
+return (pred__1605.cljs$core$IFn$_invoke$arity$2 ? pred__1605.cljs$core$IFn$_invoke$arity$2(G__1610,G__1611) : pred__1605.call(null,G__1610,G__1611));
 })())){
 return "large";
 } else {
@@ -100,16 +108,16 @@ return null;
 }
 }
 });
-react_native_web.components.activity_indicator = (function react_native_web$components$activity_indicator(p__1291){
-var map__1292 = p__1291;
-var map__1292__$1 = (((((!((map__1292 == null))))?(((((map__1292.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1292.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1292):map__1292);
-var animating = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1292__$1,cljs.core.cst$kw$animating);
-var hides_when_stopped = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1292__$1,cljs.core.cst$kw$hides_DASH_when_DASH_stopped);
-var color = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1292__$1,cljs.core.cst$kw$color);
-var size = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1292__$1,cljs.core.cst$kw$size);
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.activity_indicator(),cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([(cljs.core.truth_(animating)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$animating,animating], null):null),(cljs.core.truth_(hides_when_stopped)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$hidesWhenStopped,hides_when_stopped], null):null),(cljs.core.truth_(color)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$color,color], null):null),(function (){var temp__5457__auto__ = react_native_web.components.activity_indicator_size(size);
-if(cljs.core.truth_(temp__5457__auto__)){
-var size_SINGLEQUOTE_ = temp__5457__auto__;
+react_native_web.components.activity_indicator = (function react_native_web$components$activity_indicator(p__1612){
+var map__1613 = p__1612;
+var map__1613__$1 = (((((!((map__1613 == null))))?(((((map__1613.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1613.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1613):map__1613);
+var animating = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1613__$1,cljs.core.cst$kw$animating);
+var hides_when_stopped = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1613__$1,cljs.core.cst$kw$hides_DASH_when_DASH_stopped);
+var color = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1613__$1,cljs.core.cst$kw$color);
+var size = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1613__$1,cljs.core.cst$kw$size);
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.activity_indicator(),cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([(cljs.core.truth_(animating)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$animating,animating], null):null),(cljs.core.truth_(hides_when_stopped)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$hidesWhenStopped,hides_when_stopped], null):null),(cljs.core.truth_(color)?new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$color,color], null):null),(function (){var temp__5720__auto__ = react_native_web.components.activity_indicator_size(size);
+if(cljs.core.truth_(temp__5720__auto__)){
+var size_SINGLEQUOTE_ = temp__5720__auto__;
 return new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$size,size_SINGLEQUOTE_], null);
 } else {
 return null;
@@ -125,14 +133,14 @@ return cljs.core.str.cljs$core$IFn$_invoke$arity$1(o);
 });
 react_native_web.components.text = (function react_native_web$components$text(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___1296 = arguments.length;
-var i__4731__auto___1297 = (0);
+var len__4730__auto___1617 = arguments.length;
+var i__4731__auto___1618 = (0);
 while(true){
-if((i__4731__auto___1297 < len__4730__auto___1296)){
-args__4736__auto__.push((arguments[i__4731__auto___1297]));
+if((i__4731__auto___1618 < len__4730__auto___1617)){
+args__4736__auto__.push((arguments[i__4731__auto___1618]));
 
-var G__1298 = (i__4731__auto___1297 + (1));
-i__4731__auto___1297 = G__1298;
+var G__1619 = (i__4731__auto___1618 + (1));
+i__4731__auto___1618 = G__1619;
 continue;
 } else {
 }
@@ -154,11 +162,11 @@ return cljs.core.into.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVect
 react_native_web.components.text.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-react_native_web.components.text.cljs$lang$applyTo = (function (seq1294){
-var G__1295 = cljs.core.first(seq1294);
-var seq1294__$1 = cljs.core.next(seq1294);
+react_native_web.components.text.cljs$lang$applyTo = (function (seq1615){
+var G__1616 = cljs.core.first(seq1615);
+var seq1615__$1 = cljs.core.next(seq1615);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__1295,seq1294__$1);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__1616,seq1615__$1);
 });
 
 react_native_web.components.wrap_view_child = (function react_native_web$components$wrap_view_child(child){
@@ -170,14 +178,14 @@ return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMP
 });
 react_native_web.components.abstract_view = (function react_native_web$components$abstract_view(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___1302 = arguments.length;
-var i__4731__auto___1303 = (0);
+var len__4730__auto___1623 = arguments.length;
+var i__4731__auto___1624 = (0);
 while(true){
-if((i__4731__auto___1303 < len__4730__auto___1302)){
-args__4736__auto__.push((arguments[i__4731__auto___1303]));
+if((i__4731__auto___1624 < len__4730__auto___1623)){
+args__4736__auto__.push((arguments[i__4731__auto___1624]));
 
-var G__1304 = (i__4731__auto___1303 + (1));
-i__4731__auto___1303 = G__1304;
+var G__1625 = (i__4731__auto___1624 + (1));
+i__4731__auto___1624 = G__1625;
 continue;
 } else {
 }
@@ -199,25 +207,25 @@ return cljs.core.into.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVect
 react_native_web.components.abstract_view.cljs$lang$maxFixedArity = (2);
 
 /** @this {Function} */
-react_native_web.components.abstract_view.cljs$lang$applyTo = (function (seq1299){
-var G__1300 = cljs.core.first(seq1299);
-var seq1299__$1 = cljs.core.next(seq1299);
-var G__1301 = cljs.core.first(seq1299__$1);
-var seq1299__$2 = cljs.core.next(seq1299__$1);
+react_native_web.components.abstract_view.cljs$lang$applyTo = (function (seq1620){
+var G__1621 = cljs.core.first(seq1620);
+var seq1620__$1 = cljs.core.next(seq1620);
+var G__1622 = cljs.core.first(seq1620__$1);
+var seq1620__$2 = cljs.core.next(seq1620__$1);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__1300,G__1301,seq1299__$2);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__1621,G__1622,seq1620__$2);
 });
 
 react_native_web.components.view = (function react_native_web$components$view(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___1307 = arguments.length;
-var i__4731__auto___1308 = (0);
+var len__4730__auto___1628 = arguments.length;
+var i__4731__auto___1629 = (0);
 while(true){
-if((i__4731__auto___1308 < len__4730__auto___1307)){
-args__4736__auto__.push((arguments[i__4731__auto___1308]));
+if((i__4731__auto___1629 < len__4730__auto___1628)){
+args__4736__auto__.push((arguments[i__4731__auto___1629]));
 
-var G__1309 = (i__4731__auto___1308 + (1));
-i__4731__auto___1308 = G__1309;
+var G__1630 = (i__4731__auto___1629 + (1));
+i__4731__auto___1629 = G__1630;
 continue;
 } else {
 }
@@ -235,23 +243,23 @@ return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(react_native_web.components
 react_native_web.components.view.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-react_native_web.components.view.cljs$lang$applyTo = (function (seq1305){
-var G__1306 = cljs.core.first(seq1305);
-var seq1305__$1 = cljs.core.next(seq1305);
+react_native_web.components.view.cljs$lang$applyTo = (function (seq1626){
+var G__1627 = cljs.core.first(seq1626);
+var seq1626__$1 = cljs.core.next(seq1626);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__1306,seq1305__$1);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__1627,seq1626__$1);
 });
 
 react_native_web.components.scroll_view = (function react_native_web$components$scroll_view(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___1312 = arguments.length;
-var i__4731__auto___1313 = (0);
+var len__4730__auto___1633 = arguments.length;
+var i__4731__auto___1634 = (0);
 while(true){
-if((i__4731__auto___1313 < len__4730__auto___1312)){
-args__4736__auto__.push((arguments[i__4731__auto___1313]));
+if((i__4731__auto___1634 < len__4730__auto___1633)){
+args__4736__auto__.push((arguments[i__4731__auto___1634]));
 
-var G__1314 = (i__4731__auto___1313 + (1));
-i__4731__auto___1313 = G__1314;
+var G__1635 = (i__4731__auto___1634 + (1));
+i__4731__auto___1634 = G__1635;
 continue;
 } else {
 }
@@ -269,40 +277,40 @@ return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(react_native_web.components
 react_native_web.components.scroll_view.cljs$lang$maxFixedArity = (1);
 
 /** @this {Function} */
-react_native_web.components.scroll_view.cljs$lang$applyTo = (function (seq1310){
-var G__1311 = cljs.core.first(seq1310);
-var seq1310__$1 = cljs.core.next(seq1310);
+react_native_web.components.scroll_view.cljs$lang$applyTo = (function (seq1631){
+var G__1632 = cljs.core.first(seq1631);
+var seq1631__$1 = cljs.core.next(seq1631);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__1311,seq1310__$1);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__1632,seq1631__$1);
 });
 
-react_native_web.components.flat_list = (function react_native_web$components$flat_list(p__1315){
-var map__1316 = p__1315;
-var map__1316__$1 = (((((!((map__1316 == null))))?(((((map__1316.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1316.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1316):map__1316);
-var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1316__$1,cljs.core.cst$kw$key);
-var data = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1316__$1,cljs.core.cst$kw$data);
-var item_view = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1316__$1,cljs.core.cst$kw$item_DASH_view);
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.scroll_view(),(function (){var iter__4523__auto__ = ((function (map__1316,map__1316__$1,key,data,item_view){
-return (function react_native_web$components$flat_list_$_iter__1318(s__1319){
-return (new cljs.core.LazySeq(null,((function (map__1316,map__1316__$1,key,data,item_view){
+react_native_web.components.flat_list = (function react_native_web$components$flat_list(p__1636){
+var map__1637 = p__1636;
+var map__1637__$1 = (((((!((map__1637 == null))))?(((((map__1637.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1637.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1637):map__1637);
+var key = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1637__$1,cljs.core.cst$kw$key);
+var data = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1637__$1,cljs.core.cst$kw$data);
+var item_view = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1637__$1,cljs.core.cst$kw$item_DASH_view);
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.scroll_view(),(function (){var iter__4523__auto__ = ((function (map__1637,map__1637__$1,key,data,item_view){
+return (function react_native_web$components$flat_list_$_iter__1639(s__1640){
+return (new cljs.core.LazySeq(null,((function (map__1637,map__1637__$1,key,data,item_view){
 return (function (){
-var s__1319__$1 = s__1319;
+var s__1640__$1 = s__1640;
 while(true){
-var temp__5457__auto__ = cljs.core.seq(s__1319__$1);
-if(temp__5457__auto__){
-var s__1319__$2 = temp__5457__auto__;
-if(cljs.core.chunked_seq_QMARK_(s__1319__$2)){
-var c__4521__auto__ = cljs.core.chunk_first(s__1319__$2);
+var temp__5720__auto__ = cljs.core.seq(s__1640__$1);
+if(temp__5720__auto__){
+var s__1640__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_(s__1640__$2)){
+var c__4521__auto__ = cljs.core.chunk_first(s__1640__$2);
 var size__4522__auto__ = cljs.core.count(c__4521__auto__);
-var b__1321 = cljs.core.chunk_buffer(size__4522__auto__);
-if((function (){var i__1320 = (0);
+var b__1642 = cljs.core.chunk_buffer(size__4522__auto__);
+if((function (){var i__1641 = (0);
 while(true){
-if((i__1320 < size__4522__auto__)){
-var item = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4521__auto__,i__1320);
-cljs.core.chunk_append(b__1321,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [item_view,item], null));
+if((i__1641 < size__4522__auto__)){
+var item = cljs.core._nth.cljs$core$IFn$_invoke$arity$2(c__4521__auto__,i__1641);
+cljs.core.chunk_append(b__1642,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [item_view,item], null));
 
-var G__1322 = (i__1320 + (1));
-i__1320 = G__1322;
+var G__1643 = (i__1641 + (1));
+i__1641 = G__1643;
 continue;
 } else {
 return true;
@@ -310,48 +318,48 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons(cljs.core.chunk(b__1321),react_native_web$components$flat_list_$_iter__1318(cljs.core.chunk_rest(s__1319__$2)));
+return cljs.core.chunk_cons(cljs.core.chunk(b__1642),react_native_web$components$flat_list_$_iter__1639(cljs.core.chunk_rest(s__1640__$2)));
 } else {
-return cljs.core.chunk_cons(cljs.core.chunk(b__1321),null);
+return cljs.core.chunk_cons(cljs.core.chunk(b__1642),null);
 }
 } else {
-var item = cljs.core.first(s__1319__$2);
-return cljs.core.cons(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [item_view,item], null),react_native_web$components$flat_list_$_iter__1318(cljs.core.rest(s__1319__$2)));
+var item = cljs.core.first(s__1640__$2);
+return cljs.core.cons(new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [item_view,item], null),react_native_web$components$flat_list_$_iter__1639(cljs.core.rest(s__1640__$2)));
 }
 } else {
 return null;
 }
 break;
 }
-});})(map__1316,map__1316__$1,key,data,item_view))
+});})(map__1637,map__1637__$1,key,data,item_view))
 ,null,null));
-});})(map__1316,map__1316__$1,key,data,item_view))
+});})(map__1637,map__1637__$1,key,data,item_view))
 ;
 return iter__4523__auto__(data);
 })()], null);
 });
-react_native_web.components.button = (function react_native_web$components$button(p__1323,label){
-var map__1324 = p__1323;
-var map__1324__$1 = (((((!((map__1324 == null))))?(((((map__1324.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1324.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1324):map__1324);
-var m = map__1324__$1;
-var on_click = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1324__$1,cljs.core.cst$kw$on_DASH_click);
-var enabled = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1324__$1,cljs.core.cst$kw$enabled);
-var disabled = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1324__$1,cljs.core.cst$kw$disabled);
+react_native_web.components.button = (function react_native_web$components$button(p__1644,label){
+var map__1645 = p__1644;
+var map__1645__$1 = (((((!((map__1645 == null))))?(((((map__1645.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1645.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1645):map__1645);
+var m = map__1645__$1;
+var on_click = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1645__$1,cljs.core.cst$kw$on_DASH_click);
+var enabled = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1645__$1,cljs.core.cst$kw$enabled);
+var disabled = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1645__$1,cljs.core.cst$kw$disabled);
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.components.touchable_opacity,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$on_DASH_press,(cljs.core.truth_(on_click)?on_click:null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$background_DASH_color,status_im.colors.blue_light,cljs.core.cst$kw$border_DASH_radius,(4),cljs.core.cst$kw$padding,(5),cljs.core.cst$kw$align_DASH_items,cljs.core.cst$kw$center], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.text,label], null)], null)], null);
 });
-react_native_web.components.checkbox = (function react_native_web$components$checkbox(p__1327){
-var map__1328 = p__1327;
-var map__1328__$1 = (((((!((map__1328 == null))))?(((((map__1328.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1328.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1328):map__1328);
-var on_change = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1328__$1,cljs.core.cst$kw$on_DASH_change);
-var checked = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1328__$1,cljs.core.cst$kw$checked);
-return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$background_DASH_color,status_im.colors.white], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.check_box(),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$value,checked,cljs.core.cst$kw$on_DASH_value_DASH_change,((function (map__1328,map__1328__$1,on_change,checked){
-return (function (p1__1326_SHARP_){
-var G__1330 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,p1__1326_SHARP_], null);
-return (on_change.cljs$core$IFn$_invoke$arity$1 ? on_change.cljs$core$IFn$_invoke$arity$1(G__1330) : on_change.call(null,G__1330));
-});})(map__1328,map__1328__$1,on_change,checked))
+react_native_web.components.checkbox = (function react_native_web$components$checkbox(p__1648){
+var map__1649 = p__1648;
+var map__1649__$1 = (((((!((map__1649 == null))))?(((((map__1649.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1649.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1649):map__1649);
+var on_change = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1649__$1,cljs.core.cst$kw$on_DASH_change);
+var checked = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1649__$1,cljs.core.cst$kw$checked);
+return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.view,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$style,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$background_DASH_color,status_im.colors.white], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.react.check_box(),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$value,checked,cljs.core.cst$kw$on_DASH_value_DASH_change,((function (map__1649,map__1649__$1,on_change,checked){
+return (function (p1__1647_SHARP_){
+var G__1651 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$value,p1__1647_SHARP_], null);
+return (on_change.cljs$core$IFn$_invoke$arity$1 ? on_change.cljs$core$IFn$_invoke$arity$1(G__1651) : on_change.call(null,G__1651));
+});})(map__1649,map__1649__$1,on_change,checked))
 ], null)], null)], null);
 });
 react_native_web.components.component = (function react_native_web$components$component(){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [react_native_web.components.text,"Not supported yet"], null);
 });
-react_native_web.components.all = cljs.core.PersistentHashMap.fromArrays([cljs.core.cst$sym$touchable_DASH_opacity,cljs.core.cst$sym$text,cljs.core.cst$sym$map_DASH_link,cljs.core.cst$sym$view,cljs.core.cst$sym$link,cljs.core.cst$sym$transaction_DASH_status,cljs.core.cst$sym$activity_DASH_indicator,cljs.core.cst$sym$keyboard_DASH_avoiding_DASH_view,cljs.core.cst$sym$image,cljs.core.cst$sym$nft_DASH_token_DASH_viewer,cljs.core.cst$sym$picker,cljs.core.cst$sym$map,cljs.core.cst$sym$input,cljs.core.cst$sym$scroll_DASH_view,cljs.core.cst$sym$checkbox,cljs.core.cst$sym$list,cljs.core.cst$sym$button,cljs.core.cst$sym$icon],[new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.touchable_opacity,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$on_DASH_press,cljs.core.cst$kw$event], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$data,react_native_web.components.text], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.component,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$text,cljs.core.cst$kw$string,cljs.core.cst$kw$lng,cljs.core.cst$kw$any,cljs.core.cst$kw$lat,cljs.core.cst$kw$any], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$data,react_native_web.components.view], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.link,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$uri,cljs.core.cst$kw$string,cljs.core.cst$kw$text_QMARK_,cljs.core.cst$kw$string,cljs.core.cst$kw$open_DASH_in_QMARK_,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$one_DASH_of,new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$status,null,cljs.core.cst$kw$device,null], null), null)], null)], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.component,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$outgoing,cljs.core.cst$kw$string,cljs.core.cst$kw$tx_DASH_hash,cljs.core.cst$kw$string], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.activity_indicator,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$animating,cljs.core.cst$kw$boolean,cljs.core.cst$kw$color,cljs.core.cst$kw$string,cljs.core.cst$kw$size,cljs.core.cst$kw$keyword,cljs.core.cst$kw$hides_DASH_when_DASH_stopped,cljs.core.cst$kw$boolean], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$data,react_native_web.components.view], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.image,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$uri,cljs.core.cst$kw$string,cljs.core.cst$kw$source,cljs.core.cst$kw$string], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.component,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$token,cljs.core.cst$kw$string], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.component,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$on_DASH_change,cljs.core.cst$kw$event,cljs.core.cst$kw$selected,cljs.core.cst$kw$string,cljs.core.cst$kw$enabled,cljs.core.cst$kw$boolean,cljs.core.cst$kw$data,cljs.core.cst$kw$vector], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.component,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$marker,new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$lng,cljs.core.cst$kw$number,cljs.core.cst$kw$lat,cljs.core.cst$kw$number,cljs.core.cst$kw$boundingbox,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$lng1,cljs.core.cst$kw$number,cljs.core.cst$kw$lat1,cljs.core.cst$kw$number,cljs.core.cst$kw$lng2,cljs.core.cst$kw$number,cljs.core.cst$kw$lat2,cljs.core.cst$kw$number], null)], null),cljs.core.cst$kw$fly_QMARK_,cljs.core.cst$kw$boolean,cljs.core.cst$kw$interactive_QMARK_,cljs.core.cst$kw$boolean,cljs.core.cst$kw$on_DASH_change,cljs.core.cst$kw$event], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.input,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 6, [cljs.core.cst$kw$on_DASH_change,cljs.core.cst$kw$event,cljs.core.cst$kw$placeholder,cljs.core.cst$kw$string,cljs.core.cst$kw$keyboard_DASH_type,cljs.core.cst$kw$keyword,cljs.core.cst$kw$change_DASH_delay_QMARK_,cljs.core.cst$kw$number,cljs.core.cst$kw$placeholder_DASH_text_DASH_color,cljs.core.cst$kw$any,cljs.core.cst$kw$selection_DASH_color,cljs.core.cst$kw$any], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.scroll_view,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$keyboard_DASH_should_DASH_persist_DASH_taps,cljs.core.cst$kw$keyword,cljs.core.cst$kw$content_DASH_container_DASH_style,cljs.core.cst$kw$map], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.checkbox,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$on_DASH_change,cljs.core.cst$kw$event,cljs.core.cst$kw$checked,cljs.core.cst$kw$boolean], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.flat_list,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$data,cljs.core.cst$kw$vector,cljs.core.cst$kw$item_DASH_view,cljs.core.cst$kw$view,cljs.core.cst$kw$key_QMARK_,cljs.core.cst$kw$keyword], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.button,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$enabled,cljs.core.cst$kw$boolean,cljs.core.cst$kw$disabled,cljs.core.cst$kw$boolean,cljs.core.cst$kw$on_DASH_click,cljs.core.cst$kw$event], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.view,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$key,cljs.core.cst$kw$keyword,cljs.core.cst$kw$color,cljs.core.cst$kw$any], null)], null)]);
+react_native_web.components.all = cljs.core.PersistentHashMap.fromArrays([cljs.core.cst$sym$touchable_DASH_opacity,cljs.core.cst$sym$text,cljs.core.cst$sym$map_DASH_link,cljs.core.cst$sym$view,cljs.core.cst$sym$link,cljs.core.cst$sym$transaction_DASH_status,cljs.core.cst$sym$activity_DASH_indicator,cljs.core.cst$sym$keyboard_DASH_avoiding_DASH_view,cljs.core.cst$sym$image,cljs.core.cst$sym$nft_DASH_token_DASH_viewer,cljs.core.cst$sym$picker,cljs.core.cst$sym$map,cljs.core.cst$sym$input,cljs.core.cst$sym$scroll_DASH_view,cljs.core.cst$sym$checkbox,cljs.core.cst$sym$list,cljs.core.cst$sym$button,cljs.core.cst$sym$icon],[new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.touchable_opacity,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$on_DASH_press,cljs.core.cst$kw$event], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$data,react_native_web.components.text], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.component,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$text,cljs.core.cst$kw$string,cljs.core.cst$kw$lng,cljs.core.cst$kw$any,cljs.core.cst$kw$lat,cljs.core.cst$kw$any], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$data,react_native_web.components.view], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.link,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$uri,cljs.core.cst$kw$string,cljs.core.cst$kw$text_QMARK_,cljs.core.cst$kw$string,cljs.core.cst$kw$open_DASH_in_QMARK_,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$one_DASH_of,new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$status,null,cljs.core.cst$kw$device,null], null), null)], null)], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.component,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$outgoing,cljs.core.cst$kw$string,cljs.core.cst$kw$tx_DASH_hash,cljs.core.cst$kw$string], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.activity_indicator,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$animating,cljs.core.cst$kw$boolean,cljs.core.cst$kw$color,cljs.core.cst$kw$string,cljs.core.cst$kw$size,cljs.core.cst$kw$keyword,cljs.core.cst$kw$hides_DASH_when_DASH_stopped,cljs.core.cst$kw$boolean], null)], null),new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$data,react_native_web.components.view], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.image,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$uri,cljs.core.cst$kw$string,cljs.core.cst$kw$source,cljs.core.cst$kw$string], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.component,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$token,cljs.core.cst$kw$string], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.component,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$on_DASH_change,cljs.core.cst$kw$event,cljs.core.cst$kw$selected,cljs.core.cst$kw$string,cljs.core.cst$kw$enabled,cljs.core.cst$kw$boolean,cljs.core.cst$kw$data,cljs.core.cst$kw$vector], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.component,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$marker,new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$lng,cljs.core.cst$kw$number,cljs.core.cst$kw$lat,cljs.core.cst$kw$number,cljs.core.cst$kw$boundingbox,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$lng1,cljs.core.cst$kw$number,cljs.core.cst$kw$lat1,cljs.core.cst$kw$number,cljs.core.cst$kw$lng2,cljs.core.cst$kw$number,cljs.core.cst$kw$lat2,cljs.core.cst$kw$number], null)], null),cljs.core.cst$kw$fly_QMARK_,cljs.core.cst$kw$boolean,cljs.core.cst$kw$interactive_QMARK_,cljs.core.cst$kw$boolean,cljs.core.cst$kw$on_DASH_change,cljs.core.cst$kw$event], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.input,cljs.core.cst$kw$properties,cljs.core.PersistentHashMap.fromArrays([cljs.core.cst$kw$auto_DASH_focus_QMARK_,cljs.core.cst$kw$placeholder,cljs.core.cst$kw$default_DASH_value,cljs.core.cst$kw$selection_DASH_color,cljs.core.cst$kw$change_DASH_delay_QMARK_,cljs.core.cst$kw$placeholder_DASH_text_DASH_color,cljs.core.cst$kw$on_DASH_submit,cljs.core.cst$kw$on_DASH_change,cljs.core.cst$kw$keyboard_DASH_type],[cljs.core.cst$kw$boolean,cljs.core.cst$kw$string,cljs.core.cst$kw$any,cljs.core.cst$kw$any,cljs.core.cst$kw$number,cljs.core.cst$kw$any,cljs.core.cst$kw$event,cljs.core.cst$kw$event,cljs.core.cst$kw$keyword])], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.scroll_view,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$keyboard_DASH_should_DASH_persist_DASH_taps,cljs.core.cst$kw$keyword,cljs.core.cst$kw$content_DASH_container_DASH_style,cljs.core.cst$kw$map], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.checkbox,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$on_DASH_change,cljs.core.cst$kw$event,cljs.core.cst$kw$checked,cljs.core.cst$kw$boolean], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.flat_list,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$data,cljs.core.cst$kw$vector,cljs.core.cst$kw$item_DASH_view,cljs.core.cst$kw$view,cljs.core.cst$kw$key_QMARK_,cljs.core.cst$kw$keyword], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.button,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 3, [cljs.core.cst$kw$enabled,cljs.core.cst$kw$boolean,cljs.core.cst$kw$disabled,cljs.core.cst$kw$boolean,cljs.core.cst$kw$on_DASH_click,cljs.core.cst$kw$event], null)], null),new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$data,react_native_web.components.view,cljs.core.cst$kw$properties,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$key,cljs.core.cst$kw$keyword,cljs.core.cst$kw$color,cljs.core.cst$kw$any], null)], null)]);
