@@ -15,4 +15,4 @@ deploy-website: install compile
 	./node_modules/gh-pages/bin/gh-pages.js --dotfiles --message ${MESSAGE} --dist resources/public
 
 clean:
-	rm -rf target node_modules/ .cpcache/
+	rm -rf target/ node_modules/ .cpcache/ resources/public/js/compiled/
