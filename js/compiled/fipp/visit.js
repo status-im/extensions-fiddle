@@ -412,9 +412,9 @@ return null;
 }
 });
 fipp.visit.visit = (function fipp$visit$visit(visitor,x){
-var temp__5718__auto__ = fipp.visit.value_meta(x);
-if(cljs.core.truth_(temp__5718__auto__)){
-var m = temp__5718__auto__;
+var temp__5455__auto__ = fipp.visit.value_meta(x);
+if(cljs.core.truth_(temp__5455__auto__)){
+var m = temp__5455__auto__;
 return fipp.visit.visit_meta(visitor,m,x);
 } else {
 return fipp.visit.visit_STAR_(visitor,x);

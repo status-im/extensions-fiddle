@@ -17,13 +17,13 @@ return new cljs.core.PersistentArrayMap(null, 4, [cljs.core.cst$kw$id,pluto.log.
 /**
  * Fire an event provided object using the ctx `log-fn`
  */
-pluto.log.fire_BANG_ = (function pluto$log$fire_BANG_(p__1621,category,type,data){
-var map__1622 = p__1621;
-var map__1622__$1 = (((((!((map__1622 == null))))?(((((map__1622.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__1622.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__1622):map__1622);
-var log_fn = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__1622__$1,cljs.core.cst$kw$log_DASH_fn);
+pluto.log.fire_BANG_ = (function pluto$log$fire_BANG_(p__2628,category,type,data){
+var map__2629 = p__2628;
+var map__2629__$1 = (((((!((map__2629 == null))))?(((((map__2629.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__2629.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__2629):map__2629);
+var log_fn = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__2629__$1,cljs.core.cst$kw$log_DASH_fn);
 if(cljs.core.fn_QMARK_(log_fn)){
-var G__1624 = pluto.log.create(category,type,data);
-return (log_fn.cljs$core$IFn$_invoke$arity$1 ? log_fn.cljs$core$IFn$_invoke$arity$1(G__1624) : log_fn.call(null,G__1624));
+var G__2631 = pluto.log.create(category,type,data);
+return (log_fn.cljs$core$IFn$_invoke$arity$1 ? log_fn.cljs$core$IFn$_invoke$arity$1(G__2631) : log_fn.call(null,G__2631));
 } else {
 return null;
 }

@@ -16,11 +16,11 @@ pluto.storage.ipfs.IPFSStorage = (function (){
 });
 pluto.storage.ipfs.IPFSStorage.prototype.pluto$storage$Storage$ = cljs.core.PROTOCOL_SENTINEL;
 
-pluto.storage.ipfs.IPFSStorage.prototype.pluto$storage$Storage$fetch$arity$3 = (function (_,p__2501,callback){
+pluto.storage.ipfs.IPFSStorage.prototype.pluto$storage$Storage$fetch$arity$3 = (function (_,p__3614,callback){
 var self__ = this;
-var map__2502 = p__2501;
-var map__2502__$1 = (((((!((map__2502 == null))))?(((((map__2502.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__2502.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__2502):map__2502);
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__2502__$1,cljs.core.cst$kw$value);
+var map__3615 = p__3614;
+var map__3615__$1 = (((((!((map__3615 == null))))?(((((map__3615.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__3615.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__3615):map__3615);
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__3615__$1,cljs.core.cst$kw$value);
 var ___$1 = this;
 return pluto.storage.http.get_url(pluto.storage.ipfs.infura_url(value),callback);
 });
