@@ -37,6 +37,26 @@
 (defmethod pretty-print-data [::error/format ::error/invalid] [{:keys [context]}]
   (str (:message context)))
 
+(defmethod pretty-print-data [::error/syntax ::error/invalid] [{{data :data reason :reason type :type} :context target :target}]
+  [:span
+   "Target"
+   [:span {:style {:color "blue" :margin 5}} (name (:type target))]
+   "is invalid"
+   (when type
+     [:span
+      " for type"
+      [:span {:style {:color "blue" :margin 5}} (str type)]])
+   (when (keyword? reason)
+     [:span
+      "because"
+      [:span {:style {:color "blue" :margin 5}} (name reason)]])
+   (when data
+     [:div
+      "( data"
+      [:span {:style {:color "blue" :margin 5}} (str data)]
+      ")"])])
+
+
 (defmethod pretty-print-data :default [m]
   (str m))
 
