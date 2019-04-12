@@ -2,6 +2,7 @@
   :log-file   "figwheel-main.log"
   :log-level  :info}
 {:main      pluto.playground.figwheel
+ :npm-deps  false
  :preloads  [re-frisk.preload]
  :output-to "resources/public/js/compiled/app.js"}
 
