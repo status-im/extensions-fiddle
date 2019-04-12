@@ -69,6 +69,11 @@
    {:db (put-or-dissoc db id key value)}))
 
 (re-frame/reg-event-fx
+ :store/put-in
+ (fn [{:keys [db]} [_ {id :id} {:keys [keys value]}]]
+   {:db (assoc-in db (into [] (concat [:extensions/store id] keys)) value)}))
+
+(re-frame/reg-event-fx
  :store/puts
  (fn [{:keys [db]} [_ {id :id} {:keys [value]}]]
    {:db (reduce #(put-or-dissoc %1 id (:key %2) (:value %2)) db value)}))
@@ -282,6 +287,10 @@
           {:permissions [:read]
            :data        :store/put
            :arguments   {:key :string :value :any}}
+          'store/put-in
+          {:permissions [:read]
+           :data        :store/put-in
+           :arguments   {:keys :vector :value :any}}
           'store/puts
           {:permissions [:read]
            :data        :store/puts

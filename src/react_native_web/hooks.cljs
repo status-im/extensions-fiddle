@@ -6,7 +6,11 @@
             [pluto.core :as pluto]
             [clojure.string :as string]))
 
-(defn settings-hook [id {:keys [view]} props]
+(defn wallet-settings-hook [id {:keys [view]} props]
+  [react/view {:style {:flex 1}}
+   [view props]])
+
+(defn profile-settings-hook [id {:keys [view]} props]
   [react/view {:style {:flex 1}}
    [view props]])
 
@@ -95,7 +99,7 @@
        [react/view {:style input-animated}
         [react/text {:style {:border-width 1 :border-color :red}} (str "/" (name command-id) " ")]
         (for [{:keys [placeholder id]} parameters]
-          ^{:key id}
+          ^{:key (str id placeholder)}
           [react/text-input {:placeholder    placeholder
                              :value          (or (get params id) "")
                              :on-change-text #(re-frame/dispatch [:set-in [:extension-props :params id] %])
@@ -107,7 +111,7 @@
                                                    (re-frame/dispatch [:set-in [:extension-props :suggestion-id] nil])
                                                    (re-frame/dispatch [:set-in [:extension-props :params] nil]))
                                                  (do
-                                                   (when on-send (on-send))
+                                                   (when on-send (on-send {:content {:params params}}))
                                                    (re-frame/dispatch [:set-in [:extension-props :suggestion-id] nil])
                                                    (re-frame/dispatch [:set-in [:extension-props :params] nil])
                                                    (re-frame/dispatch [:set-in [:extension-props :messages] (conj messages {:content {:params params}})])))}
@@ -119,12 +123,15 @@
 (defn command-hook  [id {:keys [parameters preview on-send on-send-sync]} props]
   [chat-view preview parameters id props on-send on-send-sync])
 
-(defn hook-in [[id parsed] props]
+(defn hook-in [id parsed {:keys [on-installation]} props]
   (when id
     (let [hook-id (last (string/split (name id) #"\."))
           type (pluto/hook-type id)]
+      (when on-installation
+        (on-installation))
       (case type
         "chat.command" (command-hook hook-id parsed props)
-        "wallet.settings" (settings-hook hook-id parsed props)
+        "wallet.settings" (wallet-settings-hook hook-id parsed props)
+        "profile.settings" (profile-settings-hook hook-id parsed props)
         [:div
          (str "Unknown hook type " type)]))))

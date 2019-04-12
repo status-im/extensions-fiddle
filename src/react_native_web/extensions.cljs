@@ -7,7 +7,13 @@
   {:components components/all
    :queries    queries/all
    :events     events/all
-   :hooks      {:wallet.settings
+   :hooks      {:profile.settings
+                {:properties
+                 {:label     :string
+                  :view      :view
+                  :on-open?  :event
+                  :on-close? :event}}
+                :wallet.settings
                 {:properties
                  {:label     :string
                   :view      :view

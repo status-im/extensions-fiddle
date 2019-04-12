@@ -3,13 +3,18 @@
             [re-frame.core :as re-frame]
             [status-im.colors :as colors]))
 
-(defn input [{:keys [keyboard-type style on-change placeholder placeholder-text-color]}]
+(defn input [{:keys [keyboard-type style on-change placeholder placeholder-text-color auto-focus on-submit
+                     default-value]}]
   [react/text-input (merge {:placeholder placeholder}
                            (when placeholder-text-color {:placeholder-text-color placeholder-text-color})
                            (when style {:style style})
                            (when keyboard-type {:keyboard-type keyboard-type})
+                           (when auto-focus {:auto-focus auto-focus})
+                           (when default-value {:default-value default-value})
                            (when on-change
-                             {:on-change-text #(on-change {:value %})}))])
+                             {:on-change-text #(on-change {:value %})})
+                           (when on-submit
+                             {:on-submit-editing #(on-submit {})}))])
 
 (defn touchable-opacity [{:keys [style on-press]} & children]
   (into [(react/touchable-highlight) (merge (when on-press {:on-press #(on-press {})})
@@ -85,7 +90,9 @@
           'touchable-opacity      {:data touchable-opacity :properties {:on-press :event}}
           'icon                   {:data view :properties {:key :keyword :color :any}}
           'image                  {:data image :properties {:uri :string :source :string}}
-          'input                  {:data input :properties {:on-change :event :placeholder :string :keyboard-type :keyword :change-delay? :number :placeholder-text-color :any :selection-color :any}}
+          'input                  {:data input :properties {:on-change :event :placeholder :string :keyboard-type :keyword
+                                                            :change-delay? :number :placeholder-text-color :any :selection-color :any
+                                                            :auto-focus? :boolean :on-submit :event :default-value :any}}
           'button                 {:data button :properties {:enabled :boolean :disabled :boolean :on-click :event}}
           'link                   {:data link :properties {:uri :string :text? :string :open-in? {:one-of #{:device :status}}}}
           'list                   {:data flat-list :properties {:data :vector :item-view :view :key? :keyword}}

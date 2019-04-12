@@ -15,39 +15,13 @@
             [re-frame.registrar :as registrar]
             [re-frame.loggers :as re-frame.loggers]
             [react-native-web.react :as react]
-            [pluto.playground.components.dialogs :as dialogs]))
+            [pluto.playground.components.dialogs :as dialogs]
+            [pluto.playground.components.material-ui :as material-ui]))
 
-
-;; Components
+(def warn (js/console.warn.bind js/console))
 
 (def margin 10)
 
-(def Button (aget js/MaterialUI "Button"))
-
-(defn button [props label]
-  [:> Button props
-   label])
-
-(def Switch (aget js/MaterialUI "Switch"))
-
-(defn switch [props]
-  [:> Switch props])
-
-(def Select (aget js/MaterialUI "Select"))
-(def MenuItem (aget js/MaterialUI "MenuItem"))
-
-(defn select [{:keys [on-change selected options]}]
-  [:> Select {:value (or selected "") :on-change on-change :auto-width true}
-   (for [{:keys [value label]} options]
-     ^{:key value}
-     [:> MenuItem {:value value}
-      label])])
-
-(def AppBar (aget js/MaterialUI "AppBar"))
-(def Toolbar (aget js/MaterialUI "Toolbar"))
-(def Typography (aget js/MaterialUI "Typography"))
-
-(def warn (js/console.warn.bind js/console))
 (re-frame.loggers/set-loggers!
  {:warn (fn [& args]
           (cond
@@ -100,7 +74,7 @@
             data                [:extension/parsed]]
     (let [[type id] (parse-extension-id extension-selection)]
       (case type
-        :hooks (hooks/hook-in [id (get-in data [:hooks id])] props)
+        :hooks (hooks/hook-in id (get-in data [:hooks id]) (get data :lifecycle) props)
         :views [:div {:style {:display :flex :flex 1 :align-items :center
                               :justify-content :center :max-width "100%"}}
                 ^{:key (str props id data)}
@@ -113,19 +87,19 @@
     [:div {:style {:flex 1 :display :flex :justify-content :flex-end :padding 10}}
      (if ethereum-addr
        [:div {:style {:color "inherit"}} "Wallet connected: " ethereum-addr]
-       [button {:color "inherit" :on-click #(re-frame/dispatch [:extensions/init-wallet])}
+       [material-ui/button {:color "inherit" :on-click #(re-frame/dispatch [:extensions/init-wallet])}
         "Connect wallet"])]))
 
 (defview view-selection []
   (letsubs [selection [:extension-selection]
             extension-keys [:extension-keys]]
     [:div {:style {:display :flex :justify-content :flex-end :align-items :center :margin-top margin}}
-     [select
+     [material-ui/select
       {:on-change #(re-frame/dispatch [:set :extension-selection (.-key %2)])
        :selected  selection
        :options   (map #(do {:value % :label %}) extension-keys)}]
      [:div {:style {:margin-left margin}}
-      [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :browse-properties true])}
+      [material-ui/button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :browse-properties true])}
        "Data"]]]))
 
 (defview logs-errors []
@@ -133,47 +107,92 @@
             errors [:extension/errors]]
     [logs/table (or (flatten-errors errors) logs)]))
 
+(defn simple-item [key item]
+  [:div {:style {:display :flex}}
+   (when (= key item)
+     [:div {:style {:display :flex :width 5 :background-color "#3f51b5" :min-width 5}}])
+   [:div {:style {:cursor :pointer :display :flex
+                   :border-radius "4px" :padding 5 :font-weight (when (= key item) :bold)}
+          :on-click #(re-frame/dispatch [:extension/select-simple-item key])}
+    key]])
+
+(defn simple-edn-type-items [value label item]
+  (when (seq value)
+    [:div {:style {:display :flex :flex-direction :column :margin-top 10}}
+     [:div {:style {:font-weight :bold}} label]
+     (for [[key source] value]
+       ^{:key key}
+       [simple-item key item])]))
+
+(defview simple-panel []
+  (letsubs [{:keys [meta views events hooks life]} [:extension/simple-sources]
+            simple? [:get :simple-mode?]
+            item [:get :simple-item]]
+    (when simple?
+      [:div {:style {:display :flex :flex 1 :flex-direction :column :padding 5 :width 200}}
+       [:div {:style {:display :flex}}
+        [material-ui/button {:color "primary" :variant "contained"
+                             :on-click #(re-frame/dispatch [:set :add-edn-item {:item-type "views/"}])}
+         "Add"]]
+       [:div {:style {:display :flex :flex 1 :flex-direction :column
+                      :overflow :auto :margin-top 10}}
+        [simple-edn-type-items meta "Meta" item]
+        [simple-edn-type-items life "Lifecycle" item]
+        [simple-edn-type-items events "Events" item]
+        [simple-edn-type-items views "Views" item]
+        [simple-edn-type-items hooks "Hooks" item]]])))
+
 (defview layout []
-  (letsubs [{:keys [events]} [:extension/parsed]]
+  (letsubs [{:keys [events]} [:extension/parsed]
+            simple? [:get :simple-mode?]]
     (let [event-names (keys events)]
       [:div
-       [:> AppBar {:position :static}
-        [:> Toolbar {:variant "dense"}
-         [:div {:style {:display :flex :flex 1 :align-items :center :justify-content :space-between :margin margin}}
-           [:> Typography {:color "inherit" :variant "h6"}
+       [:> material-ui/AppBar {:position :static}
+        [:> material-ui/Toolbar {:variant "dense"}
+         [:div {:style {:display :flex :flex 1 :align-items :center :justify-content :space-between}}
+          [:div {:style {:display :flex :flex-direction :row :align-items :center}}
+           [:> material-ui/Typography {:color "inherit" :variant "h6"}
             "Extensions Fiddle"]
-           [:div {:style {:display :flex :flex-direction :row}}
-            [eth-wallet]
-            [button {:color "inherit" :on-click #(re-frame/dispatch [:set :examples true])}
-             "Examples"]
-            [button {:color "inherit" :on-click #(re-frame/dispatch [:extension/publish])}
-             "Publish"]]]]]
+           [material-ui/switch {:color "default" :checked (boolean simple?) :on-change #(re-frame/dispatch [:extension/switch-mode %2])}]
+           [:> material-ui/Typography {:color "inherit" :style {}}
+            "Simple mode"]]
+          [:div {:style {:display :flex :flex-direction :row}}
+           [material-ui/button {:color "inherit" :on-click #()}
+            "New extension"]
+           [eth-wallet]
+           [material-ui/button {:color "inherit" :on-click #(re-frame/dispatch [:set :examples true])}
+            "Examples"]
+           [material-ui/button {:color "inherit" :on-click #(re-frame/dispatch [:extension/publish])}
+            "Publish"]]]]]
        [:div {:style {:display :flex :flex 1}}
         [dialogs/dialogs]
-        [:div {:style {:display :inline-block :width "calc(100% - 400px)"}}
+        [simple-panel]
+        [:div {:style {:display :inline-block :width  (str "calc(100% - " (if simple? 600 400) "px)")}}
          [source/editor {:on-change #(re-frame.core/dispatch [:extension/update-source ctx %])}]
          [:div {:style {:background-color "#fafafa"}}
           [:div {:style {:display :flex :flex 1 :align-items :center :justify-content :space-between}}
-           [:> Typography {:style {:margin-left margin} :color "inherit" :variant "h6"}
+           [:> material-ui/Typography {:style {:margin-left margin} :color "inherit" :variant "h6"}
             "Logs"]
            [:div {:style {:display :flex :justify-content :flex-end :align-items :center}}
-            [switch {:color "primary" :on-change #(re-frame/dispatch [:extension/switch-filter-logs %2])}]
-            [:> Typography {:color "inherit" :style {:margin "10px"}}
+            [material-ui/switch {:color "primary" :on-change #(re-frame/dispatch [:extension/switch-filter-logs %2])}]
+            [:> material-ui/Typography {:color "inherit" :style {:margin "10px"}}
              "Filter traces"]
-            [button {:color "inherit" :on-click #(re-frame/dispatch [:extension/clear-logs])}
+            [material-ui/button {:color "inherit" :on-click #(re-frame/dispatch [:extension/clear-logs])}
              "Clear logs"]]]
           [:div {:style {:height "calc(40% - 100px)" :overflow :auto}}
            [logs-errors]]]]
-        [:div {:style {:background-color "#fafafa" :width 400 :height "calc(100% - 64px)" :overflow :auto}}
-         [:div {:style {:border "40px solid #ddd" :border-width "20px 7px" :border-radius "40px" :margin 20}}
+        [:div {:style {:background-color "#fafafa" :width 400 :height "calc(100% - 64px)" :overflow :auto :padding 5}}
+         [material-ui/button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:extension/run ctx])}
+          "Run"]
+         [:div {:style {:border "40px solid #ddd" :border-width "20px 7px" :border-radius "40px" :margin 10}}
           [react/view {:style {:height 667}}
            [:div {:style {:display :flex :flex 1}}
             [selected-ui]]]]
          [:div {:style {:display :flex :justify-content :center :flex-direction :column :margin margin}}
-          [:> Typography {:style {:margin-left margin} :color "inherit" :variant "h6"}
-           "Inspect"]
-          [:div {:style {:display :flex :justify-content :flex-end}}
-           [button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :browse-app-db true])}
+          [:div {:style {:display :flex :justify-content :space-between}}
+           [:> material-ui/Typography {:style {:margin-left margin} :color "inherit" :variant "h6"}
+            "Inspect"]
+           [material-ui/button {:color "primary" :variant "contained" :on-click #(re-frame/dispatch [:set :browse-app-db true])}
             "Local app DB"]]
           [view-selection]
           #_

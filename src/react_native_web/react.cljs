@@ -1,7 +1,6 @@
 (ns react-native-web.react
   (:require [reagent.core :as reagent]
-            [clojure.string :as string]))
-
+            [status-im.typography :as typography]))
 ;;TODO when we find a way how to properly use react-native-web npm library we could move this in the separate repository
 
 (defn adapt-class [class]
@@ -29,26 +28,16 @@
                     (and (map? (first props)) (not (contains? (first props) :style)))
                     (assoc 0 {:style (first props)})))))
 
-(defn add-font-style [style-key {:keys [font] :as opts :or {font :default}}]
-  (let [font nil;(get-in platform/platform-specific [:fonts (keyword font)])
-        style (get opts style-key)]
-    (-> opts
-        (dissoc :font)
-        (assoc style-key (merge style font)))))
+(defn prepare-text-props [props]
+  (update props :style typography/get-style))
 
-(defn transform-to-uppercase [{:keys [uppercase? force-uppercase?] :as opts} ts]
-  (if (or force-uppercase?) ;(and uppercase? platform/android?))
-    (vec (map string/upper-case ts))
-    ts))
-
+;; Accessor methods for React Components
 (defn text
-  ([t]
-   [(text-class) t])
-  ([opts t & ts]
-   (->> (conj ts t)
-        (transform-to-uppercase opts)
-        (concat [(text-class) (add-font-style :style opts)])
-        (vec))))
+  "For nested text elements, use nested-text instead"
+  ([text-element]
+   [text {} text-element])
+  ([options text-element]
+   [(text-class) (prepare-text-props options) text-element]))
 
 (defn text-input [{:keys [font style] :as opts
                    :or   {font :default}} text]
