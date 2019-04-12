@@ -1,1 +1,2 @@
-{:externs ["externs.js"]}
+{:npm-deps false
+ :externs  ["externs.js"]}

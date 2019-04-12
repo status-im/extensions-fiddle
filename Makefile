@@ -1,5 +1,8 @@
 .PHONY: compile, dev, deploy-website
 
+init: clean install
+	echo "Ready"
+
 install:
 	yarn
 
