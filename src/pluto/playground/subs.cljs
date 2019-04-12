@@ -1,5 +1,6 @@
 (ns pluto.playground.subs
-  (:require [re-frame.core :as re-frame]))
+  (:require [re-frame.core :as re-frame]
+            [clojure.string :as string]))
 
 (re-frame/reg-sub
  :get
@@ -102,3 +103,14 @@
  :store/all
  (fn [db _]
    (get-in db [:extensions/store "Extension ID"])))
+
+(re-frame/reg-sub
+ :extension/simple-sources
+ :<- [:get :simple-sources]
+ (fn [sources]
+   (let [meta (filter (fn [[key val]] (zero? (string/index-of key "meta"))) sources)
+         life (filter (fn [[key val]] (zero? (string/index-of key "lifecycle"))) sources)
+         events (filter (fn [[key val]] (zero? (string/index-of key "events/"))) sources)
+         views (filter (fn [[key val]] (zero? (string/index-of key "views/"))) sources)
+         hooks (filter (fn [[key val]] (zero? (string/index-of key "hooks/"))) sources)]
+     {:meta meta :events events :views views :hooks hooks :life life})))
